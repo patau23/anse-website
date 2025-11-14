@@ -190,7 +190,7 @@ const LandingPage = () => {
           </div>
           <div className="order-1 space-y-4 lg:order-2">
             <div
-              className="min-h-[280px] overflow-hidden rounded-[28px] bg-white shadow-[0_20px_45px_rgba(16,45,168,0.15)] sm:min-h-[360px] lg:min-h-[460px] lg:rounded-[32px]"
+              className="min-h-[280px] overflow-hidden rounded-[28px] bg-white shadow-[0_20px_45px_rgba(16,45,168,0.15)] sm:min-h-[360px] lg:min-h-[460px] lg:rounded-4xl"
               role="presentation"
             >
               <picture className="block h-full w-full">
@@ -212,12 +212,12 @@ const LandingPage = () => {
 
       <section
         id="about"
-        className="-mt-16 rounded-t-[32px] bg-[#f8fbff] pt-10 pb-14 shadow-[0_-30px_80px_rgba(16,45,168,0.08)] sm:-mt-20 sm:rounded-t-[36px] lg:-mt-24 lg:rounded-t-[48px]"
+        className="-mt-16 rounded-t-4xl bg-[#f8fbff] pt-10 pb-14 shadow-[0_-30px_80px_rgba(16,45,168,0.08)] sm:-mt-20 sm:rounded-t-[36px] lg:-mt-24 lg:rounded-t-[48px]"
       >
         <div
           className={`${containerClass} grid gap-8 md:grid-cols-2 md:items-center`}
         >
-          <div className="order-1 md:order-none">
+          <div className="order-1 md:order-0">
             <img
               src={infoImage}
               alt="Хореографический номер"
@@ -225,7 +225,7 @@ const LandingPage = () => {
               className="w-full rounded-[28px] shadow-[0_20px_45px_rgba(16,45,168,0.15)]"
             />
           </div>
-          <div className="order-2 space-y-4 text-[#1d2b3f] md:order-none">
+          <div className="order-2 space-y-4 text-[#1d2b3f] md:order-0">
             <p>
               Весной 2026 года легендарная команда Этери Тутберидзе выходит на
               лёд с новым грандиозным шоу, которое обещает стать главным
@@ -247,7 +247,7 @@ const LandingPage = () => {
 
       <section id="video" className="py-16 text-center">
         <div className={containerClass}>
-          <div className="relative overflow-hidden rounded-[24px] shadow-[0_20px_45px_rgba(16,45,168,0.15)]">
+          <div className="relative overflow-hidden rounded-3xl shadow-[0_20px_45px_rgba(16,45,168,0.15)]">
             <img
               src={videoPreview}
               alt="Превью шоу"
@@ -308,7 +308,7 @@ const LandingPage = () => {
             {reasons.map((reason) => (
               <article
                 key={reason.title}
-                className="flex items-center gap-4 rounded-[24px] border border-[#e1e7f0] bg-white p-5 text-left shadow-sm transition-transform duration-200 hover:-translate-y-0.5 max-sm:flex-col max-sm:text-center"
+                className="flex items-center gap-4 rounded-3xl border border-[#e1e7f0] bg-white p-5 text-left shadow-sm transition-transform duration-200 hover:-translate-y-0.5 max-sm:flex-col max-sm:text-center"
               >
                 <img
                   src={reason.image}
@@ -372,7 +372,7 @@ const LandingPage = () => {
             {gallery.map((item) => (
               <figure
                 key={item.caption}
-                className="min-w-[70%] flex-shrink-0 snap-center rounded-[20px] bg-white shadow-[0_12px_30px_rgba(12,20,32,0.08)] sm:min-w-0"
+                className="min-w-[70%] shrink-0 snap-center rounded-[20px] bg-white shadow-[0_12px_30px_rgba(12,20,32,0.08)] sm:min-w-0"
               >
                 <img
                   src={item.src}
@@ -391,7 +391,7 @@ const LandingPage = () => {
 
       <section id="tickets" className="py-16">
         <div
-          className={`${containerClass} grid gap-8 rounded-[28px] bg-gradient-to-br from-[#1847ff] to-[#102da8] p-8 text-white shadow-[0_25px_80px_rgba(16,45,168,0.25)] md:grid-cols-2`}
+          className={`${containerClass} grid gap-8 rounded-[28px] bg-linear-to-br from-[#1847ff] to-[#102da8] p-8 text-white shadow-[0_25px_80px_rgba(16,45,168,0.25)] md:grid-cols-2`}
         >
           <div>
             <p className={`${eyebrowClass} text-white/80`}>Билеты в продаже</p>
