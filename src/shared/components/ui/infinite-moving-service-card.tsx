@@ -1,17 +1,18 @@
-import {type FC, useState, memo} from 'react';
-import {motion} from "framer-motion";
-import type {InfiniteCardItem} from "@/shared/components/ui/infinite-moving-cards.tsx";
-import {useTranslation} from "react-i18next";
-import {AnimatePresence} from "motion/react";
+import { type FC, useState, memo } from 'react';
+import { motion } from 'framer-motion';
+import type { InfiniteCardItem } from '@/shared/components/ui/infinite-moving-cards.tsx';
+import { AnimatePresence } from 'motion/react';
 
 interface InfiniteMovingCardProps {
     item: InfiniteCardItem
     className?: boolean
 }
 
-const InfiniteMovingServiceCard: FC<InfiniteMovingCardProps> = ({item, className = ""}) => {
-    const [isHovered, setIsHovered] = useState(false);
-    const {t} = useTranslation()
+const InfiniteMovingServiceCard: FC<InfiniteMovingCardProps> = ({
+  item,
+  className = '',
+}) => {
+  const [isHovered, setIsHovered] = useState(false);
 
 
     return (
@@ -96,7 +97,7 @@ const InfiniteMovingServiceCard: FC<InfiniteMovingCardProps> = ({item, className
                                 text-[rgba(0,0,0,0.45)] font-medium text-[16px]
                                 lg:text-[18px]
                                 xl:text-[20px]
-                                ">{t("clinics.card.before")}</p>
+                                ">До</p>
                                 <p className="
                                 text-[22px] font-medium
                                 lg:text-[22px]
@@ -107,7 +108,7 @@ const InfiniteMovingServiceCard: FC<InfiniteMovingCardProps> = ({item, className
                                 text-[rgba(0,0,0,0.45)] font-medium text-[16px]
                                 lg:text-[18px]
                                 xl:text-[20px]
-                                ">{t("clinics.card.after")}</p>
+                                ">После</p>
                                 <p className="
                                 text-[22px] font-medium
                                 lg:text-[22px]

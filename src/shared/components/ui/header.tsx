@@ -1,26 +1,14 @@
 import { motion } from 'framer-motion';
-import i18next from 'i18next';
-import { type FC, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { type FC, useMemo, useState } from 'react';
 
 import Logo from '@/shared/assets/icons/anse-enu-logo-white.svg?react';
 import Burger from '@/shared/assets/icons/burger.svg?react';
 import Close from '@/shared/assets/icons/close.svg?react';
-import Down from '@/shared/assets/icons/down.svg?react';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/shared/components/animate-ui/radix/dropdown-menu.tsx';
 import {
   TabsList,
   TabsTrigger,
   TabsWrapper,
 } from '@/shared/components/ui/tabsWrapper.tsx';
-import { LanguageFlagMap } from '@/shared/constants/i18n/LanguageFlagMap.ts';
-import { Sections } from '@/shared/constants/navigation.ts';
-import { useStore } from '@/store';
 import clsx from 'clsx';
 import { AnimatePresence } from 'motion/react';
 
@@ -29,49 +17,23 @@ interface HeaderProps {
 }
 
 const Header: FC<HeaderProps> = ({ handleTabClick }) => {
-  const { t, i18n } = useTranslation('homePage');
-  const section = useStore((state) => state.section);
+  const navItems = useMemo(
+    () => [
+      { id: 'about', label: 'О шоу' },
+      { id: 'stars', label: 'Состав' },
+      { id: 'program', label: 'Программа' },
+      { id: 'tickets', label: 'Билеты' },
+    ],
+    []
+  );
+  const [activeSection, setActiveSection] = useState<string>(navItems[0].id);
   const [hidden, setHidden] = useState<boolean>(
     window?.innerWidth < 768 || false
   );
 
-  const handleLanguageChange = (lang: string) => {
-    i18n.changeLanguage(lang);
-  };
-
   // ! ||--------------------------------------------------------------------------------||
   // ! ||                                     render                                     ||
   // ! ||--------------------------------------------------------------------------------||
-
-  const langPicker = (
-    <DropdownMenu>
-      <DropdownMenuTrigger
-        className={clsx(
-          'bg-tab-bg my-4 mt-auto mr-4 flex items-center justify-center gap-1 p-4 py-4',
-          'md:my-0 md:mt-0 md:gap-[12px] md:p-1.5'
-        )}
-      >
-        <img
-          src={LanguageFlagMap[i18next.language]}
-          alt={i18next.language}
-          className="h-5 w-8 rounded-2xl"
-        />
-
-        <Down />
-      </DropdownMenuTrigger>
-      <DropdownMenuContent>
-        {Object.keys(LanguageFlagMap).map((lang) => (
-          <DropdownMenuItem
-            key={lang}
-            onClick={() => handleLanguageChange(lang)}
-          >
-            {lang.toUpperCase()}
-            <img src={LanguageFlagMap[lang]} alt={lang} className="w-8" />
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
-  );
 
   const logo = (
     <div className="flex items-center justify-center rounded-4xl">
@@ -124,35 +86,31 @@ const Header: FC<HeaderProps> = ({ handleTabClick }) => {
             {logo}
 
             <TabsWrapper
-              value={section}
+              value={activeSection}
               className="mt-2 w-full items-center md:mt-0 md:w-auto"
             >
               <TabsList
-                defaultValue={section}
+                defaultValue={activeSection}
                 className="bg-bg-body h-11 w-full flex-col p-0 md:flex-row md:p-1"
               >
-                {[Sections[1], Sections[2], Sections[3], Sections[4]].map(
-                  (tab: string) => (
-                    <TabsTrigger
-                      key={tab}
-                      value={tab}
-                      onClick={() => {
-                        handleTabClick(tab);
-                        if (window.innerWidth < 767) {
-                          setHidden(true);
-                        }
-                      }}
-                      className="data-[state=active]:text-primary w-full border-t border-r-0 border-b border-l-0 border-[#D9D9D9] text-lg font-normal text-white data-[state=active]:bg-white md:w-auto"
-                    >
-                      {t(`header.${tab}`)}
-                    </TabsTrigger>
-                  )
-                )}
+                {navItems.map((tab) => (
+                  <TabsTrigger
+                    key={tab.id}
+                    value={tab.id}
+                    onClick={() => {
+                      setActiveSection(tab.id);
+                      handleTabClick(tab.id);
+                      if (window.innerWidth < 767) {
+                        setHidden(true);
+                      }
+                    }}
+                    className="data-[state=active]:text-primary w-full border-t border-r-0 border-b border-l-0 border-[#D9D9D9] text-lg font-normal text-white data-[state=active]:bg-white md:w-auto"
+                  >
+                    {tab.label}
+                  </TabsTrigger>
+                ))}
               </TabsList>
             </TabsWrapper>
-
-            {/* Language Picker */}
-            {/* {langPicker} */}
 
             {/* <button
               className={clsx(
