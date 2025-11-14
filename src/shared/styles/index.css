@@ -1,4 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Kelson:wght@400;500;600;700&display=swap');
+@font-face {
+  font-family: 'Kelson Sans';
+  src:
+    url('./fonts/Kelson/Commercial/WEB/KelsonSansRU-Light.woff2')
+      format('woff2'),
+    url('./fonts/Kelson/Commercial/WEB/KelsonSansRU-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kelson Sans';
+  src:
+    url('./fonts/Kelson/Commercial/WEB/KelsonSansRU-Normal.woff2')
+      format('woff2'),
+    url('./fonts/Kelson/Commercial/WEB/KelsonSansRU-Normal.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Kelson Sans';
+  src:
+    url('./fonts/Kelson/Commercial/WEB/KelsonSansRU-Bold.woff2') format('woff2'),
+    url('./fonts/Kelson/Commercial/WEB/KelsonSansRU-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 @layer theme, base, components, utilities;
 
@@ -14,8 +44,7 @@
   --section-gap: 4rem;
   --radius-lg: 32px;
   font-family:
-    'Inter',
-    'Open Sans',
+    'Kelson Sans',
     system-ui,
     -apple-system,
     BlinkMacSystemFont,
