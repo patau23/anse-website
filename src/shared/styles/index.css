@@ -1,23 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Kelson:wght@400;500;600;700&display=swap');
+
 @layer theme, base, components, utilities;
 
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
 :root {
-  --color-primary: #8168c5;
+  --color-primary: #685694;
   --color-secondary: #6f4dc3;
   --color-light-bg: #f7f5fa;
   --color-dark: #1d1b26;
   --color-muted: #726f7c;
   --section-gap: 4rem;
   --radius-lg: 32px;
-  font-family: 'Inter', 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family:
+    'Inter',
+    'Open Sans',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
 }
 
 @layer base {
   *,
   *::before,
-  *::after {
+  Ø *::after {
     box-sizing: border-box;
   }
 
@@ -70,13 +78,19 @@
     padding: 0.95rem 2.5rem;
     font-weight: 600;
     text-decoration: none;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
     cursor: pointer;
     border: none;
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background: linear-gradient(
+      135deg,
+      var(--color-primary),
+      var(--color-secondary)
+    );
     color: #fff;
     box-shadow: 0 12px 30px rgba(111, 77, 195, 0.25);
   }
@@ -128,8 +142,17 @@
   }
 
   .hero {
-    background: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.35), transparent 55%),
-      radial-gradient(circle at 90% 0%, rgba(129, 104, 197, 0.2), transparent 45%),
+    background:
+      radial-gradient(
+        circle at 15% 20%,
+        rgba(255, 255, 255, 0.35),
+        transparent 55%
+      ),
+      radial-gradient(
+        circle at 90% 0%,
+        rgba(129, 104, 197, 0.2),
+        transparent 45%
+      ),
       #f1ecff;
   }
 
@@ -453,7 +476,12 @@
   }
 
   .cta {
-    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25), transparent 55%),
+    background:
+      radial-gradient(
+        circle at 20% 20%,
+        rgba(255, 255, 255, 0.25),
+        transparent 55%
+      ),
       linear-gradient(135deg, var(--color-secondary), #3f2e7b);
     color: #fff;
   }

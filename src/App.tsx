@@ -1,4 +1,3 @@
-import './shared/styles/App.css';
 import HomePage from '@/pages/home';
 
 function App() {
