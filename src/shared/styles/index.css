@@ -1,177 +1,179 @@
 @layer theme, base, inline, components, utilities, custom;
+
+/* Подключаем базовые стили Tailwind и анимации */
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
-
+/*
+ * Настройка CSS‑переменных.
+ * Здесь можно переопределять цвета и другие параметры, которые используются в компонентах.
+ * Значения по умолчанию указаны в примере выше; добавляем собственные для лендинга.
+ */
 :root {
-  /*header height*/
-
+  /* размеры */
   --header-size: 64px;
 
-  /*Custom colors*/
-
-  --color-green-500: #c0fe5c;
-  --color-blue-500: #c7ddff;
-
-  --color-primary: #4a3aff;
-
-  --color-bg-body: #544bc8;
-
-  --color-bg-primary: #4136c3;
-
-  --color-success: #52c41a;
-  --color-tab-bg: #544bc8;
-  --color-gray: rgba(0, 0, 0, 0.45);
-
-  --radius: 0.625rem;
-  --background: oklch(0.497 0.187 280.3);
-  --foreground: rgba(0, 0, 0, 0.88);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  /* основные цвета из нового лендинга */
+  --color-primary: #8168c5;
+  --color-secondary: #6f4dc3;
+  --color-light-bg: #f7f5fa;
+  --color-dark-text: #333333;
+  --color-gray-text: #555555;
 }
 
 @layer base {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* font-family: 'Inter', sans-serif; */
-    font-family: 'SF Pro Display', sans-serif;
-
-    @apply border-border outline-ring/50;
+  /* Сброс отступов и базовая типографика */
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
   }
-
-  html {
-    scroll-behavior: smooth !important;
-  }
-
   body {
-    @apply bg-background text-foreground;
+    @apply m-0 leading-relaxed;
+    font-family: var(--font-main, 'Open Sans', sans-serif);
+    color: var(--color-dark-text);
+    background-color: #fff;
+  }
+  img {
+    @apply block h-auto max-w-full;
+  }
+}
+
+@layer components {
+  /* Контейнер с ограничением ширины */
+  .container {
+    @apply mx-auto w-full px-4;
+    max-width: 1280px;
+  }
+
+  /* Кнопки */
+  .btn-primary {
+    @apply inline-block rounded-md px-5 py-3 text-center font-semibold transition-colors duration-300;
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+  .btn-primary:hover {
+    background-color: var(--color-secondary);
+  }
+
+  .btn-secondary {
+    @apply inline-block rounded-md px-5 py-3 text-center font-semibold transition-colors duration-300;
+    background-color: #e1d8f5;
+    color: var(--color-secondary);
+  }
+  .btn-secondary:hover {
+    background-color: var(--color-secondary);
+    color: #fff;
+  }
+
+  /* Бейджи (теги) */
+  .tag {
+    @apply inline-block rounded-sm px-2 py-1 text-xs font-semibold;
+    background-color: var(--color-light-bg);
+    color: var(--color-secondary);
+  }
+
+  /* Карточки */
+  .card {
+    @apply overflow-hidden rounded-lg bg-white shadow-md;
+  }
+  .card-img {
+    @apply w-full object-cover;
+    height: 12rem; /* 192px */
+  }
+  .card-body {
+    @apply p-3;
+  }
+
+  /* Горизонтальная прокрутка (карусель) */
+  .horizontal-scroll {
+    @apply flex snap-x snap-mandatory gap-4 overflow-x-auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .horizontal-scroll > * {
+    @apply flex-none snap-start;
+  }
+
+  /* Grid утилиты (mobile first) */
+  .grid {
+    @apply grid gap-4;
+  }
+  .grid-cols-1 {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+  @media (min-width: 640px) {
+    .grid-cols-md-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .grid-cols-md-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+  @media (min-width: 1024px) {
+    .grid-cols-lg-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .grid-cols-lg-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  /* Секции (отступы) */
+  section {
+    @apply py-8; /* 2rem сверху и снизу */
+  }
+
+  /* CTA блок со скруглённой волной */
+  .cta {
+    background-color: var(--color-primary);
+    color: #fff;
+    clip-path: ellipse(100% 100% at 50% 0%);
+  }
+  .cta h2 {
+    @apply text-white;
   }
 }
 
 @layer custom {
-  :root {
-    --color-tab-bg: #544bc8;
+  /* Пример дополнительных классов для текста */
+  .text-center {
+    @apply text-center;
   }
-  body {
-    margin: 0 !important;
-    @apply: text-[rgba(0,0,0,0.45)];
+  .text-left {
+    @apply text-left;
+  }
+  .text-right {
+    @apply text-right;
+  }
+
+  .mb-1 {
+    @apply mb-1;
+  }
+  .mb-2 {
+    @apply mb-2;
+  }
+  .mb-3 {
+    @apply mb-4;
+  }
+  .mt-1 {
+    @apply mt-1;
+  }
+  .mt-2 {
+    @apply mt-2;
+  }
+  .mt-3 {
+    @apply mt-4;
   }
 }
 
-@theme {
-  --color-green-500: #c0fe5c;
-  --color-blue-500: #c7ddff;
-  --color-primary: #1677ff;
-  --color-success: #52c41a;
-  --color-tab-bg: #f5f5f5;
-  --color-body-bg: #f5f5f5;
-  --color-gray: rgba(0, 0, 0, 0.45);
-
-  --text-2xl: 28px;
-  --text-base: 15px;
-
-  /*Custom breakpoints*/
-
-  --breakpoint-3xl: 120rem;
-}
-
+/* Дополнительные настройки цвета через @theme inline, если нужно переопределить
+   значения по умолчанию: можно добавить цвета из вашего прошлого проекта.
+*/
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
-
-  --color-green-500: #c0fe5c;
-  --color-blue-500: #c7ddff;
-  --color-primary: #4a3aff;
-  --color-bg-body: #544bc8;
-  --color-bg-primary: #4136c3;
-  --color-success: #52c41a;
-  --color-tab-bg: #544bc8;
-  --color-gray: rgba(0, 0, 0, 0.45);
-
-  --animate-scroll: scroll 30s forwards linear infinite;
-
-  @keyframes scroll {
-    to {
-      transform: translate(calc(-50% - 0.5rem));
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  :root {
-    --header-size: 88px;
-  }
-}
-
-.lucide-chevron-down {
-  display: none;
-}
-
-.two-line-limit {
-  @apply overflow-hidden;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  /* Здесь можно переопределить цветовые переменные под Tailwind (при необходимости) */
+  --color-primary: #8168c5;
+  --color-secondary: #6f4dc3;
+  --color-light-bg: #f7f5fa;
+  --color-dark-text: #333333;
+  --color-gray-text: #555555;
 }
