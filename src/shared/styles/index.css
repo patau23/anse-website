@@ -1,179 +1,514 @@
-@layer theme, base, inline, components, utilities, custom;
+@layer theme, base, components, utilities;
 
-/* Подключаем базовые стили Tailwind и анимации */
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-/*
- * Настройка CSS‑переменных.
- * Здесь можно переопределять цвета и другие параметры, которые используются в компонентах.
- * Значения по умолчанию указаны в примере выше; добавляем собственные для лендинга.
- */
 :root {
-  /* размеры */
-  --header-size: 64px;
-
-  /* основные цвета из нового лендинга */
   --color-primary: #8168c5;
   --color-secondary: #6f4dc3;
   --color-light-bg: #f7f5fa;
-  --color-dark-text: #333333;
-  --color-gray-text: #555555;
+  --color-dark: #1d1b26;
+  --color-muted: #726f7c;
+  --section-gap: 4rem;
+  --radius-lg: 32px;
+  font-family: 'Inter', 'Open Sans', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 @layer base {
-  /* Сброс отступов и базовая типографика */
   *,
   *::before,
   *::after {
-    @apply box-border;
+    box-sizing: border-box;
   }
+
   body {
-    @apply m-0 leading-relaxed;
-    font-family: var(--font-main, 'Open Sans', sans-serif);
-    color: var(--color-dark-text);
-    background-color: #fff;
+    margin: 0;
+    color: var(--color-dark);
+    background-color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+    min-height: 100vh;
   }
+
   img {
-    @apply block h-auto max-w-full;
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 0;
+  }
+
+  section {
+    padding-block: clamp(3rem, 6vw, 6rem);
   }
 }
 
 @layer components {
-  /* Контейнер с ограничением ширины */
-  .container {
-    @apply mx-auto w-full px-4;
-    max-width: 1280px;
+  .page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--section-gap);
   }
 
-  /* Кнопки */
-  .btn-primary {
-    @apply inline-block rounded-md px-5 py-3 text-center font-semibold transition-colors duration-300;
-    background-color: var(--color-primary);
-    color: #fff;
+  .container {
+    width: min(100%, 1440px);
+    margin: 0 auto;
+    padding-inline: clamp(1.25rem, 4vw, 4rem);
   }
+
+  @media (min-width: 1600px) {
+    .container {
+      width: min(100%, 1600px);
+    }
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
+    padding: 0.95rem 2.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: #fff;
+    box-shadow: 0 12px 30px rgba(111, 77, 195, 0.25);
+  }
+
   .btn-primary:hover {
-    background-color: var(--color-secondary);
+    transform: translateY(-2px);
   }
 
   .btn-secondary {
-    @apply inline-block rounded-md px-5 py-3 text-center font-semibold transition-colors duration-300;
-    background-color: #e1d8f5;
+    background: #fff;
     color: var(--color-secondary);
+    border: 1px solid rgba(111, 77, 195, 0.3);
   }
+
   .btn-secondary:hover {
-    background-color: var(--color-secondary);
-    color: #fff;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.08);
   }
 
-  /* Бейджи (теги) */
-  .tag {
-    @apply inline-block rounded-sm px-2 py-1 text-xs font-semibold;
-    background-color: var(--color-light-bg);
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 1rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    border-radius: 999px;
+    background-color: rgba(255, 255, 255, 0.4);
+    color: var(--color-dark);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .eyebrow {
+    font-size: 0.9rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 1rem;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin: 0 0 0.5rem;
+  }
+
+  .section-heading p {
+    max-width: 640px;
+    margin: 0;
+    color: var(--color-muted);
+  }
+
+  .hero {
+    background: radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.35), transparent 55%),
+      radial-gradient(circle at 90% 0%, rgba(129, 104, 197, 0.2), transparent 45%),
+      #f1ecff;
+  }
+
+  .hero__grid {
+    display: grid;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: center;
+    }
+  }
+
+  .hero__content h1 {
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    line-height: 1.1;
+    margin: 1rem 0;
+  }
+
+  .hero__content h1 span {
     color: var(--color-secondary);
   }
 
-  /* Карточки */
-  .card {
-    @apply overflow-hidden rounded-lg bg-white shadow-md;
-  }
-  .card-img {
-    @apply w-full object-cover;
-    height: 12rem; /* 192px */
-  }
-  .card-body {
-    @apply p-3;
+  .hero__lead {
+    color: var(--color-muted);
+    max-width: 520px;
   }
 
-  /* Горизонтальная прокрутка (карусель) */
-  .horizontal-scroll {
-    @apply flex snap-x snap-mandatory gap-4 overflow-x-auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  .horizontal-scroll > * {
-    @apply flex-none snap-start;
+  .hero__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
-  /* Grid утилиты (mobile first) */
-  .grid {
-    @apply grid gap-4;
+  .hero__cta {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
   }
-  .grid-cols-1 {
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+
+  .hero__cta-details {
+    color: var(--color-muted);
+    font-size: 0.95rem;
   }
-  @media (min-width: 640px) {
-    .grid-cols-md-2 {
+
+  .hero__facts {
+    display: grid;
+    gap: 1.25rem;
+    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .hero__facts dt {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .hero__facts dd {
+    margin: 0;
+    font-size: 1.15rem;
+    font-weight: 600;
+  }
+
+  .hero__media {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .hero__poster {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 40px 70px rgba(15, 8, 65, 0.18);
+  }
+
+  .hero__poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero__note {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--color-muted);
+  }
+
+  .story__grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .story__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: center;
+    }
+  }
+
+  .story__media img {
+    border-radius: var(--radius-lg);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.15);
+  }
+
+  .story__content p {
+    margin-bottom: 1rem;
+  }
+
+  .video {
+    background-color: var(--color-light-bg);
+  }
+
+  .video__frame {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.18);
+  }
+
+  .video__frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .video__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: none;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: rgba(129, 104, 197, 0.9);
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+    backdrop-filter: blur(6px);
+  }
+
+  .video__caption {
+    text-align: center;
+    margin-top: 1rem;
+    color: var(--color-muted);
+  }
+
+  .stars__list {
+    display: grid;
+    gap: 1.5rem;
+    grid-auto-columns: minmax(240px, 1fr);
+    grid-auto-flow: column;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+  }
+
+  .star-card {
+    background: #fff;
+    border-radius: 24px;
+    overflow: hidden;
+    min-width: 240px;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.12);
+  }
+
+  .star-card img {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .star-card h3 {
+    margin: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .star-card p {
+    margin: 0 1rem 1.5rem;
+    color: var(--color-muted);
+  }
+
+  .reasons {
+    background-color: var(--color-light-bg);
+  }
+
+  .reasons__grid {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .reasons__grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
-    .grid-cols-md-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
   }
-  @media (min-width: 1024px) {
-    .grid-cols-lg-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    .grid-cols-lg-4 {
+
+  @media (min-width: 1280px) {
+    .reasons__grid {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
 
-  /* Секции (отступы) */
-  section {
-    @apply py-8; /* 2rem сверху и снизу */
+  .reason-card {
+    background: #fff;
+    border-radius: 24px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    min-height: 240px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
   }
 
-  /* CTA блок со скруглённой волной */
-  .cta {
-    background-color: var(--color-primary);
+  .reason-card img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .reason-card p {
+    color: var(--color-muted);
+  }
+
+  .program {
+    background: linear-gradient(135deg, #fef8ff, #ede4ff);
+  }
+
+  .program__grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .program__grid {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+  }
+
+  .timeline {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .timeline li {
+    display: grid;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.08);
+  }
+
+  @media (min-width: 640px) {
+    .timeline li {
+      grid-template-columns: 120px 1fr;
+      align-items: center;
+    }
+  }
+
+  .timeline__time {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+  }
+
+  .timeline p {
+    margin: 0.35rem 0 0;
+    color: var(--color-muted);
+  }
+
+  .gallery__track {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .gallery__track {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .gallery__track {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  .gallery figure {
+    margin: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #000;
     color: #fff;
-    clip-path: ellipse(100% 100% at 50% 0%);
+    display: flex;
+    flex-direction: column;
   }
-  .cta h2 {
-    @apply text-white;
+
+  .gallery img {
+    height: 320px;
+    object-fit: cover;
+  }
+
+  .gallery figcaption {
+    padding: 1rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cta {
+    background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.25), transparent 55%),
+      linear-gradient(135deg, var(--color-secondary), #3f2e7b);
+    color: #fff;
+  }
+
+  .cta__content {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 900px) {
+    .cta__content {
+      grid-template-columns: 3fr 2fr;
+      align-items: center;
+    }
+  }
+
+  .cta__content h2 {
+    margin-top: 0;
+    font-size: clamp(2.2rem, 4vw, 3rem);
+  }
+
+  .cta__content p {
+    max-width: 520px;
+  }
+
+  .cta__details {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 1.5rem;
+    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8;
+  }
+
+  .cta__date {
+    font-size: 2rem;
+    margin: 0 0 0.5rem;
+    font-weight: 600;
   }
 }
 
-@layer custom {
-  /* Пример дополнительных классов для текста */
-  .text-center {
-    @apply text-center;
-  }
-  .text-left {
-    @apply text-left;
-  }
-  .text-right {
-    @apply text-right;
-  }
-
-  .mb-1 {
-    @apply mb-1;
-  }
-  .mb-2 {
-    @apply mb-2;
-  }
-  .mb-3 {
-    @apply mb-4;
-  }
-  .mt-1 {
-    @apply mt-1;
-  }
-  .mt-2 {
-    @apply mt-2;
-  }
-  .mt-3 {
-    @apply mt-4;
+@media (min-width: 1280px) {
+  :root {
+    --section-gap: 5rem;
   }
 }
 
-/* Дополнительные настройки цвета через @theme inline, если нужно переопределить
-   значения по умолчанию: можно добавить цвета из вашего прошлого проекта.
-*/
-@theme inline {
-  /* Здесь можно переопределить цветовые переменные под Tailwind (при необходимости) */
-  --color-primary: #8168c5;
-  --color-secondary: #6f4dc3;
-  --color-light-bg: #f7f5fa;
-  --color-dark-text: #333333;
-  --color-gray-text: #555555;
+@media (min-width: 1440px) {
+  body {
+    font-size: 17px;
+  }
+}
+
+@media (min-width: 1920px) {
+  body {
+    font-size: 18px;
+  }
 }

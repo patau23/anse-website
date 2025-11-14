@@ -1,251 +1,300 @@
+const heroBadges = ['Грация', 'Сила', 'Эмоции'];
+
+const eventFacts = [
+  { label: 'Дата и время', value: '01.05 · 17:00' },
+  { label: 'Площадка', value: 'Барыс Арена, Алматы' },
+  { label: 'Продолжительность', value: '2,5 часа живого шоу' },
+];
+
+const stars = [
+  {
+    name: 'Даниил Глейхенгауз',
+    role: 'Постановщик программ',
+    image:
+      'https://static.tildacdn.com/tild3033-3030-4162-b332-336130643464/89F18050-E8BF-43A3-9.jpeg',
+  },
+  {
+    name: 'Сергей Дудаков',
+    role: 'Главный тренер',
+    image:
+      'https://static.tildacdn.com/tild3763-3562-4261-b533-653064343232/6204FCBD-2252-45CB-9.jpeg',
+  },
+  {
+    name: 'Евгения Медведева',
+    role: 'Двукратная чемпионка мира',
+    image:
+      'https://static.tildacdn.com/tild6362-3165-4634-a634-366330373965/44164402-41A2-4484-A.jpeg',
+  },
+  {
+    name: 'Алина Загитова',
+    role: 'Олимпийская чемпионка',
+    image:
+      'https://static.tildacdn.com/tild3435-6364-4666-b231-636362306236/15530058-F2AC-4322-A.jpeg',
+  },
+];
+
+const reasons = [
+  {
+    title: 'Формат для всей семьи',
+    text: 'Музыка, свет и ледовая пластика объединяют поколения зрителей.',
+    image: 'https://static.tildacdn.com/tild3961-3561-4731-a430-376531653035/1-4.png',
+  },
+  {
+    title: 'Новая программа',
+    text: 'Премьеры 2026 года с уникальными номерами и неожиданными дуэтами.',
+    image: 'https://static.tildacdn.com/tild3263-6639-4130-b736-623464366266/1-2.png',
+  },
+  {
+    title: 'Живые эмоции',
+    text: 'Каждая история рассказывается здесь и сейчас — без дублей и монтажа.',
+    image: 'https://static.tildacdn.com/tild6535-3038-4632-b238-633836616635/1-3.png',
+  },
+  {
+    title: 'Звёздный состав',
+    text: 'На одном льду выступают олимпийские чемпионы и юные таланты школы.',
+    image: 'https://static.tildacdn.com/tild6331-6131-4930-a533-613035343330/1-1.png',
+  },
+];
+
+const timeline = [
+  {
+    title: 'Встреча гостей',
+    time: '16:00',
+    description: 'Фойе арены открывается за час до шоу: фотозона, мерч и бар.',
+  },
+  {
+    title: 'I отделение',
+    time: '17:00',
+    description: 'Премьерные сольные программы и дуэты ведущих фигуристов мира.',
+  },
+  {
+    title: 'Антракт',
+    time: '18:10',
+    description: 'Время, чтобы перевести дух, обсудить увиденное и сделать фото.',
+  },
+  {
+    title: 'II отделение',
+    time: '18:30',
+    description: 'Большие массовые постановки, финал с участием всех звёзд.',
+  },
+];
+
+const gallery = [
+  {
+    src: 'https://static.tildacdn.com/tild3033-3030-4162-b332-336130643464/89F18050-E8BF-43A3-9.jpeg',
+    caption: 'Эмоции на льду',
+  },
+  {
+    src: 'https://static.tildacdn.com/tild3763-3562-4261-b533-653064343232/6204FCBD-2252-45CB-9.jpeg',
+    caption: 'Движение света и льда',
+  },
+  {
+    src: 'https://static.tildacdn.com/tild6362-3165-4634-a634-366330373965/44164402-41A2-4484-A.jpeg',
+    caption: 'Погружение в атмосферу',
+  },
+  {
+    src: 'https://static.tildacdn.com/tild3435-6364-4666-b231-636362306236/15530058-F2AC-4322-A.jpeg',
+    caption: 'Финальный аккорд',
+  },
+];
+
+const infoImage =
+  'https://static.tildacdn.com/tild3963-3531-4363-b936-643132363764/FD29F7AE-0F3D-498B-9.jpeg';
+const videoPreview =
+  'https://static.tildacdn.com/tild6634-3766-4135-a639-323230373931/Frame_9.png';
+
 const LandingPage = () => {
   return (
-    <>
-      {/* Герой‑секция */}
-      <section className="py-8 lg:py-16">
-        <div className="container flex flex-col items-center gap-8 lg:flex-row">
-          {/* Фото тренеров */}
-          <img
-            src="/assets/coach-team.jpg"
-            alt="Команда тренеров"
-            className="w-full rounded-lg lg:w-1/3"
-          />
-          {/* Текстовая часть */}
-          <div className="flex-1">
-            {/* Теги-лейблы */}
-            <div className="mb-4 flex gap-2">
-              <span className="tag">Грация</span>
-              <span className="tag">Сила</span>
-              <span className="tag">Эмоции</span>
+    <main className="page">
+      <section className="hero" id="hero">
+        <div className="container hero__grid">
+          <div className="hero__content">
+            <p className="eyebrow">ICE SHOW · 2026 TOUR</p>
+            <div className="hero__tags" aria-label="Основные ценности шоу">
+              {heroBadges.map((badge) => (
+                <span key={badge} className="pill">
+                  {badge}
+                </span>
+              ))}
             </div>
-            {/* Заголовок */}
-            <h1 className="mb-4 text-3xl leading-tight font-bold md:text-4xl">
-              Ледовое шоу&nbsp;команды&nbsp;Этери&nbsp;Тутберидзе — весенний
-              тур 2026 в&nbsp;
-              <span className="text-(--color-secondary)">Алматы</span>
+            <h1 className="hero__headline">
+              Ледовое шоу команды Этери Тутберидзе&nbsp;— весенний тур 2026 в{' '}
+              <span>Алматы</span>
             </h1>
-            {/* Подзаголовок */}
-            <p className="mb-6 text-base text-(--color-gray-text)">
-              Окунитесь в мир, где спорт становится искусством
+            <p className="hero__lead">
+              Окунитесь в мир, где спорт становится искусством: номера, созданные
+              специально для казахстанской сцены, зазвучат всего один вечер.
             </p>
-            {/* Кнопка и информация о дате/месте */}
-            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <a href="#tickets" className="btn-primary">
+            <div className="hero__cta">
+              <a className="btn-primary" href="#tickets">
                 Купить билет
               </a>
-              <div className="text-sm leading-tight text-(--color-gray-text)">
-                <div>01.05 – 17:00</div>
-                <div>Барыс Арена</div>
+              <div className="hero__cta-details">
+                <p>01 мая · 17:00</p>
+                <p>Барыс Арена</p>
               </div>
             </div>
+            <dl className="hero__facts">
+              {eventFacts.map((fact) => (
+                <div key={fact.label}>
+                  <dt>{fact.label}</dt>
+                  <dd>{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+          <div className="hero__media">
+            <div className="hero__poster" role="presentation">
+              <img src={infoImage} alt="Команда на льду" loading="lazy" />
+            </div>
+            <p className="hero__note">Лимитированное шоу. Мест немного.</p>
           </div>
         </div>
       </section>
 
-      {/* Описание шоу */}
-      <section>
-        <div className="xl:grid-cols-md-2 container grid grid-cols-1 items-center gap-8">
-          <img
-            src="/assets/skaters.jpg"
-            alt="Фигуристы"
-            className="w-full rounded-lg"
-          />
-          <div className="space-y-4">
+      <section className="story" id="about">
+        <div className="container story__grid">
+          <div className="story__media">
+            <img src={infoImage} alt="Хореографический номер" loading="lazy" />
+          </div>
+          <div className="story__content">
             <p>
-              Весной 2026 года легендарная команда Этери Тутберидзе выходит
-              на лёд с новым грандиозным шоу, которое обещает стать главным
-              спортивно‑эмоциональным событием сезона.
+              Весной 2026 года легендарная команда Этери Тутберидзе выходит на лёд
+              с новым грандиозным шоу, которое обещает стать главным событием
+              сезона.
             </p>
             <p>
-              На вас ждёт вечер, где каждая программа — маленькая история о
-              мечтах, победах и вдохновении.
+              На вас ждёт вечер, где каждая программа&nbsp;— маленькая история о
+              мечтах, победах и вдохновении. Сложнейшие элементы сочетаются с
+              хореографией, светом и музыкой, создавая магию, от которой
+              невозможно отвести взгляд.
             </p>
             <p>
-              Сложнейшие элементы сочетаются с хореографией, светом и музыкой,
-              создавая магию, от которой невозможно отвести взгляд.
+              Программа подготовлена специально для весеннего тура и будет
+              показана только в нескольких городах. Алматы&nbsp;— один из них.
             </p>
           </div>
         </div>
       </section>
 
-      {/* Видео-блок */}
-      <section className="bg-(--color-light-bg)">
-        <div className="container text-center">
-          <div className="relative mb-6 h-0 w-full overflow-hidden rounded-lg pb-[56.25%]">
-            <img
-              src="/assets/video-preview.jpg"
-              alt="Превью видео"
-              className="absolute inset-0 h-full w-full object-cover"
-            />
-            <button
-              type="button"
-              className="bg-opacity-90 absolute top-1/2 left-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-(--color-primary) text-2xl text-white"
-            >
+      <section className="video" id="video">
+        <div className="container">
+          <div className="video__frame">
+            <img src={videoPreview} alt="Превью шоу" loading="lazy" />
+            <button className="video__play" type="button" aria-label="Смотреть ролик">
               ▶
             </button>
           </div>
-          <a href="#tickets" className="btn-secondary inline-block">
-            Купить билет
-          </a>
+          <p className="video__caption">2 минуты, чтобы почувствовать атмосферу</p>
         </div>
       </section>
 
-      {/* Главные звёзды льда */}
-      <section>
+      <section className="stars" id="stars">
         <div className="container">
-          <h2 className="mb-4 text-xl font-bold">Главные звёзды льда</h2>
-          <div className="horizontal-scroll">
-            {/* Карточка звезды */}
-            <div className="card min-w-[70%] sm:min-w-[45%] md:min-w-[30%] lg:min-w-[24%]">
-              <img
-                src="/assets/star1.jpg"
-                alt="Даниил Глейхенгауз"
-                className="card-img"
-              />
-              <div className="bg-(--color-primary) p-2 text-center text-white">
-                Даниил Глейхенгауз
-              </div>
-            </div>
-            {/* Повторение карточек для других звёзд */}
-            <div className="card min-w-[70%] sm:min-w-[45%] md:min-w-[30%] lg:min-w-[24%]">
-              <img
-                src="/assets/star2.jpg"
-                alt="Сергей Дудаков"
-                className="card-img"
-              />
-              <div className="bg-(--color-primary) p-2 text-center text-white">
-                Сергей Дудаков
-              </div>
-            </div>
-            <div className="card min-w-[70%] sm:min-w-[45%] md:min-w-[30%] lg:min-w-[24%]">
-              <img
-                src="/assets/star3.jpg"
-                alt="Евгения Медведева"
-                className="card-img"
-              />
-              <div className="bg-(--color-primary) p-2 text-center text-white">
-                Евгения Медведева
-              </div>
-            </div>
+          <header className="section-heading">
+            <p className="eyebrow">Состав</p>
+            <h2>Главные звёзды льда</h2>
+            <p>
+              На лед выходят чемпионы Олимпийских игр, мира и Европы, а также юные
+              открытия школы «Хрустальный».
+            </p>
+          </header>
+          <div className="stars__list" role="list">
+            {stars.map((star) => (
+              <article key={star.name} className="star-card" aria-label={star.name}>
+                <img src={star.image} alt={star.name} loading="lazy" />
+                <div>
+                  <h3>{star.name}</h3>
+                  <p>{star.role}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Почему стоит пойти */}
-      <section className="bg-(--color-light-bg)">
+      <section className="reasons" id="reasons">
         <div className="container">
-          <h2 className="mb-6 text-xl font-bold">Почему стоит пойти</h2>
-          <div className="md:grid-cols-md-2 grid grid-cols-1 gap-6">
-            {/* Первая причина */}
-            <div className="card">
-              <img
-                src="/assets/reason1.jpg"
-                alt="Формат для всей семьи"
-                className="card-img"
-              />
-              <div className="card-body">
-                <h3 className="mb-2 font-semibold">Формат для всей семьи</h3>
-                <p className="text-(--color-gray-text)">
-                  Это шоу вдохновит и детей, и взрослых.
-                </p>
-              </div>
-            </div>
-            {/* Вторая причина */}
-            <div className="card">
-              <img
-                src="/assets/reason2.jpg"
-                alt="Новая программа"
-                className="card-img"
-              />
-              <div className="card-body">
-                <h3 className="mb-2 font-semibold">Новая программа</h3>
-                <p className="text-(--color-gray-text)">
-                  Музыка, свет, костюмы и постановки создают атмосферу
-                  праздника.
-                </p>
-              </div>
-            </div>
-            {/* Третья причина */}
-            <div className="card">
-              <img
-                src="/assets/reason3.jpg"
-                alt="Живые эмоции"
-                className="card-img"
-              />
-              <div className="card-body">
-                <h3 className="mb-2 font-semibold">Живые эмоции</h3>
-                <p className="text-(--color-gray-text)">
-                  Всё, что вы видели на экранах, теперь в реальности — на
-                  расстоянии вытянутой руки.
-                </p>
-              </div>
-            </div>
-            {/* Четвертая причина */}
-            <div className="card">
-              <img
-                src="/assets/reason4.jpg"
-                alt="Звёздный состав"
-                className="card-img"
-              />
-              <div className="card-body">
-                <h3 className="mb-2 font-semibold">Звёздный состав</h3>
-                <p className="text-(--color-gray-text)">
-                  Олимпийские чемпионы и юные таланты – на одном льду.
-                </p>
-              </div>
-            </div>
+          <header className="section-heading">
+            <p className="eyebrow">Эмоции</p>
+            <h2>Почему стоит пойти</h2>
+          </header>
+          <div className="reasons__grid">
+            {reasons.map((reason) => (
+              <article key={reason.title} className="reason-card">
+                <img src={reason.image} alt="" aria-hidden="true" loading="lazy" />
+                <div>
+                  <h3>{reason.title}</h3>
+                  <p>{reason.text}</p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Галерея / Слайдер */}
-      <section>
+      <section className="program" id="program">
+        <div className="container program__grid">
+          <div>
+            <p className="eyebrow">Маршрут вечера</p>
+            <h2>Как проходит шоу</h2>
+            <p>
+              Лёд, свет и музыка объединяются в цельный спектакль. Приезжайте
+              заранее, чтобы успеть насладиться атмосферой тура.
+            </p>
+          </div>
+          <ol className="timeline">
+            {timeline.map((item) => (
+              <li key={item.title}>
+                <div className="timeline__time">{item.time}</div>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="gallery" id="gallery">
         <div className="container">
-          <div className="horizontal-scroll">
-            <img
-              src="/assets/gallery1.jpg"
-              alt="Кадр из шоу"
-              className="card-img min-w-[80%] sm:min-w-[50%] lg:min-w-[25%]"
-            />
-            <img
-              src="/assets/gallery2.jpg"
-              alt="Зрители на арене"
-              className="card-img min-w-[80%] sm:min-w-[50%] lg:min-w-[25%]"
-            />
-            <img
-              src="/assets/gallery3.jpg"
-              alt="Танец на льду"
-              className="card-img min-w-[80%] sm:min-w-[50%] lg:min-w-[25%]"
-            />
-            {/* Можно добавить ещё изображения */}
+          <header className="section-heading">
+            <p className="eyebrow">Фото</p>
+            <h2>Как это было в прошлых городах</h2>
+          </header>
+          <div className="gallery__track">
+            {gallery.map((item) => (
+              <figure key={item.caption}>
+                <img src={item.src} alt={item.caption} loading="lazy" />
+                <figcaption>{item.caption}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Финальный блок c призывом */}
-      <section className="cta py-16 text-center">
-        <div className="container">
-          <h2 className="mb-4 text-2xl font-bold md:text-3xl">
-            Не упустите шанс увидеть легендарных фигуристов вживую
-          </h2>
-          <p className="mb-4">
-            Это больше, чем спорт. Это — искусство на льду.
-          </p>
-          <p className="mb-6 font-semibold">
-            Это — ледовое шоу команды Этери Тутберидзе
-          </p>
-          <a
-            href="#tickets"
-            className="btn-primary mb-4 inline-block w-full max-w-xs"
-          >
-            Купить билет
-          </a>
-          <div className="text-base">
-            01.05 – 17:00 &nbsp;•&nbsp; Барыс Арена
+      <section className="cta" id="tickets">
+        <div className="container cta__content">
+          <div>
+            <p className="eyebrow">Билеты в продаже</p>
+            <h2>Не упустите шанс увидеть легендарных фигуристов вживую</h2>
+            <p>
+              Это больше, чем спорт. Это искусство на льду, созданное командой,
+              которая вдохновляет целое поколение.
+            </p>
+            <a className="btn-secondary" href="#hero">
+              Выбрать места
+            </a>
+          </div>
+          <div className="cta__details">
+            <p className="cta__date">01.05 · 17:00</p>
+            <p>Барыс Арена · Алматы</p>
+            <p>Количество мест ограничено</p>
           </div>
         </div>
       </section>
-    </>
+    </main>
   );
 };
 

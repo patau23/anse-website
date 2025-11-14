@@ -4,7 +4,6 @@ interface HeroBlockProps {}
 
 const HeroBlock = (props: HeroBlockProps) => {
   // const { onViewportEnter } = props;
-  // const { t } = useTranslation('homePage');
   // const controlPhoneBackground = useAnimationControls();
   // const controlPhone = useAnimationControls();
   // const controlLines = useAnimationControls();
