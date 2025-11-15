@@ -2,8 +2,7 @@ import clsx from 'clsx';
 
 import { containerClass } from './constants';
 
-const videoPreview =
-  'https://static.tildacdn.com/tild6634-3766-4135-a639-323230373931/Frame_9.png';
+const videoUrl = 'https://kinescope.io/embed/9MU9rZ5RWoWjUjAnarVzbt';
 
 const VideoSection = () => {
   return (
@@ -11,28 +10,31 @@ const VideoSection = () => {
       <div className={containerClass}>
         <div
           className={clsx(
-            'relative overflow-hidden rounded-3xl shadow-[0_20px_45px_rgba(16,45,168,0.15)]'
+            'relative w-full overflow-hidden rounded-none pb-[60px]'
           )}
         >
-          <img
-            src={videoPreview}
-            alt="Превью шоу"
-            loading="lazy"
-            className={clsx('h-full w-full object-cover')}
-          />
-          <button
-            type="button"
-            aria-label="Смотреть ролик"
-            className={clsx(
-              'absolute inset-0 m-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#1847ff]/90 text-2xl text-white'
-            )}
-          >
-            ▶
-          </button>
+          <div className="relative pb-[56.25%]">
+            <iframe
+              src={videoUrl}
+              title="Ролик о шоу"
+              loading="lazy"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+              className="absolute inset-0 h-full w-full"
+            />
+          </div>
         </div>
-        <p className={clsx('mt-4 text-[#7a8699]')}>
-          2 минуты, чтобы почувствовать атмосферу
-        </p>
+
+        <div className={clsx('flex items-center justify-center px-3')}>
+          <a
+            className={clsx(
+              'font-main visible m-0 box-content h-14 min-w-full origin-[148.497px_23.9974px] cursor-pointer content-center rounded-[30px] border-0 bg-[#685694] bg-cover bg-position-[50%_50%] p-0 text-center align-middle text-[18px] leading-[27.9px] font-semibold text-white antialiased [-webkit-font-smoothing:antialiased] opacity-80 transition-colors duration-200 ease-in-out [text-size-adjust:100%] hover:-translate-y-0.5'
+            )}
+            href="#tickets"
+          >
+            Купить билет
+          </a>
+        </div>
       </div>
     </section>
   );

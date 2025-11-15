@@ -34,14 +34,9 @@ const StarsSection = () => {
     <section id="stars" className={clsx('py-16 text-center')}>
       <div className={containerClass}>
         <header className={clsx('mx-auto mb-10 max-w-2xl space-y-2')}>
-          <p className={eyebrowClass}>Состав</p>
-          <h2 className={clsx('text-3xl font-semibold')}>
+          <h2 className={clsx('text-3xl font-semibold uppercase')}>
             Главные звёзды льда
           </h2>
-          <p className={clsx('text-[#7a8699]')}>
-            На лед выходят чемпионы Олимпийских игр, мира и Европы, а также юные
-            открытия школы «Хрустальный».
-          </p>
         </header>
         <div className={clsx('grid gap-6', 'sm:grid-cols-2', 'lg:grid-cols-4')}>
           {stars.map((star) => (
