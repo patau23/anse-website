@@ -10,7 +10,7 @@ const AboutSection = () => {
     <section
       id="about"
       className={clsx(
-        '-mt-16 rounded-t-4xl bg-[#f8fbff] pt-10 pb-14 shadow-[0_-30px_80px_rgba(16,45,168,0.08)]',
+        'bg-[#f8fbff] px-5 pt-10 pb-8 shadow-[0_-30px_80px_rgba(16,45,168,0.08)]',
         'sm:-mt-20 sm:rounded-t-[36px]',
         'lg:-mt-24 lg:rounded-t-[48px]'
       )}
@@ -18,7 +18,7 @@ const AboutSection = () => {
       <div
         className={clsx(
           containerClass,
-          'grid gap-8',
+          'grid gap-6',
           'md:grid-cols-2 md:items-center'
         )}
       >
@@ -28,26 +28,57 @@ const AboutSection = () => {
             alt="Хореографический номер"
             loading="lazy"
             className={clsx(
-              'w-full rounded-[28px] shadow-[0_20px_45px_rgba(16,45,168,0.15)]'
+              'h-[221px] w-full rounded-[15px] shadow-[0_20px_45px_rgba(16,45,168,0.15)]'
             )}
           />
         </div>
-        <div className={clsx('order-2 space-y-4 text-[#1d2b3f]', 'md:order-0')}>
-          <p>
-            Весной 2026 года легендарная команда Этери Тутберидзе выходит на лёд
-            с новым грандиозным шоу, которое обещает стать главным событием
-            сезона.
+        <div
+          className={clsx(
+            'order-2 flex flex-col gap-6 space-y-4 text-[#1d2b3f]',
+            'md:order-0'
+          )}
+        >
+          <p
+            className={clsx(
+              'font-main visible m-0 box-content w-full origin-[138.499px_34.9963px] border-0 bg-cover bg-position-[50%_50%] p-0 px-1 align-middle font-["Inter",Arial,sans-serif] text-[14px] leading-[17.5px] font-normal text-black antialiased [text-size-adjust:auto] [unicode-bidi:isolate]'
+            )}
+          >
+            Весной 2026 года легендарная команда <br />
+            <strong> Этери Тутберидзе </strong>выходит на лёд с новым
+            грандиозным шоу, которое обещает стать главным
+            спортивно-эмоциональным <br /> событием сезона.
           </p>
-          <p>
-            На вас ждёт вечер, где каждая программа&nbsp;— маленькая история о
-            мечтах, победах и вдохновении. Сложнейшие элементы сочетаются с
-            хореографией, светом и музыкой, создавая магию, от которой
-            невозможно отвести взгляд.
-          </p>
-          <p>
-            Программа подготовлена специально для весеннего тура и будет
-            показана только в нескольких городах. Алматы&nbsp;— один из них.
-          </p>
+
+          <div
+            className={clsx(
+              'visible z-3 m-0 box-border table h-[2.99968px] w-[99.996px] border-0 p-0 antialiased [unicode-bidi:isolate] [zoom:1.172]'
+            )}
+          >
+            <div
+              className={clsx(
+                'visible m-0 box-content table-cell h-[2.99968px] w-[99.996px] origin-[49.998px_1.49984px] border-0 bg-[#685694] bg-position-[50%_50%] p-0 align-middle antialiased [text-size-adjust:100%] [unicode-bidi:isolate]'
+              )}
+            />
+          </div>
+
+          <div
+            className={clsx(
+              'visible z-3 m-0 box-border table h-[111.988px] w-[264.998px] border-0 p-0 font-["Inter",Arial,sans-serif] text-black antialiased [text-size-adjust:100%] [unicode-bidi:isolate] [zoom:1.172]'
+            )}
+          >
+            <div
+              className={clsx(
+                'font-main visible m-0 box-content table-cell h-[111.988px] w-[264.998px] origin-[132.499px_55.994px] border-0 bg-cover bg-position-[50%_50%] p-0 align-middle text-[12px] leading-3.5 font-normal text-black antialiased [text-size-adjust:auto] [unicode-bidi:isolate]'
+              )}
+            >
+              На вас ждёт вечер, где каждая программа&nbsp;— маленькая история о
+              мечтах, победах и вдохновении.
+              <br />
+              <br />
+              Сложнейшие элементы сочетаются с хореографией, светом и музыкой,
+              создавая магию, от которой невозможно отвести взгляд.
+            </div>
+          </div>
         </div>
       </div>
     </section>

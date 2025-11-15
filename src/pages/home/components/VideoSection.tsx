@@ -7,7 +7,7 @@ const videoPreview =
 
 const VideoSection = () => {
   return (
-    <section id="video" className={clsx('py-16 text-center')}>
+    <section id="video" className={clsx('px-0 pt-16 pb-[60px] text-center')}>
       <div className={containerClass}>
         <div
           className={clsx(

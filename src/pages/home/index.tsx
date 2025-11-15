@@ -15,7 +15,7 @@ const LandingPage = () => {
   return (
     <main
       className={clsx(
-        'min-h-screen bg-[#f6f8fd] pb-20 text-[#0c1420]',
+        'relative min-h-screen bg-[#f6f8fd] pb-20 text-[#0c1420]',
         'sm:pb-24',
         'lg:pb-28'
       )}
