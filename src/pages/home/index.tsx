@@ -25,7 +25,7 @@ const LandingPage = () => {
       <VideoSection />
       <StarsSection />
       <ReasonsSection />
-      <ProgramSection />
+      {/* <ProgramSection /> */}
       <GallerySection />
       <TicketsSection />
     </main>
