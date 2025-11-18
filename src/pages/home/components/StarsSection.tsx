@@ -12,7 +12,7 @@ import petrosyanImg from '@/shared/assets/imgs/person-stars/petrosyan.png';
 import samsonovImg from '@/shared/assets/imgs/person-stars/samsonov.png';
 import tuktamyshevaImg from '@/shared/assets/imgs/person-stars/tuktamysheva.png';
 import sadkovaImg from '@/shared/assets/imgs/person-stars/sadkova.png';
-import valievaImg from '@/shared/assets/imgs/person-stars/valieva.png';
+// import valievaImg from '@/shared/assets/imgs/person-stars/valieva.png';
 import volosozharTrankovImg from '@/shared/assets/imgs/person-stars/volosozhar-trankov.png';
 import zagitovaImg from '@/shared/assets/imgs/person-stars/zagitova.png';
 import arrowImg from '@/shared/assets/imgs/arrow-image.png';
@@ -57,15 +57,15 @@ const stars: StarSlide[] = [
     category: 'Легенда',
     image: medvedevaImg,
   },
-  {
-    id: 'valieva',
-    name: 'Камила Валиева',
-    role: 'Олимпийская чемпионка',
-    description:
-      'Её программы задают стандарты для женского одиночного катания и продолжают вдохновлять новое поколение.',
-    category: 'Чемпион',
-    image: valievaImg,
-  },
+  // {
+  //   id: 'valieva',
+  //   name: 'Камила Валиева',
+  //   role: 'Олимпийская чемпионка',
+  //   description:
+  //     'Её программы задают стандарты для женского одиночного катания и продолжают вдохновлять новое поколение.',
+  //   category: 'Чемпион',
+  //   image: valievaImg,
+  // },
   {
     id: 'zagitova',
     name: 'Алина Загитова',
