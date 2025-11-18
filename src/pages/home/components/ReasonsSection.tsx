@@ -1,5 +1,7 @@
 import img1 from '@/shared/assets/imgs/reasons/image-1.png';
 import img2 from '@/shared/assets/imgs/reasons/image-2.png';
+import img3 from '@/shared/assets/imgs/reasons/image-3.png';
+import img4 from '@/shared/assets/imgs/reasons/image-4.png';
 import clsx from 'clsx';
 
 import { containerClass } from './constants';
@@ -17,49 +19,85 @@ const reasons = [
   },
 ];
 
+const desktTopReasons = [
+  { title: '', image: img1 },
+  { title: 'Новая программа', image: img3 },
+  { title: 'Новая программа', image: img4 },
+  { title: 'Новая программа', image: img2 },
+];
+
 const ReasonsSection = () => {
+  const isDesktop = window.innerWidth >= 1024;
   return (
     <section id="reasons" className={clsx('py-16')}>
       <div className={containerClass}>
-        <header className={clsx('mb-10 max-w-xl')}>
+        <header className={clsx('mb-10 max-w-xl', 'lg:max-w-none')}>
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-            <h2 className="px-6 text-left text-3xl font-semibold tracking-tight text-[#151826] uppercase md:text-[34px]">
+            <h2
+              className={clsx(
+                'px-6 text-left text-3xl font-semibold tracking-tight text-[#151826] uppercase md:text-[34px]',
+                'lg:w-auto lg:text-[5rem]'
+              )}
+            >
               Почему стоит пойти
             </h2>
           </div>
         </header>
 
-        <div className={clsx('grid gap-5 px-4', 'sm:grid-cols-2')}>
-          {reasons.map((reason) => (
-            <article
-              key={reason.title}
-              className={clsx(
-                'flex items-center gap-4 rounded-[13px] border-[1.5px] border-[#685697] bg-white text-left transition-transform duration-200 hover:-translate-y-0.5',
-                'max-sm:flex-col max-sm:text-center'
-              )}
-            >
-              <img
-                src={reason.image}
-                alt=""
-                aria-hidden="true"
-                loading="lazy"
+        <div className={clsx('grid gap-5 px-4', 'lg:grid-cols-2')}>
+          {!isDesktop &&
+            reasons.map((reason) => (
+              <article
+                key={reason.title}
                 className={clsx(
-                  'box-border h-[170px] min-w-[calc(100%+3px)] rounded-xl object-cover'
+                  'flex items-center gap-4 rounded-[13px] border-[1.5px] border-[#685697] bg-white text-left transition-transform duration-200 hover:-translate-y-0.5',
+                  'max-sm:flex-col max-sm:text-center'
                 )}
-              />
+              >
+                <img
+                  src={reason.image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className={clsx(
+                    'box-border h-[170px] min-w-[calc(100%+3px)] rounded-xl object-cover'
+                  )}
+                />
 
-              <div className="p-3 pt-0 text-left text-[#685697]">
-                <h3
-                  className={clsx('text-lg leading-5 font-semibold uppercase')}
-                >
-                  {reason.title}
-                </h3>
-                <p className={clsx('font-inter text-[10px] leading-3')}>
-                  {reason.text}
-                </p>
-              </div>
-            </article>
-          ))}
+                <div className="p-3 pt-0 text-left text-[#685697]">
+                  <h3
+                    className={clsx(
+                      'text-lg leading-5 font-semibold uppercase'
+                    )}
+                  >
+                    {reason.title}
+                  </h3>
+                  <p className={clsx('font-inter text-[10px] leading-3')}>
+                    {reason.text}
+                  </p>
+                </div>
+              </article>
+            ))}
+          {isDesktop &&
+            desktTopReasons.map((reason) => (
+              <article
+                key={reason.title}
+                className={clsx(
+                  'flex items-center gap-4 rounded-[13px] bg-white text-left transition-transform duration-200 hover:-translate-y-0.5',
+                  'max-sm:flex-col max-sm:text-center'
+                )}
+              >
+                <img
+                  src={reason.image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  className={clsx(
+                    'box-border min-w-[calc(100%+3px)] rounded-xl object-cover'
+                  )}
+                />
+              </article>
+            ))}
         </div>
       </div>
     </section>

@@ -196,7 +196,13 @@ const StarsSection = () => {
         )}
       >
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-          <h2 className="px-6 text-left text-3xl font-semibold tracking-tight text-[#151826] uppercase md:text-[34px]">
+          <h2
+            className={clsx(
+              'px-6 text-left text-3xl font-semibold tracking-tight text-[#151826] uppercase md:text-[34px]',
+              '',
+              'lg:text-[5rem]'
+            )}
+          >
             Главные звёзды льда
           </h2>
         </div>
@@ -213,20 +219,28 @@ const StarsSection = () => {
 
         <div className="mt-8 select-none">
           <div
-            className="flex gap-3 overflow-x-auto scroll-smooth py-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+            className={clsx(
+              'flex gap-3 overflow-x-auto scroll-smooth py-2',
+              // '[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
+              'lg:gap-10'
+            )}
             aria-label="Звёзды Тутберидзе"
           >
             {stars.map((star) => (
               <article
                 key={star.id}
-                className="shrink-0 snap-start rounded-4xl first:ml-10 last:mr-10 sm:basis-[55%] lg:basis-[32%]"
+                className={clsx(
+                  'shrink-0 snap-start rounded-4xl first:ml-10 last:mr-10 sm:basis-[55%] lg:basis-[32%]',
+                  'lg:first:ml-30 lg:last:mr-30'
+                )}
               >
                 <img
                   src={star.image}
                   alt={star.name}
                   loading="lazy"
                   className={clsx(
-                    'visible m-0 box-content block h-[404px] w-[302px] overflow-clip border-0 object-[50%_50%] p-0 antialiased [overflow-clip-margin:content-box] [text-size-adjust:100%]'
+                    'visible m-0 box-content block h-[404px] w-[302px] overflow-clip border-0 object-[50%_50%] p-0 antialiased [overflow-clip-margin:content-box] [text-size-adjust:100%]',
+                    'lg:h-[780px] lg:w-[584px]'
                   )}
                 />
               </article>

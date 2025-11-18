@@ -1,9 +1,10 @@
 import clsx from 'clsx';
 
 export const containerClass = clsx(
-  'mx-auto w-full max-w-[1120px] '
-  // 'sm:px-6',
-  // 'lg:px-8'
+  'mx-auto w-full max-w-[1120px] ',
+  'sm',
+  'md',
+  'lg:max-w-[88.7vw]'
 );
 
 export const eyebrowClass =

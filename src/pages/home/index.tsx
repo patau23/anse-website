@@ -4,7 +4,6 @@ import {
   AboutSection,
   GallerySection,
   HeroSection,
-  ProgramSection,
   ReasonsSection,
   StarsSection,
   TicketsSection,
@@ -15,9 +14,8 @@ const LandingPage = () => {
   return (
     <main
       className={clsx(
-        'relative min-h-screen bg-[#f6f8fd] text-[#0c1420]',
-        'sm:pb-24',
-        'lg:pb-28'
+        'relative min-h-screen bg-[#f6f8fd] text-[#0c1420]'
+        // 'sm:pb-24'
       )}
     >
       <HeroSection />
