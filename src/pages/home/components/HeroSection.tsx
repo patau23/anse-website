@@ -93,7 +93,7 @@ const HeroSection = () => {
             >
               Ледовое шоу команды Этери Тутберидзе – "Чемпионы на льду"{' '}
               {!isDesktop && <br />}в{' '}
-              <span className={'md:text-[#685694]'}>Астану</span>
+              <span className={'md:text-[#685694]'}>Астане</span>
               {/* Ледовое шоу команды Этери Тутберидзе — весенний тур 2026{' '}
               {!isDesktop && <br />}в{' '}
               <span className={'md:text-[#685694]'}>Астану</span> */}

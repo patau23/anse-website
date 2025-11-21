@@ -2,7 +2,9 @@ import clsx from 'clsx';
 
 import { containerClass } from './constants';
 
-const videoUrl = 'https://kinescope.io/embed/9MU9rZ5RWoWjUjAnarVzbt';
+const video1 = 'https://kinescope.io/embed/9MU9rZ5RWoWjUjAnarVzbt';
+const video2 = 'https://kinescope.io/embed/6bqkRYSRidUfN3fpwuJv4Q';
+const video3 = 'https://kinescope.io/embed/cXoTYrpKrADSTM2Qj95cPg';
 
 const VideoSection = () => {
   return (
@@ -16,7 +18,7 @@ const VideoSection = () => {
         >
           <div className="relative pb-[56.25%]">
             <iframe
-              src={videoUrl}
+              src={video1}
               title="Ролик о шоу"
               loading="lazy"
               allow="autoplay; fullscreen; picture-in-picture"

@@ -221,7 +221,6 @@ const StarsSection = () => {
           <div
             className={clsx(
               'flex gap-3 overflow-x-auto scroll-smooth py-2',
-              // '[-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden',
               'lg:gap-10'
             )}
             aria-label="Звёзды Тутберидзе"
@@ -240,7 +239,7 @@ const StarsSection = () => {
                   loading="lazy"
                   className={clsx(
                     'visible m-0 box-content block h-[404px] w-[302px] overflow-clip border-0 object-[50%_50%] p-0 antialiased [overflow-clip-margin:content-box] [text-size-adjust:100%]',
-                    'lg:h-[780px] lg:w-[584px]'
+                    'lg:h-[64vh] lg:w-[30vw]'
                   )}
                 />
               </article>

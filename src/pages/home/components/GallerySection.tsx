@@ -13,8 +13,8 @@ import img8 from '@/shared/assets/imgs/gallery/image8.png';
 import img9 from '@/shared/assets/imgs/gallery/image9.png';
 import img10 from '@/shared/assets/imgs/gallery/image10.png';
 import img11 from '@/shared/assets/imgs/gallery/image11.png';
-import img12 from '@/shared/assets/imgs/gallery/image12.png';
-import img13 from '@/shared/assets/imgs/gallery/image13.png';
+// import img12 from '@/shared/assets/imgs/gallery/image12.png';
+// import img13 from '@/shared/assets/imgs/gallery/image13.png';
 
 import { containerClass, eyebrowClass } from './constants';
 
@@ -30,8 +30,8 @@ const gallery = [
   { src: img9, caption: 'Картинка из шоу №9' },
   { src: img10, caption: 'Картинка из шоу №10' },
   { src: img11, caption: 'Картинка из шоу №11' },
-  { src: img12, caption: 'Картинка из шоу №12' },
-  { src: img13, caption: 'Картинка из шоу №13' },
+  // { src: img12, caption: 'Картинка из шоу №12' },
+  // { src: img13, caption: 'Картинка из шоу №13' },
 ];
 
 const GallerySection = () => {
