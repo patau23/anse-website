@@ -1,8 +1,11 @@
 import arrowImg from '@/shared/assets/imgs/arrow-image.png';
-import clsx from 'clsx';
 import * as ScrollArea from '@radix-ui/react-scroll-area';
+import clsx from 'clsx';
+import { useCallback, useRef } from 'react';
 
 import img1 from '@/shared/assets/imgs/gallery/image1.png';
+import img10 from '@/shared/assets/imgs/gallery/image10.png';
+import img11 from '@/shared/assets/imgs/gallery/image11.png';
 import img2 from '@/shared/assets/imgs/gallery/image2.png';
 import img3 from '@/shared/assets/imgs/gallery/image3.png';
 import img4 from '@/shared/assets/imgs/gallery/image4.png';
@@ -11,12 +14,10 @@ import img6 from '@/shared/assets/imgs/gallery/image6.png';
 import img7 from '@/shared/assets/imgs/gallery/image7.png';
 import img8 from '@/shared/assets/imgs/gallery/image8.png';
 import img9 from '@/shared/assets/imgs/gallery/image9.png';
-import img10 from '@/shared/assets/imgs/gallery/image10.png';
-import img11 from '@/shared/assets/imgs/gallery/image11.png';
 // import img12 from '@/shared/assets/imgs/gallery/image12.png';
 // import img13 from '@/shared/assets/imgs/gallery/image13.png';
 
-import { containerClass, eyebrowClass } from './constants';
+import { containerClass } from './constants';
 
 const gallery = [
   { src: img1, caption: 'Картинка из шоу №1' },
@@ -35,18 +36,48 @@ const gallery = [
 ];
 
 const GallerySection = () => {
+  const viewportRef = useRef<HTMLDivElement>(null);
+
+  const handleArrowClick = useCallback(() => {
+    const viewport = viewportRef.current;
+    if (!viewport) return;
+
+    // внутри Viewport первый child — наш flex-контейнер с figure
+    const container = viewport.firstElementChild as HTMLElement | null;
+    if (!container) return;
+
+    const firstCard = container.querySelector<HTMLElement>('figure');
+    const cardWidth = firstCard?.clientWidth ?? 0;
+
+    const gap = parseFloat(getComputedStyle(container).columnGap || '0') || 0;
+
+    const fallbackScroll = viewport.clientWidth * 0.8;
+
+    viewport.scrollBy({
+      left: cardWidth + gap || fallbackScroll,
+      behavior: 'smooth',
+    });
+  }, []);
+
   return (
     <section id="gallery" className={clsx('py-16')}>
       <div className={clsx(containerClass, 'flex flex-col gap-6')}>
         <div className={clsx('flex w-full justify-end px-6 md:px-0')}>
-          <img
-            src={arrowImg}
-            alt="Arrow"
-            className={clsx(
-              'visible m-0 box-content block h-[25.6173px] w-[40.9956px] overflow-clip border-0 object-[50%_50%] p-0 antialiased',
-              '[overflow-clip-margin:content-box] [text-size-adjust:100%]'
-            )}
-          />
+          <button
+            type="button"
+            onClick={handleArrowClick}
+            className="transition-opacity duration-200 hover:opacity-80 focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-[#151826]"
+            aria-label="Прокрутить галерею"
+          >
+            <img
+              src={arrowImg}
+              alt="Arrow"
+              className={clsx(
+                'visible m-0 box-content block h-[25.6173px] w-[40.9956px] overflow-clip border-0 object-[50%_50%] p-0 antialiased',
+                '[overflow-clip-margin:content-box] [text-size-adjust:100%]'
+              )}
+            />
+          </button>
         </div>
 
         <ScrollArea.Root
@@ -54,7 +85,7 @@ const GallerySection = () => {
           scrollHideDelay={0}
           className="w-full px-3 select-none md:px-0"
         >
-          <ScrollArea.Viewport className="w-full">
+          <ScrollArea.Viewport className="w-full" ref={viewportRef}>
             <div
               className="flex h-[525px] gap-4 py-2"
               aria-label="Галерея тура"

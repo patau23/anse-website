@@ -33,7 +33,6 @@ const HeroSection = () => {
           <div
             className={clsx(
               'min-h-[278.997px] overflow-hidden rounded-[28px]',
-              'lg:',
               ''
             )}
             role="presentation"

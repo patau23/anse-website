@@ -9,15 +9,16 @@ import kvitelashviliImg from '@/shared/assets/imgs/person-stars/kvitelashvili.pn
 import medvedevaImg from '@/shared/assets/imgs/person-stars/medvedeva.png';
 import mozalevImg from '@/shared/assets/imgs/person-stars/mozalev.png';
 import petrosyanImg from '@/shared/assets/imgs/person-stars/petrosyan.png';
+import sadkovaImg from '@/shared/assets/imgs/person-stars/sadkova.png';
 import samsonovImg from '@/shared/assets/imgs/person-stars/samsonov.png';
 import tuktamyshevaImg from '@/shared/assets/imgs/person-stars/tuktamysheva.png';
-import sadkovaImg from '@/shared/assets/imgs/person-stars/sadkova.png';
 // import valievaImg from '@/shared/assets/imgs/person-stars/valieva.png';
+import arrowImg from '@/shared/assets/imgs/arrow-image.png';
 import volosozharTrankovImg from '@/shared/assets/imgs/person-stars/volosozhar-trankov.png';
 import zagitovaImg from '@/shared/assets/imgs/person-stars/zagitova.png';
-import arrowImg from '@/shared/assets/imgs/arrow-image.png';
 
 import clsx from 'clsx';
+import { useCallback, useRef } from 'react';
 import { containerClass } from './constants';
 
 type StarSlide = {
@@ -187,6 +188,24 @@ const stars: StarSlide[] = [
 ];
 
 const StarsSection = () => {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const handleArrowClick = useCallback(() => {
+    const container = scrollContainerRef.current;
+
+    if (!container) return;
+
+    const firstCard = container.querySelector('article');
+    const cardWidth = firstCard?.clientWidth ?? 0;
+    const gap = parseFloat(getComputedStyle(container).columnGap) || 0;
+    const fallbackScroll = container.clientWidth * 0.8;
+
+    container.scrollBy({
+      left: cardWidth + gap || fallbackScroll,
+      behavior: 'smooth',
+    });
+  }, []);
+
   return (
     <section id="stars" className="py-16 md:py-24">
       <div
@@ -198,7 +217,7 @@ const StarsSection = () => {
         <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <h2
             className={clsx(
-              'px-6 text-left text-3xl font-semibold tracking-tight text-[#151826] uppercase md:text-[34px]',
+              'cursor-pointer px-6 text-left text-3xl font-semibold tracking-tight text-[#151826] uppercase md:text-[34px]',
               '',
               'lg:text-[5rem]'
             )}
@@ -208,13 +227,20 @@ const StarsSection = () => {
         </div>
 
         <div className={clsx('flex w-full justify-end px-6')}>
-          <img
-            src={arrowImg}
-            alt="Arrow"
-            className={clsx(
-              'visible m-0 box-content block h-[25.6173px] w-[40.9956px] overflow-clip border-0 object-[50%_50%] p-0 antialiased [overflow-clip-margin:content-box] [text-size-adjust:100%]'
-            )}
-          />
+          <button
+            type="button"
+            onClick={handleArrowClick}
+            className="transition-opacity duration-200 hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#151826]"
+            aria-label="Прокрутить слайдер со звёздами"
+          >
+            <img
+              src={arrowImg}
+              alt="Arrow"
+              className={clsx(
+                'visible m-0 box-content block h-[25.6173px] w-[40.9956px] overflow-clip border-0 object-[50%_50%] p-0 antialiased [overflow-clip-margin:content-box] [text-size-adjust:100%]'
+              )}
+            />
+          </button>
         </div>
 
         <div className="mt-8 select-none">
@@ -224,13 +250,14 @@ const StarsSection = () => {
               'lg:gap-10'
             )}
             aria-label="Звёзды Тутберидзе"
+            ref={scrollContainerRef}
           >
             {stars.map((star) => (
               <article
                 key={star.id}
                 className={clsx(
-                  'shrink-0 snap-start rounded-4xl first:ml-10 last:mr-10 sm:basis-[55%] lg:basis-[32%]',
-                  'lg:first:ml-30 lg:last:mr-30'
+                  'w-fit shrink-0 snap-start rounded-4xl', // тут магия
+                  'first:ml-10 last:mr-10 lg:first:ml-30 lg:last:mr-30'
                 )}
               >
                 <img
@@ -239,7 +266,7 @@ const StarsSection = () => {
                   loading="lazy"
                   className={clsx(
                     'visible m-0 box-content block h-[404px] w-[302px] overflow-clip border-0 object-[50%_50%] p-0 antialiased [overflow-clip-margin:content-box] [text-size-adjust:100%]',
-                    'lg:h-[64vh] lg:w-[30vw]'
+                    'aspect-auto lg:h-[72vh] lg:w-auto'
                   )}
                 />
               </article>
