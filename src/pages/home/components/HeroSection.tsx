@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import img from '@/shared/assets/imgs/main-banner.png';
 
 import { containerClass } from './constants';
 
@@ -6,9 +7,10 @@ const heroBadges = ['Грация', 'Сила', 'Эмоции'];
 
 const heroPosterImages = {
   desktop:
-    'https://optim.tildacdn.com/tild6436-3035-4263-b961-666533323638/-/format/webp/Mask_group.png.webp',
-  mobile:
-    'https://optim.tildacdn.com/tild3131-6162-4832-b637-356337613363/-/format/webp/Mask_group.png.webp',
+    //
+    img,
+  // 'https://optim.tildacdn.com/tild6436-3035-4263-b961-666533323638/-/format/webp/Mask_group.png.webp',
+  mobile: img,
 };
 
 const HeroSection = () => {
@@ -20,7 +22,7 @@ const HeroSection = () => {
       className={clsx(
         'relative isolate overflow-hidden bg-[linear-gradient(180deg,#f6f8fd_0%,#f8fbff_70%,rgba(248,251,255,0))] pt-4',
         'sm:pt-16',
-        'lg:h-screen lg:pt-16 lg:pb-0'
+        'lg:h-screen lg:min-h-[970px] lg:pt-16 lg:pb-0'
       )}
     >
       <div className={clsx(containerClass, 'relative grid', '')}>
@@ -32,8 +34,8 @@ const HeroSection = () => {
         >
           <div
             className={clsx(
-              'min-h-[278.997px] overflow-hidden rounded-[28px]',
-              ''
+              'overflow-hidden rounded-3xl',
+              'lg:min-h-[278.997px] lg:rounded-4xl'
             )}
             role="presentation"
           >
@@ -46,7 +48,10 @@ const HeroSection = () => {
                 src={heroPosterImages.desktop}
                 alt="Tutberidze"
                 loading="lazy"
-                className={clsx('h-full w-full object-cover')}
+                className={clsx(
+                  'h-full w-full transform-[scale(1.3)] rounded-2xl object-cover object-[50%_0px]',
+                  'lg:max-h-[300px] lg:object-[50%_-70px]'
+                )}
               />
             </picture>
           </div>
@@ -87,7 +92,7 @@ const HeroSection = () => {
               className={clsx(
                 'mb-2 text-[24px] leading-tight font-semibold uppercase',
                 'sm:text-4xl',
-                'lg:text-[5rem]'
+                'lg:text-[4rem]'
               )}
             >
               Ледовое шоу команды Этери Тутберидзе – "Чемпионы на льду"{' '}

@@ -12,6 +12,7 @@ import petrosyanImg from '@/shared/assets/imgs/person-stars/petrosyan.png';
 import sadkovaImg from '@/shared/assets/imgs/person-stars/sadkova.png';
 import samsonovImg from '@/shared/assets/imgs/person-stars/samsonov.png';
 import tuktamyshevaImg from '@/shared/assets/imgs/person-stars/tuktamysheva.png';
+import tutberidzeImg from '@/shared/assets/imgs/person-stars/tutberidze.png';
 // import valievaImg from '@/shared/assets/imgs/person-stars/valieva.png';
 import arrowImg from '@/shared/assets/imgs/arrow-image.png';
 import volosozharTrankovImg from '@/shared/assets/imgs/person-stars/volosozhar-trankov.png';
@@ -31,6 +32,15 @@ type StarSlide = {
 };
 
 const stars: StarSlide[] = [
+  {
+    id: 'tutberidze',
+    name: 'Этери Тутберидзе',
+    role: 'Главный тренер',
+    description:
+      'Создательница школы, которая воспитала чемпионов и изменила мировое фигурное катание.',
+    category: 'Тренер',
+    image: tutberidzeImg,
+  },
   {
     id: 'gleikhenhaus',
     name: 'Даниил Глейхенгауз',
@@ -230,7 +240,7 @@ const StarsSection = () => {
           <button
             type="button"
             onClick={handleArrowClick}
-            className="transition-opacity duration-200 hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#151826]"
+            className="transition-opacity duration-200 hover:opacity-80 focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-[#151826]"
             aria-label="Прокрутить слайдер со звёздами"
           >
             <img
@@ -256,7 +266,7 @@ const StarsSection = () => {
               <article
                 key={star.id}
                 className={clsx(
-                  'w-fit shrink-0 snap-start rounded-4xl', // тут магия
+                  'w-fit shrink-0 snap-start', // тут магия
                   'first:ml-10 last:mr-10 lg:first:ml-30 lg:last:mr-30'
                 )}
               >
@@ -265,8 +275,8 @@ const StarsSection = () => {
                   alt={star.name}
                   loading="lazy"
                   className={clsx(
-                    'visible m-0 box-content block h-[404px] w-[302px] overflow-clip border-0 object-[50%_50%] p-0 antialiased [overflow-clip-margin:content-box] [text-size-adjust:100%]',
-                    'aspect-auto lg:h-[72vh] lg:w-auto'
+                    'visible m-0 box-content block h-[404px] w-[302px] overflow-clip rounded-[28px] border-0 object-[50%_50%] p-0 antialiased [overflow-clip-margin:content-box] [text-size-adjust:100%]',
+                    'aspect-auto lg:h-[72vh] lg:w-auto lg:rounded-[41px]'
                   )}
                 />
               </article>

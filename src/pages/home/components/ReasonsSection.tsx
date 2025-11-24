@@ -20,10 +20,10 @@ const reasons = [
 ];
 
 const desktTopReasons = [
-  { title: '', image: img1 },
-  { title: 'Новая программа', image: img3 },
-  { title: 'Новая программа', image: img4 },
-  { title: 'Новая программа', image: img2 },
+  { title: '1', image: img1 },
+  { title: '2', image: img3 },
+  { title: '3', image: img4 },
+  { title: '4', image: img2 },
 ];
 
 const ReasonsSection = () => {
