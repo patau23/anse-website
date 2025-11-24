@@ -13,6 +13,8 @@ import sadkovaImg from '@/shared/assets/imgs/person-stars/sadkova.png';
 import samsonovImg from '@/shared/assets/imgs/person-stars/samsonov.png';
 import tuktamyshevaImg from '@/shared/assets/imgs/person-stars/tuktamysheva.png';
 import tutberidzeImg from '@/shared/assets/imgs/person-stars/tutberidze.png';
+import tursynbaevaImg from '@/shared/assets/imgs/person-stars/tursynbaeva.png';
+import tarasovaMorozovImg from '@/shared/assets/imgs/person-stars/tarasova-morozov.png';
 // import valievaImg from '@/shared/assets/imgs/person-stars/valieva.png';
 import arrowImg from '@/shared/assets/imgs/arrow-image.png';
 import volosozharTrankovImg from '@/shared/assets/imgs/person-stars/volosozhar-trankov.png';
@@ -106,6 +108,15 @@ const stars: StarSlide[] = [
     image: petrosyanImg,
   },
   {
+    id: 'tursynbaeva',
+    name: 'Элизабет Турсынбаева',
+    role: 'Победительница Гран-при',
+    description:
+      'Самая юная звезда, открывшая новую эру сложнейших вращений и прыжков в два акселя.',
+    category: 'Ученик',
+    image: tursynbaevaImg,
+  },
+  {
     id: 'akatyeva',
     name: 'Софья Акатьева',
     role: 'Чемпионка юниорского Гран-при',
@@ -194,6 +205,15 @@ const stars: StarSlide[] = [
       'Быстро прогрессирует в мужской команде, подтверждая силу школы на международной арене.',
     category: 'Ученик',
     image: fedotovImg,
+  },
+  {
+    id: 'tarasova-morozov',
+    name: 'Тарасова / Морозов',
+    role: 'Призёры Европы',
+    description:
+      'Парная команда, которая сочетает технику и артистизм, продолжая традиции школы в парном катании.',
+    category: 'Ученики',
+    image: tarasovaMorozovImg,
   },
 ];
 
