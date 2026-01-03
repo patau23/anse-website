@@ -4,8 +4,6 @@ import clsx from 'clsx';
 import { useCallback, useRef } from 'react';
 
 import img1 from '@/shared/assets/imgs/gallery/image1.png';
-import img10 from '@/shared/assets/imgs/gallery/image10.png';
-import img11 from '@/shared/assets/imgs/gallery/image11.png';
 import img2 from '@/shared/assets/imgs/gallery/image2.png';
 import img3 from '@/shared/assets/imgs/gallery/image3.png';
 import img4 from '@/shared/assets/imgs/gallery/image4.png';
@@ -14,8 +12,17 @@ import img6 from '@/shared/assets/imgs/gallery/image6.png';
 import img7 from '@/shared/assets/imgs/gallery/image7.png';
 import img8 from '@/shared/assets/imgs/gallery/image8.png';
 import img9 from '@/shared/assets/imgs/gallery/image9.png';
-// import img12 from '@/shared/assets/imgs/gallery/image12.png';
-// import img13 from '@/shared/assets/imgs/gallery/image13.png';
+import img10 from '@/shared/assets/imgs/gallery/image10.png';
+import img11 from '@/shared/assets/imgs/gallery/image11.png';
+import img12 from '@/shared/assets/imgs/gallery/image12.jpg';
+import img13 from '@/shared/assets/imgs/gallery/image13.jpg';
+import img14 from '@/shared/assets/imgs/gallery/image14.jpg';
+import img15 from '@/shared/assets/imgs/gallery/image15.jpg';
+import img16 from '@/shared/assets/imgs/gallery/image16.jpg';
+import img17 from '@/shared/assets/imgs/gallery/image17.jpg';
+import img18 from '@/shared/assets/imgs/gallery/image18.jpg';
+import img19 from '@/shared/assets/imgs/gallery/image19.jpg';
+import img20 from '@/shared/assets/imgs/gallery/image20.jpg';
 
 import { containerClass } from './constants';
 
@@ -31,8 +38,15 @@ const gallery = [
   { src: img9, caption: 'Картинка из шоу №9' },
   { src: img10, caption: 'Картинка из шоу №10' },
   { src: img11, caption: 'Картинка из шоу №11' },
-  // { src: img12, caption: 'Картинка из шоу №12' },
-  // { src: img13, caption: 'Картинка из шоу №13' },
+  { src: img12, caption: 'Картинка из шоу №12' },
+  { src: img13, caption: 'Картинка из шоу №13' },
+  { src: img14, caption: 'Картинка из шоу №14' },
+  { src: img15, caption: 'Картинка из шоу №15' },
+  { src: img16, caption: 'Картинка из шоу №16' },
+  { src: img17, caption: 'Картинка из шоу №17' },
+  { src: img18, caption: 'Картинка из шоу №18' },
+  { src: img19, caption: 'Картинка из шоу №19' },
+  { src: img20, caption: 'Картинка из шоу №20' },
 ];
 
 const GallerySection = () => {

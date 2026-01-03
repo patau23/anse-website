@@ -1,3 +1,4 @@
+import arrowImg from '@/shared/assets/imgs/arrow-image.png';
 import akatyevaImg from '@/shared/assets/imgs/person-stars/akatyeva.png';
 import bazylyukImg from '@/shared/assets/imgs/person-stars/bazylyuk.png';
 import boykovaKozlovskiyImg from '@/shared/assets/imgs/person-stars/boykova-kozlovskiy.png';
@@ -8,15 +9,15 @@ import gleikhenhausImg from '@/shared/assets/imgs/person-stars/gleikhenhaus.png'
 import kvitelashviliImg from '@/shared/assets/imgs/person-stars/kvitelashvili.png';
 import medvedevaImg from '@/shared/assets/imgs/person-stars/medvedeva.png';
 import mozalevImg from '@/shared/assets/imgs/person-stars/mozalev.png';
+import petrGummennikImg from '@/shared/assets/imgs/person-stars/petr-gumennik.png';
 import petrosyanImg from '@/shared/assets/imgs/person-stars/petrosyan.png';
 import sadkovaImg from '@/shared/assets/imgs/person-stars/sadkova.png';
 import samsonovImg from '@/shared/assets/imgs/person-stars/samsonov.png';
-import tuktamyshevaImg from '@/shared/assets/imgs/person-stars/tuktamysheva.png';
-import tutberidzeImg from '@/shared/assets/imgs/person-stars/tutberidze.png';
-import tursynbaevaImg from '@/shared/assets/imgs/person-stars/tursynbaeva.png';
 import tarasovaMorozovImg from '@/shared/assets/imgs/person-stars/tarasova-morozov.png';
-// import valievaImg from '@/shared/assets/imgs/person-stars/valieva.png';
-import arrowImg from '@/shared/assets/imgs/arrow-image.png';
+import trusovaImg from '@/shared/assets/imgs/person-stars/trusova.png';
+import tuktamyshevaImg from '@/shared/assets/imgs/person-stars/tuktamysheva.png';
+import tursynbaevaImg from '@/shared/assets/imgs/person-stars/tursynbaeva.png';
+import tutberidzeImg from '@/shared/assets/imgs/person-stars/tutberidze.png';
 import volosozharTrankovImg from '@/shared/assets/imgs/person-stars/volosozhar-trankov.png';
 import zagitovaImg from '@/shared/assets/imgs/person-stars/zagitova.png';
 
@@ -60,6 +61,24 @@ const stars: StarSlide[] = [
       'Отвечает за отточенную технику прыжков и скорость, формируя чемпионский характер у каждого спортсмена.',
     category: 'Тренер',
     image: dudakovImg,
+  },
+  {
+    id: 'trusova',
+    name: 'Александра Трусова',
+    role: 'Пятикратная чемпионка мира среди юниоров',
+    description:
+      'Революционерка женского фигурного катания, первая в мире исполнившая четверной прыжок на соревнованиях.',
+    category: 'Легенда',
+    image: trusovaImg,
+  },
+  {
+    id: 'petr-gumennik',
+    name: 'Пётр Гуменник',
+    role: 'Чемпион Европы среди юниоров',
+    description:
+      'Один из самых перспективных фигуристов мужской команды, демонстрирующий сложные четверные прыжки.',
+    category: 'Ученик',
+    image: petrGummennikImg,
   },
   {
     id: 'medvedeva',

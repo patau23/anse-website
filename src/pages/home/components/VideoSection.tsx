@@ -7,8 +7,10 @@ import { containerClass } from './constants';
 const video1 = 'https://kinescope.io/embed/9MU9rZ5RWoWjUjAnarVzbt';
 const video2 = 'https://kinescope.io/embed/6bqkRYSRidUfN3fpwuJv4Q';
 const video3 = 'https://kinescope.io/embed/cXoTYrpKrADSTM2Qj95cPg';
+const video4 = 'https://kinescope.io/embed/b7CozkpAJ68h4o1NbUstXU';
 
 const videos = [
+  { id: 'video-4', src: video4, title: 'Ролик о шоу 4' },
   { id: 'video-1', src: video1, title: 'Ролик о шоу 1' },
   { id: 'video-2', src: video2, title: 'Ролик о шоу 2' },
   { id: 'video-3', src: video3, title: 'Ролик о шоу 3' },
