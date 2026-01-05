@@ -2,7 +2,6 @@ import clsx from 'clsx';
 
 import {
   AboutSection,
-  GallerySection,
   HeroSection,
   ReasonsSection,
   TicketsSection,
@@ -16,7 +15,6 @@ const LandingPage = () => {
       <AboutSection />
       <VideoSection />
       <ReasonsSection />
-      <GallerySection />
       <TicketsSection />
     </main>
   );
