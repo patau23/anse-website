@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { containerClass } from './constants';
+import { containerClass } from '../../../shared/lib/constants';
 
 const TicketsSection = () => {
   const isDesktop = window.innerWidth >= 1024;

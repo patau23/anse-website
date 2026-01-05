@@ -1,29 +1,25 @@
-import img1 from '@/shared/assets/imgs/reasons/image-1.png';
-import img2 from '@/shared/assets/imgs/reasons/image-2.png';
-import img3 from '@/shared/assets/imgs/reasons/image-3.png';
-import img4 from '@/shared/assets/imgs/reasons/image-4.png';
 import clsx from 'clsx';
 
-import { containerClass } from './constants';
+import { containerClass } from '../../../shared/lib/constants';
 
 const reasons = [
   {
     title: 'Новая программа',
     text: 'Музыка, свет, костюмы и постановки создают атмосферу праздника',
-    image: img1,
+    image: '',
   },
   {
     title: 'Живые эмоции',
     text: 'Все, что вы видели на экранах, теперь в реальности – на расстоянии вытянутой руки',
-    image: img2,
+    image: '',
   },
 ];
 
 const desktTopReasons = [
-  { title: '1', image: img1 },
-  { title: '2', image: img3 },
-  { title: '3', image: img4 },
-  { title: '4', image: img2 },
+  { title: '1', image: '' },
+  { title: '2', image: '' },
+  { title: '3', image: '' },
+  { title: '4', image: '' },
 ];
 
 const ReasonsSection = () => {

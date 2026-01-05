@@ -1,17 +1,10 @@
 import clsx from 'clsx';
-import img from '@/shared/assets/imgs/main-banner.png';
 
-import { containerClass } from './constants';
+import { containerClass } from '../../../shared/lib/constants';
 
 const heroBadges = ['Грация', 'Сила', 'Эмоции'];
 
-const heroPosterImages = {
-  desktop:
-    //
-    img,
-  // 'https://optim.tildacdn.com/tild6436-3035-4263-b961-666533323638/-/format/webp/Mask_group.png.webp',
-  mobile: img,
-};
+const heroPosterImages = {};
 
 const HeroSection = () => {
   const isDesktop = window.innerWidth >= 1024;
@@ -29,7 +22,7 @@ const HeroSection = () => {
         {/*  */}
 
         {/* just image */}
-        <div
+        {/* <div
           className={clsx('order-1 space-y-4 p-6 pt-0 pb-4', 'lg:px-0 lg:pb-6')}
         >
           <div
@@ -55,7 +48,7 @@ const HeroSection = () => {
               />
             </picture>
           </div>
-        </div>
+        </div> */}
 
         {/* title subtitle */}
         <div className={clsx('order-2 space-y-6 p-6 pt-0', 'lg:p-0')}>

@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import { useCallback, useRef } from 'react';
 
-import arrowImg from '@/shared/assets/imgs/arrow-image.png';
-import { containerClass } from './constants';
+import { containerClass } from '../../../shared/lib/constants';
 
 const video1 = 'https://kinescope.io/embed/9MU9rZ5RWoWjUjAnarVzbt';
 const video2 = 'https://kinescope.io/embed/6bqkRYSRidUfN3fpwuJv4Q';
@@ -46,16 +45,16 @@ const VideoSection = () => {
           <button
             type="button"
             onClick={handleArrowClick}
-            className="transition-opacity duration-200 hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#151826]"
+            className="transition-opacity duration-200 hover:opacity-80 focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-[#151826]"
             aria-label="Прокрутить видео"
           >
-            <img
+            {/* <img
               src={arrowImg}
               alt="Arrow"
               className={clsx(
                 'visible m-0 box-content block h-[25.6173px] w-[40.9956px] overflow-clip border-0 object-[50%_50%] p-0 antialiased [overflow-clip-margin:content-box] [text-size-adjust:100%]'
               )}
-            />
+            /> */}
           </button>
         </div>
 

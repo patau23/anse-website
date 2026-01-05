@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { containerClass, eyebrowClass } from './constants';
+import { containerClass, eyebrowClass } from '../../../shared/lib/constants';
 
 const timeline = [
   {

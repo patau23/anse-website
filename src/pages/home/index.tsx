@@ -5,25 +5,17 @@ import {
   GallerySection,
   HeroSection,
   ReasonsSection,
-  StarsSection,
   TicketsSection,
   VideoSection,
 } from './components';
 
 const LandingPage = () => {
   return (
-    <main
-      className={clsx(
-        'relative min-h-screen bg-[#f6f8fd] text-[#0c1420]'
-        // 'sm:pb-24'
-      )}
-    >
+    <main className={clsx('relative min-h-screen bg-[#f6f8fd] text-[#0c1420]')}>
       <HeroSection />
       <AboutSection />
       <VideoSection />
-      <StarsSection />
       <ReasonsSection />
-      {/* <ProgramSection /> */}
       <GallerySection />
       <TicketsSection />
     </main>

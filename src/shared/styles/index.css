@@ -38,11 +38,16 @@
 @import 'tw-animate-css';
 
 :root {
-  --color-primary: #685694;
+  --color-primary: #2e4ecf;
   --color-secondary: #6f4dc3;
   --color-light-bg: #f7f5fa;
   --color-dark: #1d1b26;
   --color-muted: #726f7c;
+
+  /* shadcn/ui tokens (HSL) */
+  --primary: 228 64% 50%;
+  --primary-foreground: 0 0% 100%;
+  --ring: 228 64% 50%;
   --section-gap: 4rem;
   --radius-lg: 32px;
   font-family:

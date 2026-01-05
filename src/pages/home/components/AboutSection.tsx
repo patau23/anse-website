@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { containerClass } from './constants';
+import { containerClass } from '../../../shared/lib/constants';
 
 const infoImage =
   'https://static.tildacdn.com/tild3963-3531-4363-b936-643132363764/FD29F7AE-0F3D-498B-9.jpeg';
