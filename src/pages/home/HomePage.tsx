@@ -1,6 +1,7 @@
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 import { PAGE_CONTAINER_CLASS } from '@/shared/layout/constants';
+import clsx from 'clsx';
 
 type ProjectItem = {
   number: string;
@@ -43,25 +44,25 @@ function Hero() {
   return (
     <section className="relative" aria-label="Hero">
       <div className={PAGE_CONTAINER_CLASS}>
-        <div className="relative flex min-h-[1080px] items-center justify-center pb-24 pt-[130px]">
+        <div className="relative flex min-h-[1080px] items-center justify-center pt-[130px] pb-24">
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-0 top-[140px] hidden h-[360px] w-[360px] rounded-[56px] border border-white/10 bg-[radial-gradient(circle_at_30%_30%,color-mix(in_srgb,var(--color-primary)_22%,transparent)_0%,transparent_60%),radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.10)_0%,transparent_60%)] shadow-[0_0_60px_rgba(0,0,0,0.45)] lg:block"
+            className="pointer-events-none absolute top-[140px] left-0 hidden h-[360px] w-[360px] rounded-[56px] border border-white/10 bg-[radial-gradient(circle_at_30%_30%,color-mix(in_srgb,var(--color-primary)_22%,transparent)_0%,transparent_60%),radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.10)_0%,transparent_60%)] shadow-[0_0_60px_rgba(0,0,0,0.45)] lg:block"
           />
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute right-0 top-[240px] hidden h-[420px] w-[420px] rounded-[60px] border border-white/10 bg-[radial-gradient(circle_at_35%_30%,color-mix(in_srgb,var(--color-primary)_30%,transparent)_0%,transparent_60%),radial-gradient(circle_at_60%_70%,rgba(255,255,255,0.12)_0%,transparent_55%)] shadow-[0_0_80px_rgba(0,0,0,0.55)] lg:block"
+            className="pointer-events-none absolute top-60 right-0 hidden h-[420px] w-[420px] rounded-[60px] border border-white/10 bg-[radial-gradient(circle_at_35%_30%,color-mix(in_srgb,var(--color-primary)_30%,transparent)_0%,transparent_60%),radial-gradient(circle_at_60%_70%,rgba(255,255,255,0.12)_0%,transparent_55%)] shadow-[0_0_80px_rgba(0,0,0,0.55)] lg:block"
           />
 
           <div className="relative z-10 flex max-w-[760px] flex-col items-center text-center">
-            <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight sm:text-6xl">
-              <span className="text-[color:var(--color-primary)]">АНСЭ</span>
+            <h1 className="text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-6xl">
+              <span className="text-(--color-primary)">АНСЭ</span>
               <span className="text-white"> — экспертиза,</span>
               <br />
               <span className="text-white">которой доверяют</span>
             </h1>
 
-            <p className="mt-6 max-w-[520px] text-pretty text-sm leading-relaxed text-white/70 sm:text-base">
+            <p className="mt-6 max-w-[520px] text-sm leading-relaxed text-pretty text-white/70 sm:text-base">
               54 вида экспертиз. 5 лет на рынке. Международный уровень.
               Технологии. Тонность. Обьективность
             </p>
@@ -69,7 +70,7 @@ function Hero() {
             <div className="mt-7 flex flex-wrap items-center justify-center gap-4">
               <a
                 href="#contacts"
-                className="inline-flex h-[54px] items-center justify-center rounded-full bg-[color:var(--color-primary)] px-6 text-sm font-semibold text-white shadow-[0_10px_30px_color-mix(in_srgb,var(--color-primary)_35%,transparent)] transition-transform hover:-translate-y-0.5"
+                className="inline-flex h-[54px] items-center justify-center rounded-full bg-(--color-primary) px-6 text-sm font-semibold text-white shadow-[0_10px_30px_color-mix(in_srgb,var(--color-primary)_35%,transparent)] transition-transform hover:-translate-y-0.5"
               >
                 Назначить экспертизу
               </a>
@@ -89,10 +90,11 @@ function Hero() {
 
 function Projects() {
   return (
-    <section id="projects" className="relative pb-28 pt-6">
+    <section id="projects" className="relative pt-6 pb-28">
       <div className={PAGE_CONTAINER_CLASS}>
-        <h2 className="text-center text-sm font-semibold tracking-wide text-[color:var(--color-primary)]">
-          Про наши проекты
+        <h2 className="self-stretch text-center font-sans text-[34px] leading-[41px] font-bold tracking-[0.4px] text-white">
+          <span className="text-(--color-primary)">Про наши </span>
+          проектыПро наши проекты
         </h2>
 
         <div className="mt-14 grid items-start gap-12 lg:grid-cols-2">
@@ -152,7 +154,7 @@ function Projects() {
 
             <a
               href="#"
-              className="mt-8 inline-flex h-[54px] items-center justify-center rounded-full bg-[color:var(--color-primary)] px-10 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
+              className="mt-8 inline-flex h-[54px] items-center justify-center rounded-full bg-(--color-primary) px-10 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
             >
               Читать все
             </a>
@@ -164,32 +166,121 @@ function Projects() {
 }
 
 function Hex({ label }: { label: string }) {
+  const lines = label.split('\n');
+
+  const fontSize = 24;
+  const lineHeight = 28; // межстрочный интервал в px (можешь крутить)
+  const centerX = 199; // viewBox width / 2 (398 / 2)
+  const centerY = 176; // viewBox height / 2 (352 / 2)
+
+  // чтобы многострочный текст оказался по центру вертикально:
+  const firstLineY = centerY - ((lines.length - 1) * lineHeight) / 2;
+
   return (
-    <div
-      className="flex h-[140px] w-[240px] items-center justify-center p-6 text-center text-sm font-medium text-white/90"
-      style={{
-        clipPath:
-          'polygon(25% 6.7%, 75% 6.7%, 100% 50%, 75% 93.3%, 25% 93.3%, 0% 50%)',
-        background:
-          'radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--color-primary) 18%, transparent) 0%, transparent 62%), linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))',
-        border: '1px solid color-mix(in srgb, var(--color-primary) 45%, transparent)',
-        boxShadow:
-          '0 0 30px color-mix(in srgb, var(--color-primary) 28%, transparent)',
-      }}
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="398"
+      height="352"
+      viewBox="0 0 398 352"
+      fill="none"
     >
-      <span className="whitespace-pre-line leading-snug">{label}</span>
-    </div>
+      <path
+        d="M112.477 29.9766L285.477 29.9766L371.977 179.977L285.477 329.977H112.477L25.9766 179.977L112.477 29.9766Z"
+        fill="#2E4ECF"
+        fillOpacity="0.08"
+      />
+
+      <path
+        d="M285.188 30.4766L371.398 179.977L285.188 329.477H112.766L26.5537 179.977L112.766 30.4766H285.188Z"
+        stroke="#2E4ECF"
+        strokeWidth="8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        filter="url(#hexGlow)"
+        opacity="0.9"
+      />
+
+      <path
+        d="M285.188 30.4766L371.398 179.977L285.188 329.477H112.766L26.5537 179.977L112.766 30.4766H285.188Z"
+        stroke="url(#paint0_linear_4653_8296)"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        shapeRendering="crispEdges"
+      />
+
+      {/* НАДПИСЬ (поддержка \n) */}
+      <text
+        x={centerX}
+        y={firstLineY}
+        textAnchor="middle"
+        fill="white"
+        fontSize={fontSize}
+        fontWeight={600}
+        fontFamily="SF Pro, system-ui, sans-serif"
+      >
+        {lines.map((line, i) => (
+          <tspan key={i} x={centerX} dy={i === 0 ? 0 : lineHeight}>
+            {line}
+          </tspan>
+        ))}
+      </text>
+
+      <defs>
+        <filter
+          id="hexGlow"
+          x="-30%"
+          y="-30%"
+          width="160%"
+          height="160%"
+          filterUnits="objectBoundingBox"
+        >
+          <feGaussianBlur stdDeviation="18" result="blur" />
+          <feColorMatrix
+            in="blur"
+            type="matrix"
+            values="
+              0 0 0 0 0
+              0 0 0 0 0
+              0 0 1 0 0
+              0 0 0 1 0"
+            result="colored"
+          />
+          <feMerge>
+            <feMergeNode in="colored" />
+          </feMerge>
+        </filter>
+
+        <linearGradient
+          id="paint0_linear_4653_8296"
+          x1="371.977"
+          y1="179.447"
+          x2="25.9766"
+          y2="179.447"
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop stopColor="#2E4ECF" />
+          <stop offset="1" stopColor="#2E4ECF" />
+        </linearGradient>
+      </defs>
+    </svg>
   );
 }
 
 function Expertise() {
   return (
-    <section id="expertise" className="relative pb-36 pt-6">
-      <div className={PAGE_CONTAINER_CLASS}>
-        <h2 className="text-center text-xl font-semibold text-white sm:text-2xl">
-          54 вида судебных экспертиз
+    <section id="expertise" className="relative pt-6 pb-36">
+      <div
+        className={clsx(
+          PAGE_CONTAINER_CLASS,
+          'flex flex-col items-center gap-6 self-stretch'
+        )}
+      >
+        <h2 className="self-stretch text-center font-sans text-[34px] leading-[41px] font-bold tracking-[0.4px] text-white">
+          54 вида
+          <span className="text-(--color-primary)">судебных экспертиз</span>
         </h2>
-        <p className="mx-auto mt-4 max-w-[720px] text-center text-sm leading-relaxed text-white/70 sm:text-base">
+        <p className="mx-auto w-[800px] text-center font-sans text-[22px] leading-7 font-normal tracking-[-0.26px] text-white">
           АНСЭ проводит комплексные исследования для суда, органов, адвокатов,
           организаций и частных лиц, опираясь на современные стандарты судебной
           экспертизы в Казахстане

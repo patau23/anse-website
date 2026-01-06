@@ -42,7 +42,8 @@
 
 @font-face {
   font-family: 'SF Pro Display';
-  src: url('./fonts/SFProDisplay/SF-Pro-Display-ThinItalic.otf') format('opentype');
+  src: url('./fonts/SFProDisplay/SF-Pro-Display-ThinItalic.otf')
+    format('opentype');
   font-weight: 100;
   font-style: italic;
   font-display: swap;
@@ -50,7 +51,8 @@
 
 @font-face {
   font-family: 'SF Pro Display';
-  src: url('./fonts/SFProDisplay/SF-Pro-Display-Ultralight.otf') format('opentype');
+  src: url('./fonts/SFProDisplay/SF-Pro-Display-Ultralight.otf')
+    format('opentype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -75,7 +77,8 @@
 
 @font-face {
   font-family: 'SF Pro Display';
-  src: url('./fonts/SFProDisplay/SF-Pro-Display-LightItalic.otf') format('opentype');
+  src: url('./fonts/SFProDisplay/SF-Pro-Display-LightItalic.otf')
+    format('opentype');
   font-weight: 300;
   font-style: italic;
   font-display: swap;
@@ -91,7 +94,8 @@
 
 @font-face {
   font-family: 'SF Pro Display';
-  src: url('./fonts/SFProDisplay/SF-Pro-Display-RegularItalic.otf') format('opentype');
+  src: url('./fonts/SFProDisplay/SF-Pro-Display-RegularItalic.otf')
+    format('opentype');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -107,7 +111,8 @@
 
 @font-face {
   font-family: 'SF Pro Display';
-  src: url('./fonts/SFProDisplay/SF-Pro-Display-MediumItalic.otf') format('opentype');
+  src: url('./fonts/SFProDisplay/SF-Pro-Display-MediumItalic.otf')
+    format('opentype');
   font-weight: 500;
   font-style: italic;
   font-display: swap;
@@ -115,7 +120,8 @@
 
 @font-face {
   font-family: 'SF Pro Display';
-  src: url('./fonts/SFProDisplay/SF-Pro-Display-Semibold.otf') format('opentype');
+  src: url('./fonts/SFProDisplay/SF-Pro-Display-Semibold.otf')
+    format('opentype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -123,7 +129,8 @@
 
 @font-face {
   font-family: 'SF Pro Display';
-  src: url('./fonts/SFProDisplay/SF-Pro-Display-SemiboldItalic.otf') format('opentype');
+  src: url('./fonts/SFProDisplay/SF-Pro-Display-SemiboldItalic.otf')
+    format('opentype');
   font-weight: 600;
   font-style: italic;
   font-display: swap;
@@ -139,7 +146,8 @@
 
 @font-face {
   font-family: 'SF Pro Display';
-  src: url('./fonts/SFProDisplay/SF-Pro-Display-BoldItalic.otf') format('opentype');
+  src: url('./fonts/SFProDisplay/SF-Pro-Display-BoldItalic.otf')
+    format('opentype');
   font-weight: 700;
   font-style: italic;
   font-display: swap;
@@ -155,7 +163,8 @@
 
 @font-face {
   font-family: 'SF Pro Display';
-  src: url('./fonts/SFProDisplay/SF-Pro-Display-HeavyItalic.otf') format('opentype');
+  src: url('./fonts/SFProDisplay/SF-Pro-Display-HeavyItalic.otf')
+    format('opentype');
   font-weight: 800;
   font-style: italic;
   font-display: swap;
@@ -171,7 +180,8 @@
 
 @font-face {
   font-family: 'SF Pro Display';
-  src: url('./fonts/SFProDisplay/SF-Pro-Display-BlackItalic.otf') format('opentype');
+  src: url('./fonts/SFProDisplay/SF-Pro-Display-BlackItalic.otf')
+    format('opentype');
   font-weight: 900;
   font-style: italic;
   font-display: swap;
@@ -184,7 +194,7 @@
 
 :root {
   --color-primary: #2e4ecf;
-  --color-secondary: #6f4dc3;
+  --color-secondary: #6042ff;
   --color-light-bg: #f7f5fa;
   --color-dark: #1d1b26;
   --color-muted: #726f7c;
@@ -205,6 +215,10 @@
 }
 
 @layer base {
+  html {
+    background-color: #000;
+  }
+
   *,
   *::before,
   Ø *::after {
@@ -214,7 +228,7 @@
   body {
     margin: 0;
     color: var(--color-dark);
-    background-color: #685697;
+    background-color: #000;
     font-size: 16px;
     line-height: 1.6;
     min-height: 100vh;

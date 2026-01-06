@@ -1,6 +1,8 @@
-import { Outlet, Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
+import { Link, useLocation, useOutlet } from 'react-router-dom';
 
 import { StarsBackground } from '@/components/animate-ui/components/backgrounds/stars';
+import { Logo } from '@/shared/components/logo';
 import { PAGE_CONTAINER_CLASS } from '@/shared/layout/constants';
 
 function Header() {
@@ -25,11 +27,7 @@ function Header() {
 
           <div className="flex items-center justify-center">
             <Link to="/" aria-label="На главную">
-              <img
-                src="/logo.svg"
-                alt="АНСЭ"
-                className="h-7 w-auto opacity-90"
-              />
+              <Logo className="opacity-90" />
             </Link>
           </div>
 
@@ -54,24 +52,18 @@ function Header() {
 }
 
 function Footer() {
-  const footerBg = 'color-mix(in srgb, var(--color-primary) 14%, black)';
   const tileBg = 'color-mix(in srgb, var(--color-primary) 18%, transparent)';
 
   return (
     <footer
       id="contacts"
-      className="relative border-t border-white/10"
-      style={{ backgroundColor: footerBg }}
+      className="relative border-t border-white/10 bg-black/30 backdrop-blur-md"
     >
       <div className={PAGE_CONTAINER_CLASS}>
         <div className="grid gap-10 py-10 lg:grid-cols-[224px_1fr]">
           <div className="space-y-4">
             <Link to="/" aria-label="На главную">
-              <img
-                src="/logo.svg"
-                alt="АНСЭ"
-                className="h-7 w-auto opacity-90"
-              />
+              <Logo className="opacity-90" />
             </Link>
 
             <div className="flex items-center gap-4">
@@ -176,11 +168,46 @@ function Footer() {
 }
 
 export default function MainLayout() {
+  const location = useLocation();
+  const outlet = useOutlet();
+
+  const routeKey = `${location.pathname}${location.search}`;
+  const hasMountedRef = useRef(false);
+  const pendingOutletRef = useRef(outlet);
+  pendingOutletRef.current = outlet;
+
+  const [renderedOutlet, setRenderedOutlet] = useState(outlet);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+
+  useEffect(() => {
+    if (!hasMountedRef.current) {
+      hasMountedRef.current = true;
+      return;
+    }
+
+    setIsFadingOut(true);
+    const timeoutId = window.setTimeout(() => {
+      setRenderedOutlet(pendingOutletRef.current);
+      setIsFadingOut(false);
+    }, 180);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [routeKey]);
+
   return (
     <main className="min-h-screen text-white">
-      <StarsBackground className="min-h-screen">
+      <StarsBackground
+        className="min-h-screen"
+        starColor="var(--color-primary)"
+      >
         <Header />
-        <Outlet />
+        <div
+          className={`transition-opacity duration-200 ease-out ${
+            isFadingOut ? 'opacity-0' : 'opacity-100'
+          }`}
+        >
+          {renderedOutlet}
+        </div>
         <Footer />
       </StarsBackground>
     </main>

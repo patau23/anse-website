@@ -7,7 +7,6 @@ import {
   useSpring,
 } from 'motion/react';
 import * as React from 'react';
-
 import { cn } from '@/shared/lib/utils';
 
 type StarLayerProps = Omit<HTMLMotionProps<'div'>, 'transition' | 'animate'> & {
@@ -114,11 +113,13 @@ function StarsBackground({
       {...props}
     >
       <motion.div
-        style={{ 
-          transform: `translate(${springX.get()}px, ${springY.get()}px)`,
-          x: springX,
-          y: springY
-        } as any}
+        style={
+          {
+            transform: `translate(${springX.get()}px, ${springY.get()}px)`,
+            x: springX,
+            y: springY,
+          } as any
+        }
         className={cn({ 'pointer-events-none': !pointerEvents })}
       >
         <StarLayer

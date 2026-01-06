@@ -1,5 +1,5 @@
-import InstIcon from '@/shared/assets/icons/socials/insta-outlined.svg?react';
-import TgIcon from '@/shared/assets/icons/socials/telegram-icon.svg?react';
+import InstIcon from '@/shared/assets/icons/socials/inst-icon.svg?react';
+import TgIcon from '@/shared/assets/icons/socials/tg-icon.svg?react';
 import WhatsAppIcon from '@/shared/assets/icons/socials/whatsapp-outlined.svg?react';
 import clsx from 'clsx';
 
