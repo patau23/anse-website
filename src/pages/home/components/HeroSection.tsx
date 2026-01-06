@@ -53,7 +53,7 @@ const HeroSection = () => {
         {/* title subtitle */}
         <div className={clsx('order-2 space-y-6 p-6 pt-0', 'lg:p-0')}>
           <div
-            className={clsx('font-inter hidden flex-wrap gap-3', 'sm:flex')}
+            className={clsx('font-main hidden flex-wrap gap-3', 'sm:flex')}
             aria-label="Основные ценности шоу"
           >
             {/* badges */}
@@ -97,7 +97,7 @@ const HeroSection = () => {
             </h1>
             <p
               className={clsx(
-                'w-[290px] font-["Inter",Arial,sans-serif] text-[13px] leading-[19px]',
+                'font-main w-[290px] text-[13px] leading-[19px]',
                 'sm:w-auto sm:text-lg',
                 'lg:px-3 lg:text-[2.3rem] lg:leading-[33px] lg:font-light'
               )}
@@ -118,7 +118,7 @@ const HeroSection = () => {
           <div className={clsx('h-12 w-full', 'lg:h-[100px] lg:w-1/3')}>
             <a
               className={clsx(
-                'inline-flex h-full w-full items-center justify-center rounded-full bg-linear-to-r from-[#685694] to-[#685694] p-0 font-["Inter",Arial,sans-serif] text-[18px] font-semibold text-white [-webkit-font-smoothing:antialiased] transition-transform duration-200 hover:-translate-y-0.5',
+                'font-main inline-flex h-full w-full items-center justify-center rounded-full bg-linear-to-r from-[#685694] to-[#685694] p-0 text-[18px] font-semibold text-white [-webkit-font-smoothing:antialiased] transition-transform duration-200 hover:-translate-y-0.5',
                 'md:',
                 'lg:p-4 lg:text-[2.75rem]'
               )}
@@ -132,7 +132,7 @@ const HeroSection = () => {
 
           <div
             className={clsx(
-              'flex w-full justify-between px-3 font-["Inter",Arial,sans-serif] text-[18px] leading-7 font-normal [-webkit-font-smoothing:antialiased]',
+              'font-main flex w-full justify-between px-3 text-[18px] leading-7 font-normal [-webkit-font-smoothing:antialiased]',
               '',
               'lg:w-1/3 lg:flex-col lg:gap-5 lg:text-[38px]'
             )}

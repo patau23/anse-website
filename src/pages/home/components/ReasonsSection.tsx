@@ -68,7 +68,7 @@ const ReasonsSection = () => {
                   >
                     {reason.title}
                   </h3>
-                  <p className={clsx('font-inter text-[10px] leading-3')}>
+                  <p className={clsx('font-main text-[10px] leading-3')}>
                     {reason.text}
                   </p>
                 </div>
