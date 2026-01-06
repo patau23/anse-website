@@ -49,7 +49,7 @@ const AboutSection = () => {
         >
           <p
             className={clsx(
-              'font-main visible m-0 box-content w-full origin-[138.499px_34.9963px] border-0 bg-cover bg-position-[50%_50%] p-0 px-1 align-middle font-["Inter",Arial,sans-serif] text-[14px] leading-[17.5px] font-normal text-black antialiased [text-size-adjust:auto] [unicode-bidi:isolate]',
+              'font-main visible m-0 box-content w-full origin-[138.499px_34.9963px] border-0 bg-cover bg-position-[50%_50%] p-0 px-1 align-middle text-[14px] leading-[17.5px] font-normal text-black antialiased [text-size-adjust:auto] [unicode-bidi:isolate]',
               'lg:text-[28px] lg:leading-9'
             )}
           >
@@ -73,7 +73,7 @@ const AboutSection = () => {
 
           <div
             className={clsx(
-              'visible z-3 m-0 box-border table h-[111.988px] w-[264.998px] border-0 p-0 font-["Inter",Arial,sans-serif] text-black antialiased [text-size-adjust:100%] [unicode-bidi:isolate] [zoom:1.172]',
+              'font-main visible z-3 m-0 box-border table h-[111.988px] w-[264.998px] border-0 p-0 text-black antialiased [text-size-adjust:100%] [unicode-bidi:isolate] [zoom:1.172]',
               'lg:w-auto'
             )}
           >

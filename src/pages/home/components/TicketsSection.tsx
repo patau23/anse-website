@@ -18,7 +18,7 @@ const TicketsSection = () => {
           <h2
             className={clsx(
               'text-3xl leading-tight font-semibold uppercase',
-              'visible m-0 box-content table-cell w-full origin-[143.998px_44.9952px] border-0 bg-cover bg-position-[50%_50%] p-0 align-middle font-[Kelson,Arial,sans-serif] text-[24px] leading-[30px] font-normal text-[#F1CB9A] uppercase antialiased [text-size-adjust:auto] [unicode-bidi:isolate]',
+              'font-main visible m-0 box-content table-cell w-full origin-[143.998px_44.9952px] border-0 bg-cover bg-position-[50%_50%] p-0 align-middle text-[24px] leading-[30px] font-normal text-[#F1CB9A] uppercase antialiased [text-size-adjust:auto] [unicode-bidi:isolate]',
               'lg:text-[5rem]'
             )}
           >
@@ -26,7 +26,7 @@ const TicketsSection = () => {
           </h2>
           <p
             className={clsx(
-              'font-inter font-main visible m-0 box-content table-cell h-[94.9899px] w-[252px] origin-[126px_47.4949px] border-0 bg-cover bg-position-[50%_50%] p-0 align-middle text-[12px] leading-[19px] font-normal text-white antialiased [text-size-adjust:auto] [unicode-bidi:isolate]',
+              'font-main visible m-0 box-content table-cell h-[94.9899px] w-[252px] origin-[126px_47.4949px] border-0 bg-cover bg-position-[50%_50%] p-0 align-middle text-[12px] leading-[19px] font-normal text-white antialiased [text-size-adjust:auto] [unicode-bidi:isolate]',
               'lg:w-auto lg:text-[2.3rem] lg:leading-[33px] lg:font-light'
             )}
           >
