@@ -1,26 +1,35 @@
 'use client';
 
+import { cn } from '@/shared/lib/utils';
 import {
-  type HTMLMotionProps,
   motion,
   useMotionValue,
   useSpring,
-} from 'motion/react';
+  type Easing,
+  type HTMLMotionProps,
+} from 'framer-motion';
 import * as React from 'react';
-import { cn } from '@/shared/lib/utils';
+
+const STARFIELD_TILE_SIZE_PX = 4000;
+const LINEAR_EASE = [0, 0, 1, 1] as const;
 
 type StarLayerProps = Omit<HTMLMotionProps<'div'>, 'transition' | 'animate'> & {
   count: number;
   size: number;
-  transition: { repeat?: number; duration?: number; ease?: string };
+  transition: { repeat?: number; duration?: number; ease?: Easing | Easing[] };
   starColor: string;
 };
 
-function generateStars(count: number, starColor: string) {
+function generateStars(
+  count: number,
+  starColor: string,
+  areaWidth: number,
+  areaHeight: number
+) {
   const shadows: string[] = [];
   for (let i = 0; i < count; i++) {
-    const x = Math.floor(Math.random() * 4000) - 2000;
-    const y = Math.floor(Math.random() * 4000) - 2000;
+    const x = Math.floor(Math.random() * areaWidth);
+    const y = Math.floor(Math.random() * areaHeight);
     shadows.push(`${x}px ${y}px ${starColor}`);
   }
   return shadows.join(', ');
@@ -29,21 +38,56 @@ function generateStars(count: number, starColor: string) {
 function StarLayer({
   count = 1000,
   size = 1,
-  transition = { repeat: Infinity, duration: 50, ease: 'linear' },
+  transition = { repeat: Infinity, duration: 50, ease: LINEAR_EASE },
   starColor = '#fff',
   className,
   ...props
 }: StarLayerProps) {
   const [boxShadow, setBoxShadow] = React.useState<string>('');
+  const layerRef = React.useRef<HTMLDivElement>(null);
+  const [layerWidth, setLayerWidth] = React.useState(0);
 
   React.useEffect(() => {
-    setBoxShadow(generateStars(count, starColor));
-  }, [count, starColor]);
+    const update = () => {
+      const width = layerRef.current?.offsetWidth;
+      if (typeof width === 'number' && width > 0) setLayerWidth(width);
+      else if (typeof window !== 'undefined') setLayerWidth(window.innerWidth);
+    };
+
+    update();
+
+    if (typeof window === 'undefined') return;
+    if ('ResizeObserver' in window && layerRef.current) {
+      const ro = new ResizeObserver(() => update());
+      ro.observe(layerRef.current);
+      return () => ro.disconnect();
+    }
+
+    window.addEventListener('resize', update);
+    return () => window.removeEventListener('resize', update);
+  }, []);
+
+  React.useEffect(() => {
+    if (!layerWidth) return;
+    setBoxShadow(
+      generateStars(count, starColor, layerWidth, STARFIELD_TILE_SIZE_PX)
+    );
+  }, [count, starColor, layerWidth]);
 
   return (
     <motion.div
+      ref={layerRef}
       data-slot="star-layer"
-      className={cn('absolute top-0 left-0 h-[2000px] w-full', className)}
+      className={cn('absolute top-0 left-0 w-full', className)}
+      style={{ height: STARFIELD_TILE_SIZE_PX }}
+      animate={{ y: -STARFIELD_TILE_SIZE_PX }}
+      transition={{
+        repeat: transition.repeat ?? Infinity,
+        repeatType: 'loop',
+        type: 'tween',
+        duration: transition.duration ?? 50,
+        ease: transition.ease ?? LINEAR_EASE,
+      }}
       {...props}
     >
       <div
@@ -55,8 +99,9 @@ function StarLayer({
         }}
       />
       <div
-        className="absolute top-[2000px] rounded-full bg-transparent"
+        className="absolute rounded-full bg-transparent"
         style={{
+          top: STARFIELD_TILE_SIZE_PX,
           width: `${size}px`,
           height: `${size}px`,
           boxShadow: boxShadow,
@@ -113,19 +158,13 @@ function StarsBackground({
       {...props}
     >
       <motion.div
-        style={
-          {
-            transform: `translate(${springX.get()}px, ${springY.get()}px)`,
-            x: springX,
-            y: springY,
-          } as any
-        }
+        style={{ x: springX, y: springY }}
         className={cn({ 'pointer-events-none': !pointerEvents })}
       >
         <StarLayer
           count={1000}
           size={1}
-          transition={{ repeat: Infinity, duration: speed, ease: 'linear' }}
+          transition={{ repeat: Infinity, duration: speed, ease: LINEAR_EASE }}
           starColor={starColor}
         />
         <StarLayer
@@ -134,17 +173,17 @@ function StarsBackground({
           transition={{
             repeat: Infinity,
             duration: speed * 2,
-            ease: 'linear',
+            ease: LINEAR_EASE,
           }}
           starColor={starColor}
         />
         <StarLayer
           count={200}
-          size={3}
+          size={5}
           transition={{
             repeat: Infinity,
             duration: speed * 3,
-            ease: 'linear',
+            ease: LINEAR_EASE,
           }}
           starColor={starColor}
         />

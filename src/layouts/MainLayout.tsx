@@ -199,6 +199,8 @@ export default function MainLayout() {
       <StarsBackground
         className="min-h-screen"
         starColor="var(--color-primary)"
+        factor={0.07}
+        speed={100} 
       >
         <Header />
         <div
