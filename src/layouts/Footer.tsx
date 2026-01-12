@@ -2,6 +2,30 @@ import { Link } from 'react-router-dom';
 
 import { Logo } from '@/shared/components/logo';
 import { PAGE_CONTAINER_CLASS } from '@/shared/layout/constants';
+import Inst from '@/shared/assets/icons/socials/inst-icon.svg?react';
+import Vk from '@/shared/assets/icons/socials/vk-icon.svg?react';
+import Tg from '@/shared/assets/icons/socials/tg-icon.svg?react';
+
+const SocialLinks = [
+  {
+    key: 'instagram',
+    href: '#',
+    label: 'Instagram',
+    icon: <Inst className="" />,
+  },
+  {
+    key: 'vk',
+    href: '#',
+    label: 'VK',
+    icon: <Vk className="" />,
+  },
+  {
+    key: 'telegram',
+    href: '#',
+    label: 'Telegram',
+    icon: <Tg className="" />,
+  },
+];
 
 export function Footer() {
   const tileBg = 'color-mix(in srgb, var(--color-primary) 18%, transparent)';
@@ -19,15 +43,15 @@ export function Footer() {
             </Link>
 
             <div className="flex items-center gap-4">
-              {[0, 1, 2].map((i) => (
+              {SocialLinks.map(({ key, href, icon }) => (
                 <a
-                  key={i}
-                  href="#"
-                  className="inline-flex h-14 w-14 items-center justify-center rounded-2xl border border-white/10"
+                  key={key}
+                  href={href}
+                  className="flex h-16 w-16 items-center justify-center gap-2.5 rounded-2xl bg-[#2E4ECF] p-[12px_16px]"
                   style={{ backgroundColor: tileBg }}
                   aria-label="Социальная сеть"
                 >
-                  <span className="h-3 w-3 rounded-full bg-white/70" />
+                  {icon}
                 </a>
               ))}
             </div>

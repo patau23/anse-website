@@ -1,5 +1,6 @@
 import { PAGE_CONTAINER_CLASS } from '@/shared/layout/constants';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import MagazinePage from '@/shared/assets/imgs/magazine-page.png';
 
 type ProjectItem = {
   number: string;
@@ -41,10 +42,10 @@ export function Projects() {
                 key={item.number}
                 type="button"
                 className={
-                  'group flex w-full items-center justify-between gap-4 rounded-full border px-5 py-4 text-left backdrop-blur transition-colors ' +
+                  'group flex items-center gap-11.5 rounded-2xl p-6 text-left backdrop-blur transition-colors' +
                   (index === 0
-                    ? 'border-white/20 bg-white/10'
-                    : 'border-white/10 bg-white/5 hover:bg-white/10')
+                    ? 'rounded-2xl border border-[#2E4ECF] bg-[rgba(46,78,207,0.12)] shadow-[0_-4px_40px_-14.024px_rgba(46,78,207,0.52),inset_0_4px_40px_-14.024px_rgba(46,78,207,0.52)]'
+                    : 'border-white/10 bg-[linear-gradient(0deg,#1A1A1A_0%,#1A1A1A_100%)] hover:bg-white/10')
                 }
               >
                 <span className="flex min-w-0 items-center gap-4">
@@ -64,10 +65,16 @@ export function Projects() {
 
           <div className="flex flex-col items-center">
             <div className="relative w-full max-w-200 overflow-hidden rounded-[36px] border border-white/10 bg-white">
-              <div className="grid h-130 grid-cols-3 gap-0">
-                <div className="bg-[linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.02))]" />
+              <div className="grid grid-cols-3 gap-0">
+                <img
+                  src={MagazinePage}
+                  alt=""
+                  className="col-span-3 w-full object-cover"
+                />
+
+                {/* <div className="bg-[linear-gradient(180deg,rgba(0,0,0,0.04),rgba(0,0,0,0.02))]" />
                 <div className="bg-white" />
-                <div className="bg-[linear-gradient(180deg,rgba(46,78,207,0.08),rgba(0,0,0,0.02))]" />
+                <div className="bg-[linear-gradient(180deg,rgba(46,78,207,0.08),rgba(0,0,0,0.02))]" /> */}
               </div>
 
               <div className="absolute bottom-6 left-1/2 flex -translate-x-1/2 items-center gap-3 rounded-full border border-black/10 bg-white/80 px-4 py-2 text-xs font-medium text-black/70 backdrop-blur">
