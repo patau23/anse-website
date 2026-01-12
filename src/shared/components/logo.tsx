@@ -1,3 +1,4 @@
+import mainLogo from '@/shared/assets/imgs/main-logo.png';
 import { cn } from '@/shared/lib/utils';
 
 type LogoProps = {
@@ -6,13 +7,6 @@ type LogoProps = {
 
 export function Logo({ className }: LogoProps) {
   return (
-    <span
-      className={cn(
-        'inline-flex items-center justify-center whitespace-nowrap text-base font-semibold leading-none tracking-wide text-white/90',
-        className,
-      )}
-    >
-      Логотип
-    </span>
+    <img src={mainLogo} alt="АНСЭ" className={cn('h-7 w-auto', className)} />
   );
 }
