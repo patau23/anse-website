@@ -1,4 +1,5 @@
 import { PAGE_CONTAINER_CLASS } from '@/shared/layout/constants';
+import { AboutArticleSubmissionSection } from './components/AboutArticleSubmissionSection';
 import { AboutExpertusProjectsSection } from './components/AboutExpertusProjectsSection';
 import { AboutHistorySection } from './components/AboutHistorySection';
 import { AboutInternationalCooperationSection } from './components/AboutInternationalCooperationSection';
@@ -11,8 +12,9 @@ export default function AboutPage() {
       <div className={PAGE_CONTAINER_CLASS}>
         <AboutHistorySection />
         <AboutMissionValuesSection />
-        <AboutLicensesSection />
         <AboutInternationalCooperationSection />
+        <AboutArticleSubmissionSection />
+        <AboutLicensesSection />
         <AboutExpertusProjectsSection />
       </div>
     </main>

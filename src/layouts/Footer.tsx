@@ -1,29 +1,29 @@
 import { Link } from 'react-router-dom';
 
+import TwoGis from '@/shared/assets/icons/socials/2gis.svg?react';
+import Inst from '@/shared/assets/icons/socials/inst-icon.svg?react';
+import Wp from '@/shared/assets/icons/socials/whatsapp-outlined.svg?react';
 import { Logo } from '@/shared/components/logo';
 import { PAGE_CONTAINER_CLASS } from '@/shared/layout/constants';
-import Inst from '@/shared/assets/icons/socials/inst-icon.svg?react';
-import Vk from '@/shared/assets/icons/socials/vk-icon.svg?react';
-import Tg from '@/shared/assets/icons/socials/tg-icon.svg?react';
 
 const SocialLinks = [
   {
     key: 'instagram',
-    href: '#',
+    href: 'https://www.instagram.com/ansesykz?igsh=azBoMHNza3Z4bmJp ',
     label: 'Instagram',
     icon: <Inst className="" />,
   },
   {
-    key: 'vk',
-    href: '#',
-    label: 'VK',
-    icon: <Vk className="" />,
+    key: 'whatsapp',
+    href: 'https://api.whatsapp.com/send/?phone=77770137773&text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%21%0A%0A%D0%9F%D0%B8%D1%88%D1%83+%D0%B8%D0%B7+%D0%BF%D1%80%D0%B8%D0%BB%D0%BE%D0%B6%D0%B5%D0%BD%D0%B8%D1%8F+2%D0%93%D0%98%D0%A1.%0A%0A&type=phone_number&app_absent=0 ',
+    label: 'WhatsApp',
+    icon: <Wp className="" />,
   },
   {
-    key: 'telegram',
-    href: '#',
-    label: 'Telegram',
-    icon: <Tg className="" />,
+    key: '2gis',
+    href: 'https://2gis.kz/astana/firm/70000001051171977?m=71.402814%2C51.109861%2F16 ',
+    label: '2GIS',
+    icon: <TwoGis className="" />,
   },
 ];
 
@@ -116,15 +116,15 @@ export function Footer() {
               Судебно-экспертный отдел
             </div>
             <div className="text-sm text-white/70">
-              г. Астана, ул.Оленті, 2/2
+              Астана, Туран 46б/2
               <br />
-              +7 705 413 12 57
+              +7 771 033 3525
               <br />
-              forensic.kz@mail.ru
+              ansesykz@gmail.com{' '}
             </div>
           </div>
 
-          <div className="grid gap-3">
+          {/* <div className="grid gap-3">
             <div className="text-sm font-semibold text-white/90">
               Филиал в г.Алматы
             </div>
@@ -133,7 +133,7 @@ export function Footer() {
               <br />
               +7 747 198 48 48
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>

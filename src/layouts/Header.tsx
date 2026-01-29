@@ -30,7 +30,7 @@ export function Header() {
       <div className={PAGE_CONTAINER_CLASS}>
         <div
           className={clsx(
-            'mt-6 flex h-[70px] justify-between rounded-xl border border-t-2 border-white/10 border-t-[#2E4ECF] bg-[rgba(46,78,207,0.12)] p-[16px_16px_16px_32px] px-8 shadow-[inset_0_4px_40px_-14.024px_rgba(27,57,178,0.52)] backdrop-blur-[2px]',
+            'mt-6 flex h-17.5 justify-between rounded-xl border border-t-2 border-white/10 border-t-[#2E4ECF] bg-[rgba(46,78,207,0.12)] p-[16px_16px_16px_32px] px-8 shadow-[inset_0_4px_40px_-14.024px_rgba(27,57,178,0.52)] backdrop-blur-[2px]',
             'items-center gap-3 self-stretch'
           )}
         >
@@ -41,9 +41,9 @@ export function Header() {
             <Link className={getLinkClass('/expertise')} to="/expertise">
               Виды экспертиз
             </Link>
-            <Link className={getLinkClass('/team')} to="/team">
+            {/* <Link className={getLinkClass('/team')} to="/team">
               Команда
-            </Link>
+            </Link> */}
           </nav>
 
           <div className="flex items-center justify-center">
@@ -53,9 +53,9 @@ export function Header() {
           </div>
 
           <nav className="flex items-center gap-2">
-            <Link className={getLinkClass('/equipment')} to="/equipment">
+            {/* <Link className={getLinkClass('/equipment')} to="/equipment">
               Оборудование
-            </Link>
+            </Link> */}
             <Link className={getLinkClass('/', '#projects')} to="/#projects">
               Проекты
             </Link>

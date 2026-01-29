@@ -31,9 +31,9 @@ export function Hero() {
           <div className="relative z-10 flex max-w-190 flex-col items-center text-center">
             <h1 className="text-4xl leading-tight font-semibold tracking-tight text-balance sm:text-6xl">
               <span className="text-(--color-primary)">АНСЭ</span>
-              <span className="text-white"> — экспертиза,</span>
+              <span className="text-white"> — нам доверяют</span>
               <br />
-              <span className="text-white">которой доверяют</span>
+              <span className="text-white">Профессиональная экспертиза</span>
             </h1>
 
             <p className="mt-6 max-w-130 text-sm leading-relaxed text-pretty text-white/70 sm:text-base">
