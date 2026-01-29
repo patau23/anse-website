@@ -1,3 +1,8 @@
+import img1 from '@/shared/assets/imgs/person-1.png';
+import img2 from '@/shared/assets/imgs/person-2.png';
+import img3 from '@/shared/assets/imgs/person-3.png';
+import img4 from '@/shared/assets/imgs/person-4.png';
+import img5 from '@/shared/assets/imgs/person-5.png';
 import { PAGE_CONTAINER_CLASS } from '@/shared/layout/constants';
 import { cn } from '@/shared/lib/utils';
 
@@ -19,34 +24,48 @@ function MemberCard(props: {
   experience: string;
   tag: string;
   description: string;
+  image: string | null;
 }) {
-  const { name, experience, tag, description } = props;
+  const { name, experience, tag, description, image } = props;
 
   return (
-    <article className={cn('relative flex flex-col items-center gap-5 p-6', GLASS_CARD_CLASS)}>
-      <div className="relative flex h-[420px] w-full items-end justify-center overflow-hidden rounded-xl px-7 py-5">
-        <TeamImagePlaceholder />
-        <h2 className="relative text-center text-[28px] font-bold leading-[34px] tracking-[0.38px] text-white">
+    <article
+      className={cn(
+        'relative flex flex-col items-center gap-5 p-6',
+        GLASS_CARD_CLASS
+      )}
+    >
+      <div className="relative flex h-105 w-full items-end justify-center overflow-hidden rounded-xl px-7 py-5">
+        {image ? (
+          <img
+            src={image}
+            alt={name}
+            className="absolute inset-0 rounded-xl object-cover"
+          />
+        ) : (
+          <TeamImagePlaceholder />
+        )}
+        <h2 className="relative text-center text-[28px] leading-8.5 font-bold tracking-[0.38px] text-white">
           {name}
         </h2>
       </div>
 
       <div className="flex w-full items-center gap-3">
         <div className="flex flex-1 items-center">
-          <div className="flex gap-1 text-[17px] font-normal leading-[22px] tracking-[-0.43px]">
+          <div className="flex gap-1 text-[17px] leading-5.5 font-normal tracking-[-0.43px]">
             <span className="text-[#c7c7cc]">Опыт:</span>
             <span className="text-white">{experience}</span>
           </div>
         </div>
         <div className="rounded-lg bg-[#2e4ecf] px-3 py-2">
-          <span className="text-center text-[15px] font-semibold leading-5 tracking-[-0.23px] text-white">
+          <span className="text-center text-[15px] leading-5 font-semibold tracking-[-0.23px] text-white">
             {tag}
           </span>
         </div>
       </div>
 
       <div className="h-px w-full bg-[#2e4ecf]" />
-      <p className="w-full max-w-[486px] text-[17px] font-normal leading-[22px] tracking-[-0.43px] text-[#c7c7cc]">
+      <p className="w-full max-w-121.5 text-[17px] leading-5.5 font-normal tracking-[-0.43px] text-[#c7c7cc]">
         {description}
       </p>
 
@@ -60,6 +79,13 @@ export default function TeamPage() {
     key: index,
     name: 'Алия Нуржанова',
     experience: '8 лет',
+    image: [
+      index % 5 === 0 ? img1 : null,
+      index % 5 === 1 ? img2 : null,
+      index % 5 === 2 ? img3 : null,
+      index % 5 === 3 ? img4 : null,
+      index % 5 === 4 ? img5 : null,
+    ][index % 5],
     tag: '# компьютерно-техническая экспертиза',
     description:
       'Краткое исследование цифровых данных, устройств и информационных систем для установления фактов и обстоятельств.',
@@ -78,6 +104,7 @@ export default function TeamPage() {
               experience={member.experience}
               tag={member.tag}
               description={member.description}
+              image={member.image}
             />
           ))}
         </section>
