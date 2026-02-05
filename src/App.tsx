@@ -6,6 +6,7 @@ import MainLayout from './layouts/MainLayout';
 import AboutPage from './pages/about';
 import EquipmentPage from './pages/equipment';
 import ExpertisePage from './pages/expertise';
+import ForAuthorsPage from './pages/for-authors';
 import TeamPage from './pages/team';
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       <Route element={<MainLayout />}>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/for-authors" element={<ForAuthorsPage />} />
         <Route path="/expertise" element={<ExpertisePage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/equipment" element={<EquipmentPage />} />

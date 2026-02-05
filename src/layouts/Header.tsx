@@ -38,6 +38,9 @@ export function Header() {
             <Link className={getLinkClass('/about')} to="/about">
               О компании
             </Link>
+            <Link className={getLinkClass('/for-authors')} to="/for-authors">
+              Для авторов
+            </Link>
             <Link className={getLinkClass('/expertise')} to="/expertise">
               Виды экспертиз
             </Link>
