@@ -83,7 +83,7 @@ export default function ExpertisePage() {
         <h1 className="sr-only">{t('expertise.title')}</h1>
 
         <section className="grid gap-16 lg:grid-cols-3">
-          {items.map((item, index) => (
+          {items.map((item: any, index) => (
             <article
               key={item.title}
               className={cn(
@@ -94,7 +94,9 @@ export default function ExpertisePage() {
               <img src={item.image} alt={item.title} className="rounded-2xl" />
 
               <div className="flex flex-col items-center gap-4">
-                <h2 className="text-center text-[28px] leading-8.5">{t(item.titleKey)}</h2>
+                <h2 className="text-center text-[28px] leading-8.5">
+                  {t(item.titleKey)}
+                </h2>
                 <p className="max-w-121.5 text-center text-[17px] text-[#c7c7cc]">
                   {t(item.descriptionKey)}
                 </p>

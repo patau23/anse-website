@@ -4,7 +4,9 @@ import { useTranslation } from 'react-i18next';
 
 export function AboutHistorySection() {
   const { t } = useTranslation();
-  const paragraphs: string[] = t('about.history.paragraphs', { returnObjects: true });
+  const paragraphs = t('about.history.paragraphs', {
+    returnObjects: true,
+  }) as string[];
 
   return (
     <section className="flex flex-col items-center py-10 text-center">
