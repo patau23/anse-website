@@ -57,21 +57,19 @@ export function ForAuthorsExpertusPolicySection() {
     <section className="py-16">
       <div className="flex flex-col items-center gap-3 text-center">
         <h2 className="min-w-full text-center text-[34px] leading-10.25 font-bold tracking-[0.4px]">
-          <span className="text-[#2e4ecf]">РУКОВОДСТВО ДЛЯ АВТОРОВ</span>
+          <span className="text-[#2e4ecf]">
+            {t('forAuthors.titlePrefix', '')}
+          </span>
+          <span className="text-white">{t('forAuthors.title')}</span>
         </h2>
         <p className="w-full max-w-200 text-[22px] leading-7 font-semibold tracking-[-0.26px] text-white">
-          Научно-практический журнал «EXPERTUS»
+          {t('forAuthors.journalName')}
         </p>
         <p className="w-full max-w-200 text-[22px] leading-7 font-normal tracking-[-0.26px] text-white">
-          Научно-практический журнал «EXPERTUS» — официальное издание ТОО
-          «Альянс независимой судебной экспертизы» — является профессиональной
-          площадкой для обмена опытом, анализа практики и развития методологии
-          судебной экспертизы в Республике Казахстан и за рубежом.
+          {t('forAuthors.lead')}
         </p>
         <p className="w-full max-w-200 text-[20px] leading-6.5 font-normal tracking-[-0.26px] text-white/90">
-          Журнал ориентирован на практикующих судебных экспертов, представителей
-          экспертных организаций, научных сотрудников, юристов и разработчиков
-          методик в сфере экспертной деятельности.
+          {t('forAuthors.audience')}
         </p>
       </div>
 
@@ -97,10 +95,10 @@ export function ForAuthorsExpertusPolicySection() {
 
         <div className="space-y-3">
           <h3 className="text-[22px] leading-7 font-semibold tracking-[0.6px] text-white uppercase">
-            Архитектура и разделы журнала
+            {t('forAuthors.architectureTitle')}
           </h3>
           <p className="text-[18px] leading-6 font-normal tracking-[-0.26px] text-white/90">
-            Материалы принимаются в рамках следующих разделов:
+            {t('forAuthors.architectureIntro')}
           </p>
 
           <div className="space-y-6">
@@ -121,14 +119,13 @@ export function ForAuthorsExpertusPolicySection() {
 
         <div className="space-y-3">
           <h3 className="text-[22px] leading-7 font-semibold tracking-[0.6px] text-white uppercase">
-            Требования к материалам
+            {t('forAuthors.requirementsTitle')}
           </h3>
           <p className="text-[18px] leading-6 font-normal tracking-[-0.26px] text-white/90">
-            К публикации принимаются оригинальные материалы, ранее не
-            опубликованные и не находящиеся на рассмотрении в других изданиях.
+            {t('forAuthors.requirementsIntro')}
           </p>
           <p className="text-[18px] leading-6 font-normal tracking-[-0.26px] text-white/90">
-            Материалы должны:
+            {t('forAuthors.materialsShould')}
           </p>
           <div className="space-y-2">
             {materialRequirements.map((bullet, idx) => (
@@ -144,10 +141,10 @@ export function ForAuthorsExpertusPolicySection() {
 
         <div className="space-y-3">
           <h3 className="text-[22px] leading-7 font-semibold tracking-[0.6px] text-white uppercase">
-            Авторы
+            {t('forAuthors.authorsTitle')}
           </h3>
           <p className="text-[18px] leading-6 font-normal tracking-[-0.26px] text-white/90">
-            К публикации приглашаются:
+            {t('forAuthors.authorsIntro')}
           </p>
           <div className="space-y-2">
             {authorsInvited.map((bullet, idx) => (
@@ -163,10 +160,10 @@ export function ForAuthorsExpertusPolicySection() {
 
         <div className="space-y-3">
           <h3 className="text-[22px] leading-7 font-semibold tracking-[0.6px] text-white uppercase">
-            Порядок рассмотрения материалов
+            {t('forAuthors.reviewProcessTitle')}
           </h3>
           <p className="text-[18px] leading-6 font-normal tracking-[-0.26px] text-white/90">
-            Все поступающие материалы проходят:
+            {t('forAuthors.reviewProcessIntro')}
           </p>
           <div className="space-y-2">
             {reviewProcess.map((bullet, idx) => (
@@ -196,38 +193,34 @@ export function ForAuthorsExpertusPolicySection() {
 
         <div className="space-y-3">
           <h3 className="text-[22px] leading-7 font-semibold tracking-[0.6px] text-white uppercase">
-            Авторские права
+            {t('forAuthors.copyrightTitle')}
           </h3>
           <p className="text-[18px] leading-6 font-normal tracking-[-0.26px] text-white/90">
-            Авторы сохраняют авторские права на свои материалы. Журнал получает
-            право первой публикации и распространения материала с обязательным
-            указанием авторства.
+            {t('forAuthors.copyrightText')}
           </p>
         </div>
 
         <div className="space-y-3">
           <h3 className="text-[22px] leading-7 font-semibold tracking-[0.6px] text-white uppercase">
-            Подача материалов
+            {t('forAuthors.submissionTitle')}
           </h3>
           <p className="text-[18px] leading-6 font-normal tracking-[-0.26px] text-white/90">
-            Материалы направляются в редакцию журнала по электронной почте:
+            {t('forAuthors.submissionContactIntro')}
           </p>
           <p className="text-[18px] leading-6 font-semibold tracking-[-0.26px] text-white">
-            📧 ansesykz@gmail.com
+            {t('forAuthors.contactEmail')}
           </p>
           <p className="text-[18px] leading-6 font-normal tracking-[-0.26px] text-white/90">
-            Срок подачи материалов в текущий номер — до 28 марта 2026 года.
+            {t('forAuthors.deadline')}
           </p>
         </div>
 
         <div className="space-y-3">
           <h3 className="text-[22px] leading-7 font-semibold tracking-[0.6px] text-white uppercase">
-            Заключение
+            {t('forAuthors.conclusionTitle')}
           </h3>
           <p className="text-[18px] leading-6 font-normal tracking-[-0.26px] text-white/90">
-            Редакция журнала «EXPERTUS» приветствует профессиональный диалог,
-            обмен практическим опытом и вклад авторов в развитие судебной
-            экспертизы и экспертного сообщества.
+            {t('forAuthors.conclusionText')}
           </p>
         </div>
 
@@ -238,14 +231,14 @@ export function ForAuthorsExpertusPolicySection() {
               download
               className="inline-flex items-center justify-center rounded-xl bg-[#2e4ecf] px-5 py-3 text-[15px] leading-5 font-semibold tracking-[-0.23px] text-white transition-colors hover:bg-[#2643b6] focus-visible:ring-2 focus-visible:ring-(--color-primary) focus-visible:outline-none"
             >
-              Скачать руководство (DOCX)
+              {t('forAuthors.downloads.guide')}
             </a>
             <a
               href={studentDocUrl}
               download
               className="inline-flex items-center justify-center rounded-xl border border-[#2e4ecf] bg-[rgba(46,78,207,0.12)] px-5 py-3 text-[15px] leading-5 font-semibold tracking-[-0.23px] text-white transition-colors hover:bg-[rgba(46,78,207,0.22)] focus-visible:ring-2 focus-visible:ring-(--color-primary) focus-visible:outline-none"
             >
-              Скачать шаблон (DOCX)
+              {t('forAuthors.downloads.template')}
             </a>
           </div>
         </div>

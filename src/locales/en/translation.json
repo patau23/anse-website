@@ -309,4 +309,30 @@
             "rejected."
         ]
     }
+    ,
+    "forAuthors": {
+        "titlePrefix": "",
+        "title": "Guide for authors",
+        "journalName": "Scientific-practical journal \"EXPERTUS\"",
+        "lead": "A professional platform for exchange of experience, practice analysis and methodology development in forensic expertise.",
+        "audience": "The journal is aimed at practicing forensic experts, representatives of expert organizations, researchers, lawyers and method developers in expert activity.",
+        "architectureTitle": "Architecture and journal sections",
+        "architectureIntro": "Materials are accepted within the following sections:",
+        "requirementsTitle": "Material requirements",
+        "requirementsIntro": "Original materials not previously published or under consideration elsewhere are accepted.",
+        "materialsShould": "Materials should:",
+        "authorsTitle": "Authors",
+        "authorsIntro": "The journal invites for publication:",
+        "reviewProcessTitle": "Review process",
+        "reviewProcessIntro": "All incoming materials pass:",
+        "copyrightTitle": "Copyright",
+        "copyrightText": "Authors retain copyright to their materials. The journal obtains the right of first publication and distribution with mandatory attribution.",
+        "submissionTitle": "Submission",
+        "submissionContactIntro": "Materials are submitted to the journal editorial office by e-mail:",
+        "contactEmail": "📧 ansesykz@gmail.com",
+        "deadline": "Submission deadline for the current issue — March 28, 2026.",
+        "conclusionTitle": "Conclusion",
+        "conclusionText": "The editorial board of \"EXPERTUS\" welcomes professional dialogue, exchange of practical experience and the contribution of authors to the development of forensic expertise and the expert community.",
+        "downloads": { "guide": "Download guide (DOCX)", "template": "Download template (DOCX)" }
+    }
 }
