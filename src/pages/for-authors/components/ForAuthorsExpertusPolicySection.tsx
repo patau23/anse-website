@@ -1,89 +1,58 @@
 import guideDocUrl from '@/shared/assets/guide-1.docx?url';
 import studentDocUrl from '@/shared/assets/student_doc_3.docx?url';
 
+import { useTranslation } from 'react-i18next';
+
 type Section = {
-  title: string;
-  description?: string;
+  titleKey: string;
+  descriptionKey?: string;
   bullets?: string[];
 };
 
-const TOPIC_BULLETS = [
-  'правовые и процессуальные аспекты судебной экспертизы;',
-  'методология и практика экспертных исследований;',
-  'анализ судебной практики и экспертных кейсов;',
-  'отраслевые виды судебных экспертиз;',
-  'международный опыт и стандарты в экспертной деятельности;',
-  'цифровизация, автоматизация и применение искусственного интеллекта в экспертизе;',
-  'профессиональные дискуссии и экспертные мнения.',
-];
-
-const ARCHITECTURE_SECTIONS: Section[] = [
-  {
-    title: 'I. Процессуальные вопросы',
-    description:
-      'Аналитика законодательных изменений, судебной практики, взаимодействия эксперта с участниками процесса, вопросов назначения, проведения и оценки экспертиз.',
-  },
-  {
-    title: 'II. Практика судебной экспертизы',
-    description:
-      'Практико-ориентированные материалы, посвящённые применению методик, анализу реальных кейсов, обучению на практике, обзорам подходов и рекомендациям для экспертов.',
-  },
-  {
-    title: 'III. Отраслевой интерес',
-    description:
-      'Материалы по отдельным видам судебных экспертиз, включая строительную, медицинскую, психолого-педагогическую, экономическую, экологическую, инженерную и иные специализированные направления.',
-  },
-  {
-    title: 'IV. Экспертное мнение',
-    description:
-      'Авторские колонки, аналитические материалы, профессиональные дискуссии и полемика по актуальным вопросам экспертной деятельности.',
-  },
-  {
-    title: 'V. Международная практика',
-    description:
-      'Обзоры зарубежных систем судебной экспертизы, международных стандартов (ISO, ENFSI и др.), участие экспертов в международных проектах, интервью и переводы ключевых исследований.',
-  },
-  {
-    title: 'VI. Спецвыпуски и интервью номера',
-    description:
-      'Тематические выпуски, посвящённые отдельным отраслям или проблемам, а также интервью с ведущими экспертами, учёными, судьями и представителями государственных органов.',
-  },
-  {
-    title: 'VII. Цифровизация и экспертиза',
-    description:
-      'Публикации о цифровых платформах, программных продуктах, электронных системах учёта, искусственном интеллекте, компьютерно-технической и киберэкспертизе, а также кейсы цифровой трансформации экспертных организаций.',
-  },
-];
-
-const MATERIAL_REQUIREMENTS_BULLETS = [
-  'соответствовать тематике журнала;',
-  'иметь прикладную или методологическую ценность для экспертного сообщества;',
-  'быть изложены в профессиональном, нейтральном и аргументированном стиле;',
-  'соответствовать требованиям к оформлению и структуре статьи.',
-];
-
-const AUTHORS_INVITED_BULLETS = [
-  'судебные эксперты различных направлений;',
-  'представители экспертных организаций;',
-  'научные сотрудники и преподаватели;',
-  'представители юридического сообщества;',
-  'разработчики методик, стандартов и цифровых решений в сфере экспертизы.',
-];
-
-const REVIEW_PROCESS_BULLETS = [
-  'первичную редакционную оценку;',
-  'проверку на оригинальность;',
-  'рецензирование в соответствии с редакционной политикой журнала.',
-];
-
-const REVIEW_OUTCOMES_BULLETS = [
-  'принят к публикации;',
-  'принят с доработкой;',
-  'направлен на существенную доработку;',
-  'отклонён.',
-];
-
 export function ForAuthorsExpertusPolicySection() {
+  const { t } = useTranslation();
+
+  const topicBullets: string[] = t('forAuthors.policy', { returnObjects: true })
+    ? Object.keys(t('forAuthors.policy', { returnObjects: true })).map((k) =>
+        t(`forAuthors.policy.${k}`)
+      )
+    : [];
+
+  const architecture =
+    t('forAuthors.architecture', { returnObjects: true }) || {};
+
+  const materialRequirements: string[] = t('forAuthors.materialRequirements', {
+    returnObjects: true,
+  })
+    ? Object.keys(
+        t('forAuthors.materialRequirements', { returnObjects: true })
+      ).map((k) => t(`forAuthors.materialRequirements.${k}`))
+    : [];
+
+  const authorsInvited: string[] = t('forAuthors.authorsInvited', {
+    returnObjects: true,
+  })
+    ? Object.keys(t('forAuthors.authorsInvited', { returnObjects: true })).map(
+        (k) => t(`forAuthors.authorsInvited.${k}`)
+      )
+    : [];
+
+  const reviewProcess: string[] = t('forAuthors.reviewProcess', {
+    returnObjects: true,
+  })
+    ? Object.keys(t('forAuthors.reviewProcess', { returnObjects: true })).map(
+        (k) => t(`forAuthors.reviewProcess.${k}`)
+      )
+    : [];
+
+  const reviewOutcomes: string[] = t('forAuthors.reviewOutcomes', {
+    returnObjects: true,
+  })
+    ? Object.keys(t('forAuthors.reviewOutcomes', { returnObjects: true })).map(
+        (k) => t(`forAuthors.reviewOutcomes.${k}`)
+      )
+    : [];
+
   return (
     <section className="py-16">
       <div className="flex flex-col items-center gap-3 text-center">
@@ -109,15 +78,15 @@ export function ForAuthorsExpertusPolicySection() {
       <div className="mx-auto mt-12 w-full max-w-200 space-y-10 text-center">
         <div className="space-y-3">
           <h3 className="text-[22px] leading-7 font-semibold tracking-[0.6px] text-white uppercase">
-            Тематика журнала
+            {t('forAuthors.title')}
           </h3>
           <p className="text-[18px] leading-6 font-normal tracking-[-0.26px] text-white/90">
-            Журнал принимает материалы, посвящённые следующим направлениям:
+            {t('forAuthors.topicIntro')}
           </p>
           <div className="space-y-2">
-            {TOPIC_BULLETS.map((bullet) => (
+            {topicBullets.map((bullet, idx) => (
               <p
-                key={bullet}
+                key={String(idx)}
                 className="text-[17px] leading-5.5 font-normal tracking-[-0.43px] text-[#c7c7cc]"
               >
                 • {bullet}
@@ -135,14 +104,14 @@ export function ForAuthorsExpertusPolicySection() {
           </p>
 
           <div className="space-y-6">
-            {ARCHITECTURE_SECTIONS.map((section) => (
-              <div key={section.title} className="space-y-2">
+            {Object.keys(architecture).map((k) => (
+              <div key={k} className="space-y-2">
                 <p className="text-[18px] leading-6 font-semibold tracking-[-0.26px] text-white">
-                  {section.title}
+                  {t(`forAuthors.architecture.${k}.title`)}
                 </p>
-                {section.description ? (
+                {t(`forAuthors.architecture.${k}.description`) ? (
                   <p className="text-[17px] leading-5.5 font-normal tracking-[-0.43px] text-[#c7c7cc]">
-                    {section.description}
+                    {t(`forAuthors.architecture.${k}.description`)}
                   </p>
                 ) : null}
               </div>
@@ -162,9 +131,9 @@ export function ForAuthorsExpertusPolicySection() {
             Материалы должны:
           </p>
           <div className="space-y-2">
-            {MATERIAL_REQUIREMENTS_BULLETS.map((bullet) => (
+            {materialRequirements.map((bullet, idx) => (
               <p
-                key={bullet}
+                key={String(idx)}
                 className="text-[17px] leading-5.5 font-normal tracking-[-0.43px] text-[#c7c7cc]"
               >
                 • {bullet}
@@ -181,9 +150,9 @@ export function ForAuthorsExpertusPolicySection() {
             К публикации приглашаются:
           </p>
           <div className="space-y-2">
-            {AUTHORS_INVITED_BULLETS.map((bullet) => (
+            {authorsInvited.map((bullet, idx) => (
               <p
-                key={bullet}
+                key={String(idx)}
                 className="text-[17px] leading-5.5 font-normal tracking-[-0.43px] text-[#c7c7cc]"
               >
                 • {bullet}
@@ -200,9 +169,9 @@ export function ForAuthorsExpertusPolicySection() {
             Все поступающие материалы проходят:
           </p>
           <div className="space-y-2">
-            {REVIEW_PROCESS_BULLETS.map((bullet) => (
+            {reviewProcess.map((bullet, idx) => (
               <p
-                key={bullet}
+                key={String(idx)}
                 className="text-[17px] leading-5.5 font-normal tracking-[-0.43px] text-[#c7c7cc]"
               >
                 • {bullet}
@@ -214,9 +183,9 @@ export function ForAuthorsExpertusPolicySection() {
             По результатам рассмотрения материал может быть:
           </p>
           <div className="space-y-2">
-            {REVIEW_OUTCOMES_BULLETS.map((bullet) => (
+            {reviewOutcomes.map((bullet, idx) => (
               <p
-                key={bullet}
+                key={String(idx)}
                 className="text-[17px] leading-5.5 font-normal tracking-[-0.43px] text-[#c7c7cc]"
               >
                 • {bullet}

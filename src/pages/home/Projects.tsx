@@ -1,6 +1,7 @@
 import { PAGE_CONTAINER_CLASS } from '@/shared/layout/constants';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import page1 from '@/shared/assets/imgs/journal/page-1.jpg';
 import page2 from '@/shared/assets/imgs/journal/page-2.jpg';
@@ -11,25 +12,16 @@ import page5 from '@/shared/assets/imgs/journal/page-5.jpg';
 type ProjectItem = { number: string; title: string };
 
 const projectItems: ProjectItem[] = [
-  {
-    number: '01',
-    title: 'Журнал «Expertus» о современной судебной экспертизе.',
-  },
-  {
-    number: '02',
-    title: 'Масштабный проект: ИИ как помощник в судебной экспертизе.',
-  },
-  {
-    number: '03',
-    title:
-      'Международное сотрудничество (встречи, семинары, конференции, форумы)',
-  },
-  { number: '04', title: 'Скоро новый проект следите за обновлениями!' },
+  { number: '01', title: 'home.projects.items.0.title' },
+  { number: '02', title: 'home.projects.items.1.title' },
+  { number: '03', title: 'home.projects.items.2.title' },
+  { number: '04', title: 'home.projects.items.3.title' },
 ];
 
 const PAGES: string[] = [page1, page2, page3, page4, page5];
 
 export function Projects() {
+  const { t } = useTranslation();
   const pages = useMemo(() => PAGES, []);
   const totalPages = pages.length;
 
@@ -222,8 +214,8 @@ export function Projects() {
 
       <div className={PAGE_CONTAINER_CLASS}>
         <h2 className="self-stretch text-center font-sans text-[34px] leading-10.25 font-bold tracking-[0.4px] text-white">
-          <span className="text-(--color-primary)">Про наши </span>
-          проекты
+          <span className="text-(--color-primary)">{t('home.projects.titlePrefix')} </span>
+          {t('home.projects.title')}
         </h2>
 
         <div className="mt-14 grid items-start gap-12 lg:grid-cols-2">
@@ -244,7 +236,7 @@ export function Projects() {
                     {item.number}
                   </span>
                   <span className="min-w-0 truncate text-sm text-white/90 sm:text-base">
-                    {item.title}
+                    {t(item.title)}
                   </span>
                 </span>
                 <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/15 bg-black/10 text-white/80 transition-colors group-hover:text-white">
@@ -340,14 +332,14 @@ export function Projects() {
                     className="journalZone"
                     onClick={goPrev}
                     disabled={!canPrev || isFlipping}
-                    aria-label="Предыдущая страница"
+                    aria-label={t('home.projects.aria.prevPage')}
                   />
                   <button
                     type="button"
                     className="journalZone"
                     onClick={goNext}
                     disabled={!canNext || isFlipping}
-                    aria-label="Следующая страница"
+                    aria-label={t('home.projects.aria.nextPage')}
                   />
                 </div>
 
@@ -358,7 +350,7 @@ export function Projects() {
                     onClick={goPrev}
                     disabled={!canPrev || isFlipping}
                     className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-black/10 disabled:opacity-40"
-                    aria-label="Предыдущий"
+                    aria-label={t('home.projects.aria.prev')}
                   >
                     <ArrowLeft className="h-4 w-4" />
                   </button>
@@ -370,7 +362,7 @@ export function Projects() {
                     onClick={goNext}
                     disabled={!canNext || isFlipping}
                     className="inline-flex h-6 w-6 items-center justify-center rounded-full border border-black/10 disabled:opacity-40"
-                    aria-label="Следующий"
+                    aria-label={t('home.projects.aria.next')}
                   >
                     <ArrowRight className="h-4 w-4" />
                   </button>
@@ -382,7 +374,7 @@ export function Projects() {
               href="#"
               className="mt-8 inline-flex h-13.5 items-center justify-center rounded-full bg-(--color-primary) px-10 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5"
             >
-              Читать все
+              {t('home.projects.readAll')}
             </a>
           </div>
         </div>

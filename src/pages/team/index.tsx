@@ -5,6 +5,7 @@ import img4 from '@/shared/assets/imgs/person-4.png';
 import img5 from '@/shared/assets/imgs/person-5.png';
 import { PAGE_CONTAINER_CLASS } from '@/shared/layout/constants';
 import { cn } from '@/shared/lib/utils';
+import { useTranslation } from 'react-i18next';
 
 const GLASS_CARD_CLASS =
   'bg-[rgba(46,78,207,0.12)] border border-[#2e4ecf] rounded-[16px] shadow-[0px_-4px_40px_-14.024px_rgba(46,78,207,0.52)]';
@@ -53,7 +54,7 @@ function MemberCard(props: {
       <div className="flex w-full items-center gap-3">
         <div className="flex flex-1 items-center">
           <div className="flex gap-1 text-[17px] leading-5.5 font-normal tracking-[-0.43px]">
-            <span className="text-[#c7c7cc]">Опыт:</span>
+            <span className="text-[#c7c7cc]">{props.tag ? '' : ''}</span>
             <span className="text-white">{experience}</span>
           </div>
         </div>
@@ -75,26 +76,21 @@ function MemberCard(props: {
 }
 
 export default function TeamPage() {
+  const { t } = useTranslation();
+
   const members = Array.from({ length: 5 }).map((_, index) => ({
     key: index,
     name: 'Алия Нуржанова',
     experience: '8 лет',
-    image: [
-      index % 5 === 0 ? img1 : null,
-      index % 5 === 1 ? img2 : null,
-      index % 5 === 2 ? img3 : null,
-      index % 5 === 3 ? img4 : null,
-      index % 5 === 4 ? img5 : null,
-    ][index % 5],
-    tag: '# компьютерно-техническая экспертиза',
-    description:
-      'Краткое исследование цифровых данных, устройств и информационных систем для установления фактов и обстоятельств.',
+    image: [index % 5 === 0 ? img1 : null, index % 5 === 1 ? img2 : null, index % 5 === 2 ? img3 : null, index % 5 === 3 ? img4 : null, index % 5 === 4 ? img5 : null][index % 5],
+    tag: t('team.tags.computerForensics'),
+    description: t('team.descriptions.default'),
   }));
 
   return (
     <main className="py-24 text-white">
       <div className={PAGE_CONTAINER_CLASS}>
-        <h1 className="sr-only">Команда</h1>
+        <h1 className="sr-only">{t('team.title')}</h1>
 
         <section className="flex flex-wrap items-start justify-center gap-16 py-6">
           {members.map((member) => (

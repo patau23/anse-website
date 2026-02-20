@@ -1,9 +1,17 @@
+import { useTranslation } from 'react-i18next';
+
 type HexProps = {
-  label: string;
+  // either a fully translated label string
+  label?: string;
+  // or an i18next key (e.g. 'home.expertise.itemsTop.0')
+  labelKey?: string;
 };
 
-export function Hex({ label }: HexProps) {
-  const lines = label.split('\n');
+export function Hex({ label, labelKey }: HexProps) {
+  const { t } = useTranslation();
+  const raw = label ?? (labelKey ? t(labelKey) : '');
+  // accept both actual newlines and escaped "\\n" sequences from JSON
+  const lines = raw.split(/\\n|\n/);
 
   const fontSize = 24;
   const lineHeight = 28;

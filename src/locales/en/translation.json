@@ -1,0 +1,312 @@
+{
+    "nav": {
+        "about": "About",
+        "forAuthors": "For authors",
+        "expertise": "Expertise",
+        "projects": "Projects",
+        "contacts": "Contacts",
+        "home": "Home"
+    },
+    "aria": {
+        "home": "Go to homepage"
+    },
+    "equipment": {
+        "title": "Equipment",
+        "tags": {
+            "software": "# software",
+            "comparator": "# comparator",
+            "microscope": "# microscope"
+        },
+        "descriptions": {
+            "disk_analysis": "Used for analysis of digital media, recovery of deleted data and detection of interference signs. Supports a wide range of file systems."
+        }
+    },
+    "expertise": {
+        "title": "Types of expertise",
+        "cta": {
+            "learnMore": "Learn more",
+            "readAll": "Read all"
+        },
+        "items": {
+            "handwriting": {
+                "title": "Handwriting forensic expertise",
+                "description": "Handwriting forensic expertise is a tool for identifying the author of handwritten text or signature. Experts analyze handwritten and digital records to solve identification, diagnostic and classification tasks."
+            },
+            "phonography": {
+                "title": "Phonographic forensic expertise",
+                "description": "Phonographic expertise studies audio information on digital or magnetic media to determine key facts, transcribe unclear speech, identify speakers and detect editing."
+            },
+            "phototechnical": {
+                "title": "Phototechnical forensic expertise",
+                "description": "Phototechnical expertise focuses on photo, cinema and video material analysis and the equipment used to create them, including detection of edits and evaluation of shooting conditions."
+            },
+            "accounting": {
+                "title": "Accounting forensic expertise",
+                "description": "Accounting forensic expertise analyzes financial and business activities to verify correctness of accounting records and determine financial damages."
+            },
+            "goods": {
+                "title": "Commodity forensic expertise",
+                "description": "Commodity expertise determines product characteristics, compliance with standards, defect analysis and valuation."
+            },
+            "religion": {
+                "title": "Religious studies forensic research",
+                "description": "Systematic analysis to determine affiliation of materials to specific religious movements and to assess potentially dangerous rhetoric."
+            },
+            "psychology": {
+                "title": "Psychological forensic expertise",
+                "description": "Psychological expertise examines mental states and abilities of subjects to establish facts with legal significance."
+            }
+        }
+    },
+    "home": {
+        "brand": "ANSE",
+        "trust": "— trusted by many",
+        "proExpertise": "Professional expertise",
+        "subtitle": "54 types of expertise. 5 years in the market. International level.",
+        "tagline": "Technology. Accuracy. Objectivity",
+        "cta": {
+            "order": "Order expertise",
+            "more": "More"
+        },
+        "expertiseSection": {
+            "headerNumber": "54 types",
+            "headerText": "of forensic expertise",
+            "paragraph1": "ANSE performs comprehensive examinations and research for courts, authorities, lawyers, as well as organizations and individuals, following modern international standards of forensic expertise",
+            "paragraph2": "Our strongest expertise areas: religion, political science, philology, commodity expertise, psychology, construction-technical, phototechnical, economic",
+            "itemsTop": [
+                "Construction-technical",
+                "Commodity",
+                "Computer-technical"
+            ],
+            "itemsBottom": [
+                "Psychological",
+                "Religious studies",
+                "Economic and technical",
+                "Ballistic and others"
+            ]
+        },
+        "projects": {
+            "titlePrefix": "About our",
+            "title": "projects",
+            "readAll": "Read all",
+            "aria": {
+                "prevPage": "Previous page",
+                "nextPage": "Next page",
+                "prev": "Previous",
+                "next": "Next"
+            },
+            "items": [
+                {
+                    "number": "01",
+                    "title": "Journal 'Expertus' about modern forensic expertise."
+                },
+                {
+                    "number": "02",
+                    "title": "Large-scale project: AI as an assistant in forensic expertise."
+                },
+                {
+                    "number": "03",
+                    "title": "International cooperation (meetings, seminars, conferences, forums)"
+                },
+                {
+                    "number": "04",
+                    "title": "New project coming soon — stay tuned!"
+                }
+            ]
+        }
+    },
+    "about": {
+        "history": {
+            "titlePrefix": "Brief",
+            "title": "history",
+            "imgAlt": "Chrome Circles",
+            "paragraphs": [
+                "ANSE was established in 2021 as an independent platform to develop private forensic expertise in Kazakhstan. The founders are professionals with over twenty years of experience in the state expert system, who progressed from practicing experts to leaders. The move to an independent format allowed building an organization based on professionalism, transparency and personal responsibility, with quality control and scientific approach becoming part of corporate culture.",
+                "Today ANSE is an interregional forensic organization combining specialists with long-term practice and a scientific approach to research."
+            ]
+        },
+        "mission": {
+            "titlePrefix": "Philosophy and",
+            "title": "mission",
+            "intro": "The Alliance is a professional community where truth is not a legal category but a value at the core of the profession. Professionalism, methodology and ethics form the foundation of a new culture of evidence in forensic activity.",
+            "values": [
+                {
+                    "title": "Professionalism",
+                    "description": "Broad professionalism aimed at expanding competencies through diverse cooperation, including with universities, foreign partners and professional communities."
+                },
+                {
+                    "title": "Speed and efficiency",
+                    "description": "Optimization of expert production timelines without compromising quality."
+                },
+                {
+                    "title": "Objectivity and independence",
+                    "description": "Each conclusion is based on facts, scientific data and strict compliance with legislation."
+                },
+                {
+                    "title": "Individual approach",
+                    "description": "We consider the specifics of each case, the questions posed and the submitted materials when forming expert research."
+                }
+            ]
+        },
+        "international": {
+            "titlePrefix": "International",
+            "title": "cooperation",
+            "imgAlt": "ENU Full Image",
+            "intro": "ANSE builds professional ties through real expert, educational and methodological work at national and international levels.",
+            "items": [
+                {
+                    "title": "Expert presentations and educational activities",
+                    "description": "ANSE specialists regularly give lectures and practical sessions for law enforcement and supervisory bodies, as well as in professional education programs, sharing applied forensic experience."
+                },
+                {
+                    "title": "Participation in international conferences",
+                    "description": "ANSE experts regularly speak at international forums and share their developments with colleagues."
+                },
+                {
+                    "title": "Interaction with law enforcement bodies",
+                    "description": "ANSE participates in professional dialogue with prosecution and investigative structures to improve appointment quality, question formulation and evidence evaluation."
+                },
+                {
+                    "title": "International professional ties",
+                    "description": "The Alliance develops cooperation with foreign experts and forensic specialists, including contacts with Turkish and European experts."
+                },
+                {
+                    "title": "Memorandums and partnership agreements",
+                    "description": "Memorandums of cooperation are concluded with educational, scientific and expert organizations for method exchange, joint research and competence development."
+                },
+                {
+                    "title": "Integration into the international expert community",
+                    "description": "ANSE aims to participate in European and international professional associations to exchange methods, expertise and comply with international standards."
+                }
+            ]
+        },
+        "expertus": {
+            "titlePrefix": "Journal",
+            "title": "EXPERTUS and projects",
+            "paragraph": "ANSE conducts active publishing activities and implements educational projects to increase legal literacy of society.",
+            "cards": [
+                {
+                    "title": "The best forensic experts of Kazakhstan",
+                    "description": "The journal features leading forensic experts of the Republic of Kazakhstan — practitioners with many years of experience, academic degrees and author methodologies."
+                },
+                {
+                    "title": "Scientific-practical forensic expertise",
+                    "description": "The edition combines theory and practice: methodologies, expert approaches, complex cases, and development of new forensic types."
+                },
+                {
+                    "title": "Digitalization and AI in expertise",
+                    "description": "EXPERTUS covers the transformation of forensic expertise in the era of digital technologies: automation, AI tools and digital forensics."
+                },
+                {
+                    "title": "Professional community and the future of the profession",
+                    "description": "The journal is a platform for dialogue among experts, scholars and young professionals: international forums, interviews, educational initiatives and experience exchange."
+                }
+            ],
+            "pager": {
+                "prev": "Previous",
+                "next": "Next"
+            },
+            "readAll": "Read all"
+        },
+        "licenses": {
+            "titlePrefix": "Licenses and",
+            "title": "certificates",
+            "paragraph": "ANSE holds all necessary licenses and certificates to conduct private forensic examinations within the Republic of Kazakhstan.",
+            "items": [
+                {
+                    "title": "Certificate of state registration",
+                    "description": "Issued by the Ministry of Justice of the Republic of Kazakhstan"
+                },
+                {
+                    "title": "License to conduct forensic examinations",
+                    "description": "Permission to carry out the full range of criminalistic and technical examinations"
+                },
+                {
+                    "title": "Expert certificates",
+                    "description": "All experts have passed certification and hold qualification certificates"
+                }
+            ]
+        }
+    },
+    "team": {
+        "title": "Team",
+        "experienceLabel": "Experience:",
+        "tags": {
+            "computerForensics": "# computer-technical expertise"
+        },
+        "descriptions": {
+            "default": "A brief study of digital data, devices and information systems to establish facts and circumstances."
+        }
+    },
+    "forAuthors": {
+        "title": "Guide for authors",
+        "journalName": "Scientific-practical journal \"EXPERTUS\"",
+        "lead": "A professional platform for exchange of experience, practice analysis and methodology development in forensic expertise.",
+        "topicIntro": "The journal accepts materials related to the following directions:",
+        "policy": {
+            "legal": "legal and procedural aspects of forensic expertise;",
+            "methodology": "methodology and practice of expert research;",
+            "caseAnalysis": "analysis of judicial practice and expert cases;",
+            "expertiseTypes": "industry types of forensic expertise;",
+            "internationalStandards": "international experience and standards in expert activity;",
+            "digitalization": "digitalization, automation and AI applications in expertise;",
+            "discussions": "professional discussions and expert opinions."
+        },
+        "architectureIntro": "Materials are accepted within the following sections:",
+        "architecture": {
+            "proc": {
+                "title": "I. Procedural issues",
+                "description": "Analytics of legislative changes, court practice, expert interaction with process participants, and issues of appointment and evaluation of expertise."
+            },
+            "practice": {
+                "title": "II. Practice of forensic expertise",
+                "description": "Practice-oriented materials devoted to methods application, case analysis, practice training, approaches review and recommendations for experts."
+            },
+            "industry": {
+                "title": "III. Industry interest",
+                "description": "Materials on specific types of forensic expertise including construction, medical, psycho-pedagogical, economic, environmental, engineering and other specialized directions."
+            },
+            "opinion": {
+                "title": "IV. Expert opinion",
+                "description": "Author columns, analytical materials, professional discussions and debate on topical issues of expert activity."
+            },
+            "international": {
+                "title": "V. International practice",
+                "description": "Reviews of foreign forensic systems, international standards (ISO, ENFSI etc.), expert participation in international projects, interviews and translations."
+            },
+            "special": {
+                "title": "VI. Special issues and interviews",
+                "description": "Thematic issues dedicated to specific sectors or problems, as well as interviews with leading experts, scholars, judges and officials."
+            },
+            "digital": {
+                "title": "VII. Digitalization and expertise",
+                "description": "Publications on digital platforms, software products, accounting systems, AI and cases of digital transformation of expert organizations."
+            }
+        },
+        "requirementsIntro": "Original materials not previously published or under consideration elsewhere are accepted.",
+        "materialRequirements": [
+            "match the journal's topic;",
+            "have applied or methodological value for the expert community;",
+            "be presented in a professional, neutral and well-argued style;",
+            "meet formatting and structure requirements."
+        ],
+        "authorsInvited": [
+            "forensic experts of various directions;",
+            "representatives of expert organizations;",
+            "researchers and lecturers;",
+            "representatives of the legal community;",
+            "developers of methods, standards and digital solutions in the field of expertise."
+        ],
+        "reviewProcess": [
+            "initial editorial evaluation;",
+            "plagiarism check;",
+            "peer review according to the journal policy."
+        ],
+        "reviewOutcomes": [
+            "accepted for publication;",
+            "accepted with revisions;",
+            "sent for major revision;",
+            "rejected."
+        ]
+    }
+}

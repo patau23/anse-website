@@ -3,8 +3,10 @@ import { Link, useLocation } from 'react-router-dom';
 import { Logo } from '@/shared/components/logo';
 import { PAGE_CONTAINER_CLASS } from '@/shared/layout/constants';
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 
 export function Header() {
+  const { t, i18n } = useTranslation();
   const location = useLocation();
 
   const isActive = (path: string, hash?: string) => {
@@ -25,6 +27,33 @@ export function Header() {
     return `${baseClass} text-white/80 hover:text-white`;
   };
 
+  const changeLang = (lng: string) => {
+    i18n.changeLanguage(lng);
+    try {
+      localStorage.setItem('lang', lng);
+    } catch (e) {}
+  };
+
+  const isDev = typeof import.meta !== 'undefined' && (import.meta as any).env && (import.meta as any).env.MODE === 'development';
+
+  const showKeys = (() => {
+    try {
+      return localStorage.getItem('i18n.showKeys') === 'true';
+    } catch (e) {
+      return false;
+    }
+  })();
+
+  const toggleShowKeys = (v: boolean) => {
+    try {
+      localStorage.setItem('i18n.showKeys', v ? 'true' : 'false');
+    } catch (e) {}
+    // trigger react-i18next to re-render translations
+    try {
+      i18n.emit('languageChanged', i18n.language);
+    } catch (e) {}
+  };
+
   return (
     <header className="absolute inset-x-0 top-0 z-20">
       <div className={PAGE_CONTAINER_CLASS}>
@@ -36,35 +65,54 @@ export function Header() {
         >
           <nav className="flex items-center gap-2">
             <Link className={getLinkClass('/about')} to="/about">
-              О компании
+              {t('nav.about')}
             </Link>
             <Link className={getLinkClass('/for-authors')} to="/for-authors">
-              Для авторов
+              {t('nav.forAuthors')}
             </Link>
             <Link className={getLinkClass('/expertise')} to="/expertise">
-              Виды экспертиз
+              {t('nav.expertise')}
             </Link>
-            {/* <Link className={getLinkClass('/team')} to="/team">
-              Команда
-            </Link> */}
           </nav>
 
           <div className="flex items-center justify-center">
-            <Link to="/" aria-label="На главную">
+            <Link to="/" aria-label={t('aria.home')}>
               <Logo className="opacity-90" />
             </Link>
           </div>
 
           <nav className="flex items-center gap-2">
-            {/* <Link className={getLinkClass('/equipment')} to="/equipment">
-              Оборудование
-            </Link> */}
             <Link className={getLinkClass('/', '#projects')} to="/#projects">
-              Проекты
+              {t('nav.projects')}
             </Link>
             <Link className={getLinkClass('/', '#contacts')} to="/#contacts">
-              Контакты
+              {t('nav.contacts')}
             </Link>
+
+            <div className="ml-4 flex items-center gap-2">
+              <label className="sr-only">Language</label>
+              <select
+                aria-label="Language selector"
+                value={i18n.language}
+                onChange={(e) => changeLang(e.target.value)}
+                className="rounded bg-white/10 px-2 py-1 text-sm text-white"
+              >
+                <option value="ru">RU</option>
+                <option value="en">EN</option>
+                <option value="kk">KK</option>
+              </select>
+              {isDev && (
+                <label className="ml-3 flex items-center gap-2 text-sm text-white/80">
+                  <input
+                    type="checkbox"
+                    checked={showKeys}
+                    onChange={(e) => toggleShowKeys(e.target.checked)}
+                    className="h-4 w-4"
+                  />
+                  <span>Keys (dev)</span>
+                </label>
+              )}
+            </div>
           </nav>
         </div>
       </div>

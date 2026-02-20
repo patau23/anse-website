@@ -1,21 +1,23 @@
 import { PAGE_CONTAINER_CLASS } from '@/shared/layout/constants';
 import clsx from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { Hex } from './Hex';
 
 const expertiseItemsTop = [
-  'Строительно-\nтехнические',
-  'Товароведческие',
-  'Компьютерно-\nтехнические',
+  'home.expertiseSection.itemsTop.0',
+  'home.expertiseSection.itemsTop.1',
+  'home.expertiseSection.itemsTop.2',
 ];
 
 const expertiseItemsBottom = [
-  'Психологические',
-  'Религоведческие',
-  'Экономические и\nтехнические',
-  'Баллистические и др.',
+  'home.expertiseSection.itemsBottom.0',
+  'home.expertiseSection.itemsBottom.1',
+  'home.expertiseSection.itemsBottom.2',
+  'home.expertiseSection.itemsBottom.3',
 ];
 
 export function Expertise() {
+  const { t } = useTranslation();
   return (
     <section id="expertise" className="relative pt-6 pb-36">
       <div
@@ -25,31 +27,30 @@ export function Expertise() {
         )}
       >
         <h2 className="self-stretch text-center font-sans text-[34px] leading-10.25 font-bold tracking-[0.4px] text-white">
-          54 вида
-          <span className="text-(--color-primary)"> судебных экспертиз</span>
+          {t('home.expertiseSection.headerNumber')}
+          <span className="text-(--color-primary)">
+            {' '}
+            {t('home.expertiseSection.headerText')}
+          </span>
         </h2>
         <p className="mx-auto w-200 text-center font-sans text-[22px] leading-7 font-normal tracking-[-0.26px] text-white">
-          АНСЭ проводит комплексные экспертизы и исследования для судов,
-          органов, адвокатов, а так же для организаций и частных лиц, опираясь
-          на современные мировые стандарты судебной экспертизы{' '}
+          {t('home.expertiseSection.paragraph1')}
         </p>
         <br />
         <p className="mx-auto w-200 text-center font-sans text-[22px] leading-7 font-normal tracking-[-0.26px] text-white">
-          Перечень самых сильных наших экспертиз: религия, политология,
-          филология, товароведческая, психологическая, строительно-техническая,
-          фототехническая, экономическая
+          {t('home.expertiseSection.paragraph2')}
         </p>
 
         <div className="mt-14 flex flex-col items-center gap-8">
           <div className="flex flex-wrap items-center justify-center gap-6">
-            {expertiseItemsTop.map((label) => (
-              <Hex key={label} label={label} />
+            {expertiseItemsTop.map((labelKey) => (
+              <Hex key={labelKey} labelKey={labelKey} />
             ))}
           </div>
 
           <div className="flex flex-wrap items-center justify-center gap-6">
-            {expertiseItemsBottom.map((label) => (
-              <Hex key={label} label={label} />
+            {expertiseItemsBottom.map((labelKey) => (
+              <Hex key={labelKey} labelKey={labelKey} />
             ))}
           </div>
         </div>
