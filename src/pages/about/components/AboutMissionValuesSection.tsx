@@ -15,7 +15,7 @@ export function AboutMissionValuesSection() {
       <div className="flex flex-col items-center gap-3 text-center">
         <h2 className="min-w-full text-center text-[34px] leading-10.25 font-bold tracking-[0.4px]">
           <span className="text-[#2e4ecf]">
-            {t('about.mission.titlePrefix')}
+            {`${t('about.mission.titlePrefix')} `}
           </span>
           <span className="text-white">{t('about.mission.title')}</span>
         </h2>

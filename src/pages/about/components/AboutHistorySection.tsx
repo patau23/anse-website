@@ -1,5 +1,5 @@
-import { cn } from '@/shared/lib/utils';
 import CrhomeImg from '@/shared/assets/imgs/chrome-circles.png';
+import { cn } from '@/shared/lib/utils';
 import { useTranslation } from 'react-i18next';
 
 export function AboutHistorySection() {
@@ -17,7 +17,7 @@ export function AboutHistorySection() {
       />
 
       <h1 className="mt-12 text-center text-[34px] leading-10.25 font-bold tracking-[0.4px]">
-        <span className="text-[#2e4ecf]">{t('about.history.titlePrefix')}</span>
+        <span className="text-[#2e4ecf]">{`${t('about.history.titlePrefix')} `}</span>
         <span className="text-white">{t('about.history.title')}</span>
       </h1>
 

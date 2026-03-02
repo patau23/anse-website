@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import { useTranslation } from 'react-i18next';
 import TwoGis from '@/shared/assets/icons/socials/2gis.svg?react';
 import Inst from '@/shared/assets/icons/socials/inst-icon.svg?react';
 import Wp from '@/shared/assets/icons/socials/whatsapp-outlined.svg?react';
@@ -28,6 +28,7 @@ const SocialLinks = [
 ];
 
 export function Footer() {
+  const { t } = useTranslation();
   const tileBg = 'color-mix(in srgb, var(--color-primary) 18%, transparent)';
 
   return (
@@ -38,7 +39,7 @@ export function Footer() {
       <div className={PAGE_CONTAINER_CLASS}>
         <div className="grid gap-10 py-10 lg:grid-cols-[224px_1fr]">
           <div className="space-y-4">
-            <Link to="/" aria-label="На главную">
+            <Link to="/" aria-label={t('aria.home')}>
               <Logo className="opacity-90" />
             </Link>
 
@@ -49,7 +50,7 @@ export function Footer() {
                   href={href}
                   className="flex h-16 w-16 items-center justify-center gap-2.5 rounded-2xl bg-[#2E4ECF] p-[12px_16px]"
                   style={{ backgroundColor: tileBg }}
-                  aria-label="Социальная сеть"
+                  aria-label={t('aria.social')}
                 >
                   {icon}
                 </a>
@@ -59,49 +60,53 @@ export function Footer() {
 
           <div className="grid gap-10 lg:grid-cols-2">
             <div>
-              <h3 className="text-sm font-semibold text-white/90">Навигация</h3>
+              <h3 className="text-sm font-semibold text-white/90">
+                {t('footer.navigationTitle')}
+              </h3>
               <div className="mt-5 grid grid-cols-3 gap-8 text-sm text-white/70">
                 <div className="space-y-3">
                   <Link className="block hover:text-white" to="/">
-                    Главная
+                    {t('nav.home')}
                   </Link>
                   <Link className="block hover:text-white" to="/about">
-                    О компании
+                    {t('nav.about')}
                   </Link>
                   <Link className="block hover:text-white" to="/expertise">
-                    Виды экспертиз
+                    {t('nav.expertise')}
                   </Link>
                 </div>
                 <div className="space-y-3">
                   <Link className="block hover:text-white" to="/team">
-                    Команда
+                    {t('nav.team')}
                   </Link>
                   <Link className="block hover:text-white" to="/equipment">
-                    Оборудование
+                    {t('nav.equipment')}
                   </Link>
                   <Link className="block hover:text-white" to="/#projects">
-                    Проекты
+                    {t('nav.projects')}
                   </Link>
                 </div>
                 <div className="space-y-3">
                   <Link className="block hover:text-white" to="/#contacts">
-                    Контакты
+                    {t('nav.contacts')}
                   </Link>
                 </div>
               </div>
             </div>
 
             <div>
-              <h3 className="text-sm font-semibold text-white/90">Услуги</h3>
+              <h3 className="text-sm font-semibold text-white/90">
+                {t('footer.servicesTitle')}
+              </h3>
               <div className="mt-5 space-y-3 text-sm text-white/70">
                 <a className="block hover:text-white" href="#">
-                  Исследование почерка и подписей
+                  {t('footer.services.handwriting')}
                 </a>
                 <a className="block hover:text-white" href="#">
-                  Техническое исследование документов
+                  {t('footer.services.technicalDocuments')}
                 </a>
                 <a className="block hover:text-white" href="#">
-                  Автороведческое исследование
+                  {t('footer.services.authorStudy')}
                 </a>
               </div>
             </div>
@@ -113,14 +118,14 @@ export function Footer() {
         <div className="grid gap-10 py-10 lg:grid-cols-2">
           <div className="grid gap-3">
             <div className="text-sm font-semibold text-white/90">
-              Судебно-экспертный отдел
+              {t('footer.contact.department')}
             </div>
             <div className="text-sm text-white/70">
-              Астана, Туран 46б/2
+              {t('footer.contact.address')}
               <br />
-              +7 771 033 3525
+              {t('footer.contact.phone')}
               <br />
-              ansesykz@gmail.com{' '}
+              {t('footer.contact.email')}
             </div>
           </div>
 

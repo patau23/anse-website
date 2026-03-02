@@ -13,7 +13,7 @@ export default function AboutPage() {
         <AboutMissionValuesSection />
         <AboutInternationalCooperationSection />
         {/* <AboutLicensesSection /> */}
-        <AboutExpertusProjectsSection />
+        {/* <AboutExpertusProjectsSection /> */}
       </div>
     </main>
   );
