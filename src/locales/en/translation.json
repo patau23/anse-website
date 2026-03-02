@@ -257,74 +257,163 @@
         }
     },
     "forAuthors": {
-        "title": "Guide for authors",
-        "journalName": "Scientific-practical journal \"EXPERTUS\"",
-        "lead": "A professional platform for exchange of experience, practice analysis and methodology development in forensic expertise.",
-        "topicIntro": "The journal accepts materials related to the following directions:",
-        "policy": {
-            "legal": "legal and procedural aspects of forensic expertise;",
-            "methodology": "methodology and practice of expert research;",
-            "caseAnalysis": "analysis of judicial practice and expert cases;",
-            "expertiseTypes": "industry types of forensic expertise;",
-            "internationalStandards": "international experience and standards in expert activity;",
-            "digitalization": "digitalization, automation and AI applications in expertise;",
-            "discussions": "professional discussions and expert opinions."
-        },
-        "architectureIntro": "Materials are accepted within the following sections:",
-        "architecture": {
-            "proc": {
-                "title": "I. Procedural issues",
-                "description": "Analytics of legislative changes, court practice, expert interaction with process participants, and issues of appointment and evaluation of expertise."
+        "titlePrefix": "",
+        "title": "Guidelines for Authors",
+        "journalName": "Scientific and Practical Journal “EXPERTUS”",
+        "lead": "The scientific and practical journal “EXPERTUS” is the official publication of the LLP “Alliance of Independent Forensic Expertise”, dedicated to forensic expert activity, research methodology, and practical application in legal proceedings.",
+        "audience": "The journal is practice-oriented and focused on professional analysis and the development of the expert community in the Republic of Kazakhstan and abroad.",
+        "sections": {
+            "general": {
+                "title": "1. General requirements",
+                "intro": "The journal “EXPERTUS” accepts original scientific and scientific-practical materials, including:",
+                "acceptedTypes": [
+                    "analytical articles;",
+                    "reviews of judicial and forensic practice;",
+                    "methodological and applied studies;",
+                    "practice-oriented materials on forensic expertise."
+                ],
+                "materialsMust": "Materials must:",
+                "materialRequirements": [
+                    "not have been published previously;",
+                    "not be under consideration by other journals."
+                ],
+                "reviewLabel": "All submissions undergo:",
+                "reviewStages": [
+                    "initial editorial assessment;",
+                    "originality check;",
+                    "peer review in accordance with the journal’s editorial policy."
+                ],
+                "consentNote": "Submission of a manuscript implies the author’s consent to the journal’s editorial and ethical policy."
             },
-            "practice": {
-                "title": "II. Practice of forensic expertise",
-                "description": "Practice-oriented materials devoted to methods application, case analysis, practice training, approaches review and recommendations for experts."
+            "topics": {
+                "title": "2. Journal scope",
+                "intro": "The journal publishes materials in the following areas:",
+                "items": [
+                    "procedural and legal issues of forensic expertise;",
+                    "methodology and practice of expert research;",
+                    "analysis of court decisions and expert cases;",
+                    "sectoral types of forensic examinations (construction and technical, medical, psychological and pedagogical, economic, environmental, engineering, land management, commodity expertise, etc.);",
+                    "international experience and standards in forensic expertise (ISO, ENFSI, etc.);",
+                    "digitalization, software products, and artificial intelligence in expert activity;",
+                    "professional discussions and expert opinions."
+                ]
             },
-            "industry": {
-                "title": "III. Industry interest",
-                "description": "Materials on specific types of forensic expertise including construction, medical, psycho-pedagogical, economic, environmental, engineering and other specialized directions."
+            "manuscript": {
+                "title": "3. Manuscript requirements",
+                "intro": "3.1. Length",
+                "volume": "Article: 5,000–8,000 words.",
+                "abstractVolume": "Abstract: 200–300 words.",
+                "minVolume": "Minimum article length: at least 6 pages (excluding abstracts and references).",
+                "format": "3.2. Format: A4 page size, portrait orientation.",
+                "font": "Font: Times New Roman, 14 pt.",
+                "lineHeight": "Line spacing: 1.0.",
+                "margins": "Margins: 2 cm on all sides.",
+                "indent": "Paragraph indent: 1.25 cm.",
+                "alignment": "Alignment: justified.",
+                "fileFormat": "File format: Word (.docx)."
             },
-            "opinion": {
-                "title": "IV. Expert opinion",
-                "description": "Author columns, analytical materials, professional discussions and debate on topical issues of expert activity."
+            "structure": {
+                "title": "4. Article structure",
+                "intro": "The article must include the following elements:",
+                "items": [
+                    "author information (full name, organization, position, city, country, e-mail);",
+                    "article title;",
+                    "abstract (200–300 words);",
+                    "keywords (10–12);",
+                    "introduction;",
+                    "problem statement;",
+                    "research objectives and methods;",
+                    "description of materials and/or research methods;",
+                    "results and analysis;",
+                    "discussion of results;",
+                    "conclusions and practical recommendations;",
+                    "references;",
+                    "if needed, appendices, tables, diagrams, and illustrations."
+                ]
             },
-            "international": {
-                "title": "V. International practice",
-                "description": "Reviews of foreign forensic systems, international standards (ISO, ENFSI etc.), expert participation in international projects, interviews and translations."
+            "abstract": {
+                "title": "5. Abstract and keywords",
+                "intro": "The abstract should reflect:",
+                "items": [
+                    "relevance of the topic;",
+                    "research objective;",
+                    "methods used;",
+                    "main results and their practical significance;",
+                    "brief conclusions."
+                ]
             },
-            "special": {
-                "title": "VI. Special issues and interviews",
-                "description": "Thematic issues dedicated to specific sectors or problems, as well as interviews with leading experts, scholars, judges and officials."
+            "references": {
+                "title": "6. References and bibliography",
+                "intro": "The abstract must be written in the third person, without references or abbreviations.",
+                "gost": "Formatting is carried out according to GOST 7.1–2003.",
+                "inTextTitle": "6.1. In-text citations (in square brackets):",
+                "inTextExamples": [
+                    "[1]",
+                    "[2, p. 15]",
+                    "[3, 5–7]"
+                ],
+                "listTitle": "6.2. Reference list:",
+                "listRules": [
+                    "at least 20–25 sources;",
+                    "international sources and standards are encouraged;",
+                    "sources must be formatted in accordance with GOST requirements."
+                ]
             },
-            "digital": {
-                "title": "VII. Digitalization and expertise",
-                "description": "Publications on digital platforms, software products, accounting systems, AI and cases of digital transformation of expert organizations."
+            "visuals": {
+                "title": "7. Tables, figures, and diagrams",
+                "intro": "Requirements for visual materials:",
+                "items": [
+                    "all figures and tables must be numbered and captioned;",
+                    "images should be high quality (recommended at least 300 dpi);",
+                    "tables must be provided in editable format;",
+                    "the source must be indicated when borrowing content."
+                ]
+            },
+            "publicationLanguages": {
+                "title": "8. Publication languages",
+                "intro": "After the main article text and reference list, the following must be provided:",
+                "items": [
+                    "abstract;",
+                    "article title;",
+                    "author information;",
+                    "in two additional languages (Kazakh, Russian, English — depending on the language of the main article)."
+                ]
+            },
+            "originality": {
+                "title": "9. Originality requirements",
+                "intro": "Each article is checked using software tools. The minimum originality level is at least 80% (excluding references). Materials showing signs of plagiarism or self-plagiarism are rejected."
+            },
+            "ethics": {
+                "title": "10. Ethical standards",
+                "intro": "The journal adheres to the principles of publication ethics and professional integrity.",
+                "dutiesLabel": "Authors are required to:",
+                "authorDuties": [
+                    "submit reliable and original materials;",
+                    "properly indicate co-authors;",
+                    "disclose potential conflicts of interest;",
+                    "comply with professional ethical standards."
+                ],
+                "editorialRight": "The editorial board reserves the right to reject, revise, or retract publications if violations are identified."
+            },
+            "copyright": {
+                "title": "11. Copyright",
+                "intro": "Authors retain copyright to published materials. The journal receives the right of first publication and distribution of the material with mandatory attribution."
+            },
+            "submission": {
+                "title": "12. Submission of materials",
+                "intro": "Materials are submitted by e-mail:",
+                "contacts": [
+                    "📍 Forensic Expert Department",
+                    "Astana, Turan 46b/2",
+                    "📞 +7 771 033 3525",
+                    "📧 ansesykz@gmail.com"
+                ],
+                "deadline": "Submission deadlines are announced separately for each issue."
             }
         },
-        "requirementsIntro": "Original materials not previously published or under consideration elsewhere are accepted.",
-        "materialRequirements": [
-            "match the journal's topic;",
-            "have applied or methodological value for the expert community;",
-            "be presented in a professional, neutral and well-argued style;",
-            "meet formatting and structure requirements."
-        ],
-        "authorsInvited": [
-            "forensic experts of various directions;",
-            "representatives of expert organizations;",
-            "researchers and lecturers;",
-            "representatives of the legal community;",
-            "developers of methods, standards and digital solutions in the field of expertise."
-        ],
-        "reviewProcess": [
-            "initial editorial evaluation;",
-            "plagiarism check;",
-            "peer review according to the journal policy."
-        ],
-        "reviewOutcomes": [
-            "accepted for publication;",
-            "accepted with revisions;",
-            "sent for major revision;",
-            "rejected."
-        ]
+        "downloads": {
+            "guide": "Download guidelines",
+            "template": "Download template"
+        }
     }
 }
