@@ -6,7 +6,7 @@
 .bk-cover {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 12;
   border-radius: 16px;
   overflow: hidden;
   /* multi-layer shadow for depth */

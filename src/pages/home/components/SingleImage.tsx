@@ -6,7 +6,7 @@ export function SingleImage({ src }: SingleImageProps) {
   return (
     <div
       className="flex w-full items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-white/5"
-      style={{ aspectRatio: '16/10' }}
+      style={{ aspectRatio: '16/12' }}
     >
       {src ? (
         <img src={src} alt="Project" className="h-full w-full object-cover" />

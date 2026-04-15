@@ -15,10 +15,11 @@ export function BookViewer({ pages }: BookViewerProps) {
   const sheets = useMemo(() => buildSheets(pages), [pages]);
   const totalPages = pages.length;
   const [flippedSheets, setFlippedSheets] = useState(0);
+  const [targetFlippedSheets, setTargetFlippedSheets] = useState(0);
   const [isFlipping, setIsFlipping] = useState(false);
 
-  const canPrev = flippedSheets > 0;
-  const canNext = flippedSheets < sheets.length;
+  const canPrev = targetFlippedSheets > 0;
+  const canNext = targetFlippedSheets < sheets.length;
 
   const startFlip = useCallback(
     (dir: 'next' | 'prev') => {
@@ -27,12 +28,28 @@ export function BookViewer({ pages }: BookViewerProps) {
       if (dir === 'prev' && !canPrev) return;
 
       setIsFlipping(true);
-      setFlippedSheets((v) =>
-        dir === 'next' ? Math.min(sheets.length, v + 1) : Math.max(0, v - 1)
-      );
-      window.setTimeout(() => setIsFlipping(false), BOOK_FLIP_DURATION);
+      const newTarget =
+        dir === 'next'
+          ? Math.min(sheets.length, targetFlippedSheets + 1)
+          : Math.max(0, targetFlippedSheets - 1);
+
+      setTargetFlippedSheets(newTarget);
+
+      // Если переходим на первую или последнюю страницу - обновляем сразу
+      const isFirstOrLastPage = newTarget === 0 || newTarget === sheets.length;
+
+      if (isFirstOrLastPage) {
+        setFlippedSheets(newTarget);
+      }
+
+      window.setTimeout(() => {
+        if (!isFirstOrLastPage) {
+          setFlippedSheets(newTarget);
+        }
+        setIsFlipping(false);
+      }, BOOK_FLIP_DURATION);
     },
-    [isFlipping, canNext, canPrev, sheets.length]
+    [isFlipping, canNext, canPrev, sheets.length, targetFlippedSheets]
   );
 
   const goNext = () => startFlip('next');
@@ -50,7 +67,7 @@ export function BookViewer({ pages }: BookViewerProps) {
 
   return (
     <div className="flex w-full flex-col items-center">
-      <div className="bk-scene relative w-full max-w-xl">
+      <div className="bk-scene relative w-full max-w-4xl">
         <PageEdgeStack />
 
         <div className="bk-cover border border-black/20">
@@ -76,7 +93,7 @@ export function BookViewer({ pages }: BookViewerProps) {
 
                 {/* Flippable sheets */}
                 {sheets.map((sheet, sheetIdx) => {
-                  const isFlipped = sheetIdx < flippedSheets;
+                  const isFlipped = sheetIdx < targetFlippedSheets;
                   const total = sheets.length;
                   const zIndex = isFlipped
                     ? sheetIdx + 1

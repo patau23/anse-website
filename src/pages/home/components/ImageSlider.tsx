@@ -14,7 +14,7 @@ export function ImageSlider({ images }: ImageSliderProps) {
   return (
     <div
       className="relative w-full overflow-hidden rounded-2xl border border-white/10 bg-[#0d0d0d]"
-      style={{ aspectRatio: '16/10' }}
+      style={{ aspectRatio: '16/12' }}
     >
       {/* Slides */}
       <div
