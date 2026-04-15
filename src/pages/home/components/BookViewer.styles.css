@@ -1,0 +1,187 @@
+/* ── Book scene ── */
+.bk-scene {
+  perspective: 1400px;
+}
+
+.bk-cover {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 16px;
+  overflow: hidden;
+  /* multi-layer shadow for depth */
+  box-shadow:
+    0 2px 0 #1a1a1a,
+    0 4px 0 #111,
+    0 6px 0 #0a0a0a,
+    0 8px 30px rgba(0, 0, 0, 0.6),
+    0 40px 80px rgba(0, 0, 0, 0.4);
+}
+
+.bk-book {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  background: #e8e0d5;
+  transform-style: preserve-3d;
+}
+
+/* Page texture overlay */
+.bk-book::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 200;
+  mix-blend-mode: multiply;
+}
+
+.bk-half {
+  position: relative;
+  width: 50%;
+  height: 100%;
+  background: #f5f0e8;
+}
+
+.bk-half-left {
+  overflow: hidden;
+}
+
+.bk-half-right {
+  overflow: visible;
+}
+
+.bk-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.bk-blank {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #f5f0e8, #ede8e0);
+}
+
+/* ── Binding (spine) ── */
+.bk-spine {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(50% - 8px);
+  width: 16px;
+  z-index: 50;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.06) 25%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(0, 0, 0, 0.06) 75%,
+    rgba(0, 0, 0, 0.18) 100%
+  );
+}
+
+/* Thin hard line at exact center */
+.bk-spine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-0.5px);
+  background: rgba(0, 0, 0, 0.22);
+}
+
+/* ── Sheets ── */
+.bk-stack {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.bk-sheet {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+  transition: transform 900ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  will-change: transform;
+  pointer-events: none;
+}
+
+.bk-sheet.flipped {
+  transform: rotateY(-180deg);
+}
+
+.bk-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  background: #f5f0e8;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bk-face-back {
+  transform: rotateY(180deg);
+}
+
+/* ── Inner shadows ── */
+.bk-shadow-l {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.14), transparent);
+}
+
+.bk-shadow-r {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 60px;
+  pointer-events: none;
+  z-index: 2;
+  background: linear-gradient(-90deg, rgba(0, 0, 0, 0.14), transparent);
+}
+
+/* ── Page-turn overlay shadow (on flipping sheet) ── */
+.bk-turn-shadow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.12), transparent 40%);
+}
+
+/* ── Click zones ── */
+.bk-zones {
+  position: absolute;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.bk-zone {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.bk-zone:disabled {
+  cursor: default;
+}
